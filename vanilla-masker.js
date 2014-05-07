@@ -1,6 +1,6 @@
 (function() {
 
-	var MaskMoney = function(options) {
+	var VanillaMasker = function(options) {
 		options = options || {};
 		this.opts = {
 			precision: options['precision'] || 2,
@@ -14,17 +14,17 @@
 		e.target.value = this.mask(e.target.value);
 	};
 
-	MaskMoney.prototype.maskElement = function(el) {
+	VanillaMasker.prototype.maskElement = function(el) {
 		el.addEventListener("keypress", onType.bind(this));
 		el.addEventListener("keyup", onType.bind(this));
 		el.addEventListener("keydown", onType.bind(this));
 	};
 
-	MaskMoney.prototype.unmask = function(money) {
+	VanillaMasker.prototype.unmask = function(money) {
 		return money.toString().replace(/[\D]/g, '');
 	};
 
-	MaskMoney.prototype.mask = function(number) {
+	VanillaMasker.prototype.mask = function(number) {
 		var 
 			precision = this.opts.precision,
 			delimiter = this.opts.delimiter,
@@ -47,6 +47,6 @@
 		return (unit + unitSpace + masked + separator + decimal);
 	};
 
-	window.MaskMoney = MaskMoney;
+	window.VanillaMasker = VanillaMasker;
 
 })();

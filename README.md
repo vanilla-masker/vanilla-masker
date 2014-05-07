@@ -1,5 +1,4 @@
 # VanillaMasker
-==============
 
 VanillaMasker is a pure javascript input masker.
 
@@ -9,7 +8,6 @@ Now you can use a simple and pure javascript lib to masker your input elements.
 
 ``` javascript
 // Instancing the VanillaMasker object
-
 var masker = new VanillaMasker({
 	precision: 2,
 	separator: ',',
@@ -28,7 +26,7 @@ masker.maskMoneyElement(input);
 ## TODO
 
 * Write full api documentation here;
-* mask custom inputs;
+* mask custom inputs, like phone numbers, zip codes...;
 * Bower compatibility;
 * AMD support;
 * Mobile support;

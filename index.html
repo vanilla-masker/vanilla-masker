@@ -1,17 +1,17 @@
 <html>
 	<head>
-		<title>Vanilla.MaskMoney</title>
-		<script src="vanilla-maskmoney.js"></script>
+		<title>Vanilla.Masker</title>
+		<script src="vanilla-masker.js"></script>
 	</head>
 	<body>
-		<h1>Vanilla.MaskMoney</h1>
+		<h1>Vanilla.Masker</h1>
 		<input type="text">
 		<p></p>
 		<script>
 			(function() {
-				var maskMoney = new MaskMoney({unit: 'R$'});
-				document.querySelector("p").textContent = maskMoney.mask(100000);
-				maskMoney.maskElement(document.querySelector("input"));
+				var masker = new VanillaMasker({unit: 'R$'});
+				document.querySelector("p").textContent = masker.maskMoney(100000);
+				masker.maskMoneyElement(document.querySelector("input"));
 			})();
 		</script>
 	</body>

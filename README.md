@@ -1,8 +1,8 @@
 # VanillaMasker
 
-VanillaMasker is a pure javascript input masker.
+VanillaMasker is a pure javascript input mask.
 
-Now you can use a simple and pure javascript lib to masker your input elements.
+Now you can use a simple and pure javascript lib to mask your input elements.
 
 ## How to use
 

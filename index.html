@@ -6,9 +6,12 @@
 	<body>
 		<h1>Vanilla.MaskMoney</h1>
 		<input type="text">
+		<p></p>
 		<script>
 			(function() {
-				new MaskMoney(document.querySelector("input"));
+				var maskMoney = new MaskMoney({unit: 'R$'});
+				document.querySelector("p").textContent = maskMoney.mask(100000);
+				maskMoney.maskElement(document.querySelector("input"));
 			})();
 		</script>
 	</body>

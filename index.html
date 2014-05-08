@@ -53,9 +53,9 @@ Now you can use a simple and pure javascript lib to mask your input elements.</p
 
 <div class="highlight highlight-javascript"><pre><span class="c1">// Instancing the VanillaMasker object</span>
 <span class="kd">var</span> <span class="nx">masker</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VanillaMasker</span><span class="p">({</span>
-  <span class="nx">precision</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-  <span class="nx">separator</span><span class="o">:</span> <span class="s1">','</span><span class="p">,</span>
-  <span class="nx">delimiter</span><span class="o">:</span> <span class="s1">'.'</span><span class="p">,</span>
+    <span class="nx">precision</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="nx">separator</span><span class="o">:</span> <span class="s1">','</span><span class="p">,</span>
+    <span class="nx">delimiter</span><span class="o">:</span> <span class="s1">'.'</span><span class="p">,</span>
   <span class="nx">unit</span><span class="o">:</span> <span class="s1">'R$'</span>
 <span class="p">});</span>
 
@@ -67,6 +67,33 @@ Now you can use a simple and pure javascript lib to mask your input elements.</p
 </pre></div>
 
 <h2>
+<a name="how-to-run-localhost" class="anchor" href="#how-to-run-localhost"><span class="octicon octicon-link"></span></a>How to run localhost</h2>
+
+<ul>
+<li>Install node.js - <a href="http://nodejs.org/download">http://nodejs.org/download</a>
+</li>
+<li>Clone this repository - <code>git clone git@github.com:BankFacil/vanilla-masker.git</code>
+</li>
+<li>Install Grunt - <code>npm install -g grunt-cli</code>
+</li>
+<li>Install Grunt dependencies - <code>cd vanilla-masker &amp;&amp; npm install</code>
+</li>
+<li>Running development mode - <code>grunt dev</code>
+</li>
+<li>Open the browser - http://localhost:4500</li>
+</ul><h2>
+<a name="run-test" class="anchor" href="#run-test"><span class="octicon octicon-link"></span></a>Run test</h2>
+
+<ul>
+<li>Run the command: <code>grunt test</code>
+</li>
+</ul><h2>
+<a name="build-project" class="anchor" href="#build-project"><span class="octicon octicon-link"></span></a>Build project</h2>
+
+<ul>
+<li>Run the command: <code>grunt build</code>
+</li>
+</ul><h2>
 <a name="todo" class="anchor" href="#todo"><span class="octicon octicon-link"></span></a>TODO</h2>
 
 <ul>
@@ -104,6 +131,16 @@ Leandro Alvares da Costa - <a href="mailto:leandroadacosta@gmail.com">leandroada
       </div>
     </div>
 
-  
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-31003046-6");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
   </body>
 </html>

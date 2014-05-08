@@ -68,6 +68,16 @@ module.exports = function(grunt) {
       }
     },
 
+    // Github Pages ================================
+    // 'gh-pages': {
+    //   options: {
+    //     base: 'dist',
+    //     repo: "git@github.com:BankFacil/vanilla-masker.git",
+    //     message: 'Update Widget'
+    //   },
+    //   src: '**/*'
+    // },
+
     // Connect Server ================================
     connect: {
       dev: {
@@ -96,9 +106,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-compress');
+  //grunt.loadNpmTasks('grunt-gh-pages');
   
   grunt.registerTask("default", ["clean:dev", "concat:dev", "jasmine:dev"]);
   grunt.registerTask("test", ["default"]);
   grunt.registerTask("dev", ["default", "connect", "watch"]);
-  grunt.registerTask("build", ["clean:build", "concat:build", "jasmine:build", "uglify", "compress"]);
+  grunt.registerTask("build", ["clean:build", "concat:build", "jasmine:build", "uglify", "compress" /*, "gh-pages" */]);
 };

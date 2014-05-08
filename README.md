@@ -2,9 +2,10 @@
 
 Now you can use a simple and pure javascript lib to mask html elements. Fuck jQuery, Zepto and any others javascript frameworks!
 
-Let's live now in a lightweight client-side world using VanillaMasker.
-
+Let's live now in a lightweight client-side world using VanillaMasker.  
 This is a cross-browser and cross-device lib for desktop and responsible sites.
+
+The [demo page](http://bankfacil.github.io/vanilla-masker/demo.html).
 
 # How to use
 

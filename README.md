@@ -1,17 +1,18 @@
 # VanillaMasker
 
-VanillaMasker is a pure javascript input mask.  
-Now you can use a simple and pure javascript lib to mask your input elements.
+A pure javascript input mask.  
+Now you can use a simple and pure javascript lib to mask your HTMLInputElement.
 
 ## How to use
 
-Install it
+Download the lib [minified version (532 bytes)](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js) or [gzipped version (509 bytes)](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.gz.js)
 
+Include it into your html page:
 ``` html
-<script src="build/vanilla-masker.min.js"></script>
+<script src="vanilla-masker.min.js"></script>
 ```
 
-And given these simple inputs tag
+And given these simple inputs tag:
 ``` html
 <input type="text">
 <input type="text">
@@ -22,16 +23,16 @@ You can use the code below...
 ``` javascript
 // Instancing the VanillaMasker object
 var masker = new VanillaMasker({
-	precision: 2,
-	separator: ',',
-	delimiter: '.',
+  precision: 2,
+  separator: ',',
+  delimiter: '.',
   unit: 'R$'
 });
 
 // Masking an input element to money.
 masker.maskMoney(document.querySelector("input"));
 
-// Masking an all input elements to money.
+// Or masking an all input elements to money.
 masker.maskMoney(document.querySelectorAll("input"));
 ```
 

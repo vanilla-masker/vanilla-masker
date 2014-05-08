@@ -5,13 +5,33 @@
 	</head>
 	<body>
 		<h1>Vanilla.Masker</h1>
-		<input type="text">
-		<p></p>
+
+		<h2>Using querySelector</h2>
+		<input type="text" data-js-input>
 		<script>
 			(function() {
 				var masker = new VanillaMasker({unit: 'R$'});
-				document.querySelector("p").textContent = masker.maskMoney(100000);
-				masker.maskMoneyElement(document.querySelector("input"));
+				masker.maskMoneyElement(document.querySelector("[data-js-input]"));
+			})();
+		</script>
+
+		<h2>Using querySelectorAll</h2>
+		<input type="text" data-js-inputs>
+		<input type="text" data-js-inputs>
+		<input type="text" data-js-inputs>
+		<script>
+			(function() {
+				var masker = new VanillaMasker({unit: '$', separator: '.', delimiter: ','});
+				masker.maskMoneyElement(document.querySelectorAll("[data-js-inputs]"));
+			})();
+		</script>
+
+		<h2>Masking a text</h2>
+		<p data-js-paragraph></p>
+		<script>
+			(function() {
+				var masker = new VanillaMasker({unit: 'R$'});
+				document.querySelector("[data-js-paragraph]").textContent = masker.maskMoney(125099);
 			})();
 		</script>
 	</body>

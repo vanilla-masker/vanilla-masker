@@ -11,19 +11,22 @@
 	};
 
 	VanillaMasker.prototype.maskMoneyElement = function(el) {
-		function onType(e) {
+		var onType = (function(e) {
 			e.target.value = this.maskMoney(e.target.value);
-		};
+		}).bind(this);
+
+		var addEventListeners = (function(el) {
+			el.addEventListener("keypress", onType);
+			el.addEventListener("keyup", onType);
+			el.addEventListener("keydown", onType);
+		}).bind(this);
+		
 		if (el instanceof NodeList || el instanceof Array) {
 			for (var i = 0, len = el.length; i < len; i++) {
-				el.item(i).addEventListener("keypress", onType.bind(this));
-				el.item(i).addEventListener("keyup", onType.bind(this));
-				el.item(i).addEventListener("keydown", onType.bind(this));	
+				addEventListeners(el.item(i));
 			}
 		} else {
-			el.addEventListener("keypress", onType.bind(this));
-			el.addEventListener("keyup", onType.bind(this));
-			el.addEventListener("keydown", onType.bind(this));
+			addEventListeners(el);
 		}
 	};
 

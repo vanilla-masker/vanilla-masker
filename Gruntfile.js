@@ -63,7 +63,7 @@ module.exports = function(grunt) {
           pretty: true
         },
         files: [
-          {expand: true, flatten: true, src: ['build/*.js'], dest: 'build', ext: '.gz.js'}
+          {expand: true, flatten: true, src: ['build/*.js'], dest: 'build', ext: '.min.gz.js'}
         ]
       }
     },

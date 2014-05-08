@@ -9,7 +9,7 @@
 			unit: opts['unit'] || '',
 			zeroCents: opts['zeroCents']
 		};
-		this.lastInputNumber = '';
+		this.lastNumber = '';
 	};
 
 	window.VanillaMasker = VanillaMasker;

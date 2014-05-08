@@ -37,7 +37,6 @@
 			, masked = money.substr(0, money.length % 3)
 			, money = money.substr(money.length % 3, money.length)
 			, decimal = ''
-			, isBackspace
 		;
 		for (var i = 0, len = money.length; i < len; i++) {
 			(i % 3 == 0) && (masked += this.opts.delimiter);
@@ -46,7 +45,7 @@
 		masked = masked.replace(clearDelimiter, '');
 		masked = masked.length ? masked : '0';
 		if (this.opts.zeroCents) {
-			if (this.lastInputNumber.length != number.length) {
+			if (this.lastNumber.length != number.length) {
 				for (var i = 0; i < this.opts.precision; i++) {
 					decimal += '0';
 				}
@@ -55,9 +54,8 @@
 			decimal = number.substr(number.length - this.opts.precision, this.opts.precision);
 			decimal = decimal.length < this.opts.precision ? ('0' + decimal) : decimal;
 		}
+		this.lastNumber = number;
 		decimal = this.opts.separator + decimal;
-
-		this.lastInputNumber = number;
 		return (unit + masked + decimal).replace(clearSeparator, '');
 	};
 

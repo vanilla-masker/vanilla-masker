@@ -6,23 +6,44 @@
 	<body>
 		<h1>Vanilla.Masker</h1>
 
-		<h2>Using querySelector</h2>
-		<input type="text" data-js-input>
-		<script>
-			(function() {
-				var masker = new VanillaMasker({unit: 'R$'});
-				masker.maskMoney(document.querySelector("[data-js-input]"));
-			})();
-		</script>
+		<h2>Default:</h2>
+		<input type="text" id="default">
 
-		<h2>Using querySelectorAll</h2>
-		<input type="text" data-js-inputs>
-		<input type="text" data-js-inputs>
-		<input type="text" data-js-inputs>
+		<h2>Zero cents:</h2>
+		<input type="text" id="zeroCents">
+
+		<h2>Unit R$:</h2>
+		<input type="text" id="unit">
+
+		<h2>Delimiter ","</h2>
+		<input type="text" id="delimiter">
+
+		<h2>Separator "."</h2>
+		<input type="text" id="separator">
+		
+		<h2>Multiples $ inputs</h2>
+		<input type="text" data-js-multiple>
+		<input type="text" data-js-multiple>
+		<input type="text" data-js-multiple>
 		<script>
 			(function() {
-				var masker = new VanillaMasker({unit: '$', separator: '.', delimiter: ','});
-				masker.maskMoney(document.querySelectorAll("[data-js-inputs]"));
+				var defaults = new VanillaMasker();
+				defaults.maskMoney(document.querySelector("#default"));
+
+				var zeroCents = new VanillaMasker({zeroCents: true});
+				zeroCents.maskMoney(document.querySelector("#zeroCents"));
+
+				var unit = new VanillaMasker({unit: 'R$'});
+				unit.maskMoney(document.querySelector("#unit"));
+
+				var delimiter = new VanillaMasker({delimiter: ','});
+				delimiter.maskMoney(document.querySelector("#delimiter"));
+
+				var separator = new VanillaMasker({separator: '.'});
+				separator.maskMoney(document.querySelector("#separator"));
+
+				var multiples = new VanillaMasker({unit: '$'});
+				multiples.maskMoney(document.querySelectorAll("[data-js-multiple]"));
 			})();
 		</script>
 	</body>

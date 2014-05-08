@@ -4,8 +4,8 @@ module.exports = function(grunt) {
 
     // Clean folders ================================
     clean: {
-      dev: ['public/vanilla-masker.js'],
-      build: ['build/vanilla-masker.min.js']
+      dev: ['public/vanilla-masker*'],
+      build: ['build/vanilla-masker*']
     },
 
     // Concat ================================

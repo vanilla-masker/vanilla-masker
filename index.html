@@ -20,7 +20,7 @@
     <header>
       <div class="inner">
         <h1>VanillaMasker</h1>
-        <h2>VanillaMasker is a pure javascript input masker</h2>
+        <h2>A pure javascript input masker</h2>
         <a href="https://github.com/BankFacil/vanilla-masker" class="button"><small>View project on</small>GitHub</a>
       </div>
     </header>
@@ -31,18 +31,20 @@
           <h1>
 <a name="vanillamasker" class="anchor" href="#vanillamasker"><span class="octicon octicon-link"></span></a>VanillaMasker</h1>
 
-<p>VanillaMasker is a pure javascript input mask.<br>
-Now you can use a simple and pure javascript lib to mask your input elements.</p>
+<p>A pure javascript input mask.<br>
+Now you can use a simple and pure javascript lib to mask your HTMLInputElement.</p>
 
 <h2>
 <a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use</h2>
 
-<p>Install it</p>
+<p>Download the lib <a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js">minified version</a> or <a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.gz.js">gzipped version</a></p>
 
-<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"build/vanilla-masker.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<p>Include it into your html page:</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"vanilla-masker.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 </pre></div>
 
-<p>And given these simple inputs tag</p>
+<p>And given these simple inputs tag:</p>
 
 <div class="highlight highlight-html"><pre><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
@@ -53,16 +55,16 @@ Now you can use a simple and pure javascript lib to mask your input elements.</p
 
 <div class="highlight highlight-javascript"><pre><span class="c1">// Instancing the VanillaMasker object</span>
 <span class="kd">var</span> <span class="nx">masker</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VanillaMasker</span><span class="p">({</span>
-    <span class="nx">precision</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="nx">separator</span><span class="o">:</span> <span class="s1">','</span><span class="p">,</span>
-    <span class="nx">delimiter</span><span class="o">:</span> <span class="s1">'.'</span><span class="p">,</span>
+  <span class="nx">precision</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="nx">separator</span><span class="o">:</span> <span class="s1">','</span><span class="p">,</span>
+  <span class="nx">delimiter</span><span class="o">:</span> <span class="s1">'.'</span><span class="p">,</span>
   <span class="nx">unit</span><span class="o">:</span> <span class="s1">'R$'</span>
 <span class="p">});</span>
 
 <span class="c1">// Masking an input element to money.</span>
 <span class="nx">masker</span><span class="p">.</span><span class="nx">maskMoney</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"input"</span><span class="p">));</span>
 
-<span class="c1">// Masking an all input elements to money.</span>
+<span class="c1">// Or masking an all input elements to money.</span>
 <span class="nx">masker</span><span class="p">.</span><span class="nx">maskMoney</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">"input"</span><span class="p">));</span>
 </pre></div>
 

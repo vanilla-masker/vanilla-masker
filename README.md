@@ -30,7 +30,8 @@ var masker = new VanillaMasker({
   precision: 2,
   separator: ',',
   delimiter: '.',
-  unit: 'R$'
+  unit: 'R$',
+  zeroCents: true
 });
 
 // Masking an input element to money.

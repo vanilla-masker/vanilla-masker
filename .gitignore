@@ -1,3 +1,5 @@
 node_modules
 public
 .DS_Store
+_SpecRunner.html
+.grunt

@@ -83,7 +83,7 @@ module.exports = function(grunt) {
       livereload: {
         options: {livereload: true },
         files: ['src/**/*','public/*', 'tests/*'],
-        tasks: ['dev']
+        tasks: ['default']
       }
     }
   };
@@ -97,7 +97,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-compress');
   
-  grunt.registerTask("dev", ["clean:dev", "concat:dev", "jasmine:dev", "connect", "watch"]);
-  grunt.registerTask("test", ["clean:dev", "concat:dev", "jasmine:dev"]);
+  grunt.registerTask("default", ["clean:dev", "concat:dev", "jasmine:dev"]);
+  grunt.registerTask("test", ["default"]);
+  grunt.registerTask("dev", ["default", "connect", "watch"]);
   grunt.registerTask("build", ["clean:build", "concat:build", "jasmine:build", "uglify", "compress"]);
 };

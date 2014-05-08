@@ -34,7 +34,8 @@ masker.maskMoneyElement(input);
 
 ## Contributors
 
-Caio R. Pereira - caio.ribeiro.pereira@gmail.com
+Caio R. Pereira - caio.ribeiro.pereira@gmail.com  
+Leandro Alvares da Costa - leandroadacosta@gmail.com
 
 ## License
 

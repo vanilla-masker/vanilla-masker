@@ -1,11 +1,14 @@
-# VanillaMasker
+# What's this
 
-A pure javascript input mask.  
-Now you can use a simple and pure javascript lib to mask your HTMLInputElement.
+Now you can use a simple and pure javascript lib to mask html elements. Fuck jQuery, Zepto and any others javascript frameworks!
 
-## How to use
+Let's live now in a lightweight client-side world using VanillaMasker.
 
-Download the lib [minified version (532 bytes)](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js) or [gzipped version (509 bytes)](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.gz.js)
+This is a cross-browser and cross-device lib for desktop and responsible sites.
+
+# How to use
+
+Download the lib [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js) (532 bytes) or [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.gz.js) (509 bytes).
 
 Include it into your html page:
 ``` html
@@ -36,7 +39,7 @@ masker.maskMoney(document.querySelector("input"));
 masker.maskMoney(document.querySelectorAll("input"));
 ```
 
-## How to run localhost
+# How to run localhost
 
 * Install node.js - http://nodejs.org/download
 * Clone this repository - `git clone git@github.com:BankFacil/vanilla-masker.git`
@@ -45,15 +48,15 @@ masker.maskMoney(document.querySelectorAll("input"));
 * Running development mode - `grunt dev`
 * Open the browser - http://localhost:4500
 
-## Run test
+# Run test
 
 * Run the command: `grunt test`
 
-## Build project
+# Build project
 
 * Run the command: `grunt build`
 
-## TODO
+# TODO
 
 * Mask custom inputs methods, like maskPhone, maskNumber, maskZipCode, etc;
 * Bower compatibility;
@@ -61,11 +64,23 @@ masker.maskMoney(document.querySelectorAll("input"));
 * Mobile support;
 * JSHint task;
 
-## Contributors
+# Compatibility
+
+Desktop browsers:
+
+* Chrome
+* Firefox
+* Safari
+* Opera
+* Internet Explorer 9+ (coming soon IE8 support)
+
+Mobile browsers - (coming soon)
+
+# Contributors
 
 Caio Ribeiro Pereira - caio.ribeiro.pereira@gmail.com  
 Leandro Alvares da Costa - leandroadacosta@gmail.com
 
-## License
+# License
 
 MIT License: http://bankfacil.mit-license.org

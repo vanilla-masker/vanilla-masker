@@ -9,6 +9,11 @@ describe("VanillaMasker.toMoney", function() {
     expect(masker.toMoney(10000000000)).toEqual('100.000.000,00');
   });
 
+  it('returns 1.000,00 money when number is 1a0b0c000', function() {
+    var masker = new VanillaMasker();
+    expect(masker.toMoney('1a0b0c000')).toEqual('1.000,00');
+  });
+
   it('returns 0,00 money when number is 0', function() {
     var masker = new VanillaMasker();
     expect(masker.toMoney(0)).toEqual('0,00');
@@ -22,6 +27,16 @@ describe("VanillaMasker.toMoney", function() {
   it('returns 0,10 default money number is 10', function() {
     var masker = new VanillaMasker();
     expect(masker.toMoney(10)).toEqual('0,10');
+  });
+
+  it('returns 1.000,00 money when number is a string', function() {
+    var masker = new VanillaMasker();
+    expect(masker.toMoney('100000')).toEqual('1.000,00');
+  });
+
+  it('returns 1.000 money when precision is 0', function() {
+    var masker = new VanillaMasker({precision: 0});
+    expect(masker.toMoney(1000)).toEqual('1.000');
   });
 
   it('returns R$ 10.000,00 when unit is R$', function() {

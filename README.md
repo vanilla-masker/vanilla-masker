@@ -30,6 +30,7 @@ masker.maskMoneyElement(input);
 * Bower compatibility;
 * AMD support;
 * Mobile support;
+* Add to GitHub Pages;
 
 ## Contributors
 

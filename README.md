@@ -37,7 +37,6 @@ masker.maskMoney(document.querySelectorAll("input"));
 
 ## TODO
 
-* Add to GitHub Pages;
 * Mask custom inputs methods, like maskPhone, maskNumber, maskZipCode, etc;
 * Bower compatibility;
 * AMD support;

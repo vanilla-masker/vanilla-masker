@@ -82,7 +82,7 @@ module.exports = function(grunt) {
     watch: {
       livereload: {
         options: {livereload: true },
-        files: ['src/**/*','public/*'],
+        files: ['src/**/*','public/*', 'tests/*'],
         tasks: ['dev']
       }
     }

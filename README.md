@@ -35,6 +35,23 @@ masker.maskMoney(document.querySelector("input"));
 masker.maskMoney(document.querySelectorAll("input"));
 ```
 
+## How to run localhost
+
+* Install node.js - http://nodejs.org/download
+* Clone this repository - `git clone git@github.com:BankFacil/vanilla-masker.git`
+* Install Grunt - `npm install -g grunt-cli`
+* Install Grunt dependencies - `cd vanilla-masker && npm install`
+* Running development mode - `grunt dev`
+* Open the browser - http://localhost:4500
+
+## Run test
+
+* Run the command: `grunt test`
+
+## Build project
+
+* Run the command: `grunt build`
+
 ## TODO
 
 * Mask custom inputs methods, like maskPhone, maskNumber, maskZipCode, etc;

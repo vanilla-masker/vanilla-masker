@@ -54,4 +54,9 @@ describe("VanillaMasker.toMoney", function() {
     expect(masker.toMoney(10000000000)).toEqual('100.000.000.00');
   });
 
+  it('returns 100.000.000,00 when zeroCents is true', function() {
+    var masker = new VanillaMasker({zeroCents: true});
+    expect(masker.toMoney(100000000)).toEqual('100.000.000,00');
+  });
+
 });

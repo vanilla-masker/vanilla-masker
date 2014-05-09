@@ -8,24 +8,32 @@
 		;
 		!(el instanceof NodeList || el instanceof Array) && (el = [el]);
 		for (var i = 0, len = el.length; i < len; i++) {
-			el[i].addEventListener("keypress", onType);
+			el[i].addEventListener("keyup", onType);
+			el[i].addEventListener("keydown", onType);
 		}
 	};
 
-	VanillaMasker.prototype.toMoney = function(inputValue) {
+	VanillaMasker.prototype.toMoney = function(input) {
+		var precision = this.opts.precision
+			, separator = this.opts.separator
+		;
 		if (this.opts.zeroCents) {
-			var zeroMatcher = ("("+this.opts.separator+"[0]{"+this.opts.precision+"})")
+			var zeroMatcher = ("("+ separator +"[0]{0,"+ precision +"})")
 				, zeroRegExp = new RegExp(zeroMatcher, "g")
-				, inputValue = inputValue.toString().replace(zeroRegExp, '')
+				, initialInputLength = input.length || 0
+				, input = input.toString().replace(zeroRegExp, '')
 			;
+			if (initialInputLength < this.lastOutput.length) {
+				input = input.slice(0, input.length - 1);
+			}
 		}
-		var number = inputValue.toString().replace(/[\D]/g, '')
-			, clearDelimiter = new RegExp("^(0|\\"+this.opts.delimiter+")")
-			, clearSeparator = new RegExp("(\\"+this.opts.separator+")$")
+		var number = input.toString().replace(/[\D]/g, '')
+			, clearDelimiter = new RegExp("^(0|\\"+ this.opts.delimiter +")")
+			, clearSeparator = new RegExp("(\\"+ separator +")$")
 			, money = number.substr(0, number.length - this.moneyPrecision)
 			, masked = money.substr(0, money.length % 3)
 			, money = money.substr(money.length % 3, money.length)
-			, cents = new Array(this.opts.precision + 1).join('0')
+			, cents = new Array(precision + 1).join('0')
 		;
 		for (var i = 0, len = money.length; i < len; i++) {
 			(i % 3 == 0) && (masked += this.opts.delimiter);
@@ -34,12 +42,15 @@
 		masked = masked.replace(clearDelimiter, '');
 		masked = masked.length ? masked : '0';
 		if (!this.opts.zeroCents) {
-			var beginCents = number.length - this.opts.precision;
-			centsValue = number.substr(beginCents, this.opts.precision);
-			cents = (cents + centsValue).slice(-centsValue.length)
+			var beginCents = number.length - precision;
+			var centsValue = number.substr(beginCents, precision);
+			var centsLength = centsValue.length;
+			var centsSliced = (precision > centsLength) ? precision : centsLength;
+			cents = (cents + centsValue).slice(-centsSliced);
 		}
-		cents = this.opts.separator + cents;
-		return (this.opts.unit + masked + cents).replace(clearSeparator, '');
+		var output = (this.opts.unit + masked + separator + cents);
+		this.lastOutput = output = output.replace(clearSeparator, '');
+		return output;
 	};
 
 })();

@@ -9,6 +9,7 @@
 			unit: opts['unit'] && (opts['unit'] + ' ') || '',
 			zeroCents: opts['zeroCents']
 		};
+		this.lastOutput = '';
 		this.moneyPrecision = opts['zeroCents'] ? 0 : this.opts.precision;
 	};
 

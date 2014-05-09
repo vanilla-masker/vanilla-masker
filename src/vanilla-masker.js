@@ -6,10 +6,10 @@
 			precision: opts.hasOwnProperty('precision') ? opts.precision : 2,
 			separator: opts['separator'] || ',',
 			delimiter: opts['delimiter'] || '.',
-			unit: opts['unit'] || '',
+			unit: opts['unit'] && (opts['unit'] + ' ') || '',
 			zeroCents: opts['zeroCents']
 		};
-		this.lastNumber = '';
+		this.moneyPrecision = opts['zeroCents'] ? 0 : this.opts.precision;
 	};
 
 	window.VanillaMasker = VanillaMasker;

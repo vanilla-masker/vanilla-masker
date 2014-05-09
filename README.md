@@ -27,11 +27,11 @@ You can use the code below...
 ``` javascript
 // Instancing the VanillaMasker object
 var masker = new VanillaMasker({
-  precision: 2,
-  separator: ',',
-  delimiter: '.',
-  unit: 'R$',
-  zeroCents: true
+  precision: 2, // Decimal precision
+  separator: ',', // Decimal separator
+  delimiter: '.', // Number delimiter
+  unit: 'R$', // Money unit (default is blank)
+  zeroCents: true // Fill decimals with zero value
 });
 
 // Masking an input element to money.

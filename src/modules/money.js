@@ -25,10 +25,10 @@
 			, money = number.substr(0, number.length - this.moneyPrecision)
 			, masked = money.substr(0, money.length % 3)
 			, money = money.substr(money.length % 3, money.length)
-			, cents = this.opts.separator + new Array(this.opts.precision + 1).join('0')
+			, cents = new Array(this.opts.precision + 1).join('0')
 		;
 		for (var i = 0, len = money.length; i < len; i++) {
-			!(i % 3) && (masked += this.opts.delimiter);
+			(i % 3 == 0) && (masked += this.opts.delimiter);
 			masked += money.charAt(i);
 		}
 		masked = masked.replace(clearDelimiter, '');
@@ -38,6 +38,7 @@
 			centsValue = number.substr(beginCents, this.opts.precision);
 			cents = (cents + centsValue).slice(-centsValue.length)
 		}
+		cents = this.opts.separator + cents;
 		return (this.opts.unit + masked + cents).replace(clearSeparator, '');
 	};
 

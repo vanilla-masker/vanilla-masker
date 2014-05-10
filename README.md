@@ -94,3 +94,7 @@ Leandro Alvares da Costa - leandroadacosta@gmail.com
 # License
 
 MIT License: http://bankfacil.mit-license.org
+
+# Powered by
+
+Bankfacil: http://www.bankfacil.com.br  

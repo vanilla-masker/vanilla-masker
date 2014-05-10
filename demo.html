@@ -20,6 +20,9 @@
 
 		<h2>Separator "."</h2>
 		<input type="text" id="separator">
+
+		<h2>Only numbers</h2>
+		<input type="text" id="numbers">
 		
 		<h2>Multiples $ inputs</h2>
 		<input type="text" data-js-multiple>
@@ -41,6 +44,9 @@
 
 				var separator = new VanillaMasker({separator: '.'});
 				separator.maskMoney(document.querySelector("#separator"));
+
+				var numbers = new VanillaMasker();
+				numbers.maskNumber(document.querySelector("#numbers"));
 
 				var multiples = new VanillaMasker({unit: '$'});
 				multiples.maskMoney(document.querySelectorAll("[data-js-multiple]"));

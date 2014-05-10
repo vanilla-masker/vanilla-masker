@@ -37,6 +37,9 @@ var masker = new VanillaMasker({
 // Masking an input element to money.
 masker.maskMoney(document.querySelector("input"));
 
+// Masking an input element to accept only positive numbers without decimal precision.
+masker.maskNumber(document.querySelector("input"));
+
 // Or masking an all input elements to money.
 masker.maskMoney(document.querySelectorAll("input"));
 ```
@@ -60,10 +63,9 @@ masker.maskMoney(document.querySelectorAll("input"));
 
 # TODO
 
-* Mask custom inputs methods, like maskPhone, maskNumber, maskZipCode, etc;
+* Mask custom inputs methods, like maskPhone, maskZipCode, etc;
 * Bower compatibility;
 * AMD support;
-* Mobile support;
 * JSHint task;
 
 # Compatibility
@@ -76,7 +78,13 @@ Desktop browsers:
 * Opera
 * Internet Explorer 9+ (coming soon IE8 support)
 
-Mobile browsers - (coming soon)
+Mobile browsers:
+
+* Android (2.2+) native browsers
+* Chrome mobile
+* Dolphin
+* Opera mobile (not tested yet)
+* iOS (not tested yet)
 
 # Contributors
 

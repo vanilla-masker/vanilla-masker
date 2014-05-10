@@ -9,7 +9,7 @@ The [demo page](http://bankfacil.github.io/vanilla-masker/demo.html).
 
 # How to use
 
-Download the lib [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js) (532 bytes) or [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.gz.js) (509 bytes).
+Download the lib: [development version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.js) (2.4 Kbytes), [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js) (532 bytes) or [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.gz.js) (509 bytes).
 
 Include it into your html page:
 ``` html
@@ -30,7 +30,7 @@ var masker = new VanillaMasker({
   precision: 2, // Decimal precision
   separator: ',', // Decimal separator
   delimiter: '.', // Number delimiter
-  unit: 'R$', // Money unit (default is blank)
+  unit: 'R$', // Money unit (default is a blank string)
   zeroCents: true // Fill decimals with zero value
 });
 

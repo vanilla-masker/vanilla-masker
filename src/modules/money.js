@@ -2,14 +2,20 @@
 
 	VanillaMasker.prototype.maskMoney = function(el) {
 		var that = this
+			, elements = [].slice.call(el)
+			, elements = elements.length ? elements : [el]
 			, onType = function(e) {
 				e.target.value = that.toMoney(e.target.value);
 			}
 		;
-		!(el instanceof NodeList || el instanceof Array) && (el = [el]);
-		for (var i = 0, len = el.length; i < len; i++) {
-			el[i].addEventListener("keyup", onType);
-			el[i].addEventListener("keydown", onType);
+		for (var i = 0, len = elements.length; i < len; i++) {
+			if (elements[i].addEventListener) {
+				elements[i].addEventListener("keyup", onType);
+				elements[i].addEventListener("keydown", onType);
+			} else {
+				elements[i].attachEvent("onkeyup", onType);
+				elements[i].attachEvent("onkeydown", onType);
+			}
 		}
 	};
 

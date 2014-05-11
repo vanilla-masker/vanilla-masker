@@ -2,8 +2,8 @@
 
 	VanillaMasker.prototype.maskMoney = function(el) {
 		var that = this
-			, elements = [].slice.call(el)
-			, elements = elements.length ? elements : [el]
+			, elSliced = [].slice.call(el)
+			, elements = elSliced.length ? elSliced : [el]
 			, onType = function(e) {
 				e.target.value = that.toMoney(e.target.value);
 			}
@@ -22,27 +22,31 @@
 	VanillaMasker.prototype.toMoney = function(input) {
 		var precision = this.opts.precision
 			, separator = this.opts.separator
+			, delimiter = this.opts.delimiter
+			, unit = this.opts.unit
 		;
 		if (this.opts.zeroCents) {
 			var zeroMatcher = ("("+ separator +"[0]{0,"+ precision +"})")
 				, zeroRegExp = new RegExp(zeroMatcher, "g")
 				, initialInputLength = input.length || 0
-				, input = input.toString().replace(zeroRegExp, '')
 			;
+			input = input.toString().replace(zeroRegExp, '');
 			if (initialInputLength < this.lastOutput.length) {
 				input = input.slice(0, input.length - 1);
 			}
 		}
 		var number = input.toString().replace(/[\D]/g, '')
-			, clearDelimiter = new RegExp("^(0|\\"+ this.opts.delimiter +")")
+			, clearDelimiter = new RegExp("^(0|\\"+ delimiter +")")
 			, clearSeparator = new RegExp("(\\"+ separator +")$")
 			, money = number.substr(0, number.length - this.moneyPrecision)
 			, masked = money.substr(0, money.length % 3)
-			, money = money.substr(money.length % 3, money.length)
 			, cents = new Array(precision + 1).join('0')
 		;
+		money = money.substr(money.length % 3, money.length);
 		for (var i = 0, len = money.length; i < len; i++) {
-			(i % 3 == 0) && (masked += this.opts.delimiter);
+			if (i % 3 === 0) {
+				masked += delimiter;
+			}
 			masked += money.charAt(i);
 		}
 		masked = masked.replace(clearDelimiter, '');
@@ -54,7 +58,7 @@
 			var centsSliced = (precision > centsLength) ? precision : centsLength;
 			cents = (cents + centsValue).slice(-centsSliced);
 		}
-		var output = (this.opts.unit + masked + separator + cents);
+		var output = (unit + masked + separator + cents);
 		this.lastOutput = output = output.replace(clearSeparator, '');
 		return output;
 	};

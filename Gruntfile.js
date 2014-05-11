@@ -8,7 +8,7 @@ module.exports = function(grunt) {
       build: ['build/vanilla-masker*']
     },
 
-    // Concat ================================
+    // Concat ========================================
     concat: {
       options: {
         separator: ";"
@@ -29,7 +29,15 @@ module.exports = function(grunt) {
       }
     },
 
-    // Minification ================================
+    // JSHint ========================================
+    jshint: {
+      options: {
+        laxcomma: true
+      },
+      all: ["src/vanilla-masker.js", "src/modules/*.js"]
+    },
+
+    // Minification ==================================
     uglify: {
       minify: {
         files: {
@@ -54,7 +62,7 @@ module.exports = function(grunt) {
       }
     },
 
-    // Compress ================================
+    // Compress ======================================
     compress: {
       build: {
         options: {
@@ -78,7 +86,7 @@ module.exports = function(grunt) {
       }
     },
 
-    // Watch Files ================================
+    // Watch Files ===================================
     watch: {
       livereload: {
         options: {livereload: true },
@@ -89,16 +97,17 @@ module.exports = function(grunt) {
   };
 
   grunt.initConfig(config);
-  grunt.loadNpmTasks("grunt-contrib-concat");
   grunt.loadNpmTasks("grunt-contrib-clean");
+  grunt.loadNpmTasks("grunt-contrib-concat");
+  grunt.loadNpmTasks("grunt-contrib-jshint");
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-jasmine");
-  grunt.loadNpmTasks("grunt-contrib-watch");
-  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks("grunt-contrib-watch");
   
-  grunt.registerTask("default", ["clean:dev", "concat:dev", "jasmine:dev"]);
+  grunt.registerTask("default", ["clean:dev", "concat:dev", "jshint", "jasmine:dev"]);
   grunt.registerTask("test", ["default"]);
   grunt.registerTask("dev", ["default", "connect", "watch"]);
-  grunt.registerTask("build", ["clean:build", "concat:build", "jasmine:build", "uglify", "compress"]);
+  grunt.registerTask("build", ["clean:build", "concat:build", "jshint", "jasmine:build", "uglify", "compress"]);
 };

@@ -2,8 +2,8 @@
 
 	VanillaMasker.prototype.maskNumber = function(el) {
 		var that = this
-			, elements = [].slice.call(el)
-			, elements = elements.length ? elements : [el]
+			, elSliced = [].slice.call(el)
+			, elements = elSliced.length ? elSliced : [el]
 			, onType = function(e) {
 				e.target.value = that.toNumber(e.target.value);
 			}

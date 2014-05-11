@@ -3,9 +3,3 @@ node_js:
 - "0.10"
 before_install: npm install -g grunt-cli
 install: npm install
-after_script: npm run build
-after_success: 
-- git config --global user.email "builds@travis-ci.com"
-- git config --global user.name "Travis CI"
-- git commit -am "Update Build"
-- git push origin master

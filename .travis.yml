@@ -6,6 +6,6 @@ install: npm install
 before_script: grunt build
 after_success: 
 	- git config --global user.email "builds@travis-ci.com"
-  - git config --global user.name "Travis CI"
-  - git commit -am "Update Build"
-  - git push origin master
+	- git config --global user.name "Travis CI"
+	- git commit -am "Update Build"
+	- git push origin master

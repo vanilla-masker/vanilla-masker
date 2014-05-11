@@ -19,29 +19,42 @@ Include it into your html page:
 And given these simple inputs tag:
 ``` html
 <input type="text">
-<input type="text">
-<input type="text">
 ```
 
 You can use the code below...
 ``` javascript
-// Instancing the VanillaMasker object
+// Constructor
+// Input number example: 1234567
 var masker = new VanillaMasker({
-  precision: 2, // Decimal precision
-  separator: ',', // Decimal separator
-  delimiter: '.', // Number delimiter
-  unit: 'R$', // Money unit (default is a blank string)
-  zeroCents: true // Fill decimals with zero value
+  // Decimal precision -> "67"
+  precision: 2, 
+  // Decimal separator -> ",67"
+  separator: ',', 
+  // Number delimiter -> "123.45"
+  delimiter: '.', 
+  // Money unit -> "R$ 12.345,67"
+  unit: 'R$', 
+  // Force type only number instead decimal,
+  // masking decimals with ",00"
+  // Zero cents -> "R$ 1.234.567,00"
+  zeroCents: true 
 });
 
-// Masking an input element to money.
+// Functions
+// Listen the input element masking it to money.
 masker.maskMoney(document.querySelector("input"));
 
-// Masking an input element to accept only positive numbers without decimal precision.
+// Listen array of input elements masking it to money.
+masker.maskMoney(document.querySelectorAll("input"));
+
+// Converts number to money string
+masker.toMoney(1234); // -> R$ 1.234,00
+
+// Listen the input element masking it to number.
 masker.maskNumber(document.querySelector("input"));
 
-// Or masking an all input elements to money.
-masker.maskMoney(document.querySelectorAll("input"));
+// Converts any string to number 
+masker.toNumber("123ac34"); // -> 12334
 ```
 
 # How to run localhost
@@ -66,7 +79,6 @@ masker.maskMoney(document.querySelectorAll("input"));
 * Mask custom inputs methods, like maskPhone, maskZipCode, etc;
 * Bower compatibility;
 * AMD support;
-* JSHint task;
 
 # Compatibility
 

@@ -76,7 +76,7 @@ masker.toNumber("123ac34"); // -> 12334
 
 * Run the command: `grunt build`
 
-# TODO
+# TODO - we need pull requests :]
 
 * Mask custom inputs methods, like maskPhone, maskZipCode, etc;
 * Bower compatibility;
@@ -98,7 +98,7 @@ Mobile browsers:
 * Chrome mobile
 * Dolphin
 * Opera mobile (not tested yet)
-* iOS (not tested yet)
+* iOS
 
 # Contributors
 

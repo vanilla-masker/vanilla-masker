@@ -1,5 +1,23 @@
 describe("VanillaMasker.maskNumber", function() {
 
+  it('console log "The element is null." if the element is undefined', function() {
+    spyOn(console, 'log');
+    new VanillaMasker().maskNumber(undefined);
+    expect(console.log).toHaveBeenCalledWith('The element is null.');
+  });
+
+  it('console log "The element is null." if the element is null', function() {
+    spyOn(console, 'log');
+    new VanillaMasker().maskNumber(null);
+    expect(console.log).toHaveBeenCalledWith('The element is null.');
+  });
+
+  it('console log "The element is null." if the element is []', function() {
+    spyOn(console, 'log');
+    new VanillaMasker().maskNumber([]);
+    expect(console.log).toHaveBeenCalledWith('The element is null.');
+  });
+  
 });
 
 describe("VanillaMasker.toNumber", function() {

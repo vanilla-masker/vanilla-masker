@@ -1,0 +1,23 @@
+{
+  "name": "vanilla-masker",
+  "version": "1.0.0",
+  "description": "VanillaMasker is a pure javascript input mask.",
+  "homepage": "http://bankfacil.github.io/vanilla-masker/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/BankFacil/vanilla-masker.git"
+  },
+  "authors": [
+    "Caio Ribeiro Pereira <caio.ribeiro.pereira@gmail.com>",
+    "Leandro Alvares da Costa <leandroadacosta@gmail.com>"
+  ],
+  "license": "MIT <http://bankfacil.mit-license.org>",
+  "bugs": "https://github.com/BankFacil/vanilla-masker/issues",
+  "ignore": [
+    "*.yml",
+    "**/.*",
+    "tests",
+    "node_modules",
+    "bower_components"
+  ]
+}

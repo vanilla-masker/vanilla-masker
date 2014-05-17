@@ -17,6 +17,8 @@ Download the lib:
 * [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js) (1.96 Kbytes);
 * [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.gz.js) (751 bytes);
 
+Or install it using [Bower](http://bower.io): `bower install --save vanilla-masker`
+
 Include it into your html page:
 ``` html
 <script src="vanilla-masker.min.js"></script>
@@ -107,7 +109,8 @@ Mobile browsers:
 # Contributors
 
 Caio Ribeiro Pereira - caio.ribeiro.pereira@gmail.com  
-Leandro Alvares da Costa - leandroadacosta@gmail.com
+Leandro Alvares da Costa - leandroadacosta@gmail.com  
+Henrique Antonini Silvério - contato@henriquesilverio.com
 
 # License
 

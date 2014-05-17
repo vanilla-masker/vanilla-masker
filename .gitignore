@@ -3,3 +3,4 @@ public
 .DS_Store
 _SpecRunner.html
 .grunt
+bower_components

@@ -2,6 +2,12 @@ module.exports = function(grunt) {
 
     var config = {
 
+        // Clean folders ================================
+        clean: {
+            dev: ['public/vanilla-masker*'],
+            build: ['build/vanilla-masker*']
+        },
+
         // Concat ========================================
         concat: {
             options: {

@@ -12,7 +12,13 @@ The [demo page](http://bankfacil.github.io/vanilla-masker/demo.html).
 
 # How to use
 
-Download the lib: [development version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.js) (3.33 Kbytes), [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js) (1.87 Kbytes) or [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.gz.js) (711 bytes).
+Download the lib: 
+
+* [development version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.js) (3.33 Kbytes); 
+* [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js) (1.87 Kbytes); 
+* [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.gz.js) (711 bytes).
+
+Or install with [Bower](http://bower.io/): `bower install --save vanilla-masker`
 
 Include it into your html page:
 ``` html
@@ -80,7 +86,6 @@ masker.toNumber("123ac34"); // -> 12334
 # TODO - we need pull requests :]
 
 * Mask custom inputs methods, like maskPhone, maskZipCode, etc;
-* Bower compatibility;
 * AMD support;
 
 # Compatibility
@@ -105,6 +110,7 @@ Mobile browsers:
 
 Caio Ribeiro Pereira - caio.ribeiro.pereira@gmail.com  
 Leandro Alvares da Costa - leandroadacosta@gmail.com
+Henrique Antonini Silvério - contato@henriquesilverio.com
 
 # License
 

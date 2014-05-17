@@ -12,7 +12,10 @@ The [demo page](http://bankfacil.github.io/vanilla-masker/demo.html).
 
 # How to use
 
-Download the lib: [development version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.js) (4.41 Kbytes), [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js) (1.96 Kbytes) or [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.gz.js) (751 bytes).
+Download the lib: 
+* [development version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.js) (4.41 Kbytes);
+* [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js) (1.96 Kbytes);
+* [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.gz.js) (751 bytes);
 
 Include it into your html page:
 ``` html

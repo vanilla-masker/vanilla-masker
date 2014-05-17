@@ -109,7 +109,7 @@ Mobile browsers:
 # Contributors
 
 Caio Ribeiro Pereira - caio.ribeiro.pereira@gmail.com  
-Leandro Alvares da Costa - leandroadacosta@gmail.com
+Leandro Alvares da Costa - leandroadacosta@gmail.com  
 Henrique Antonini Silvério - contato@henriquesilverio.com
 
 # License

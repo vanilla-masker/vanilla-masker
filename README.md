@@ -81,6 +81,7 @@ masker.toNumber("123ac34"); // -> 12334
 
 * Mask custom inputs methods, like maskPhone, maskZipCode, etc;
 * AMD support;
+* Beautify Demo Page;
 
 # Compatibility
 

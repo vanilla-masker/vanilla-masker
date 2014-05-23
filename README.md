@@ -3,8 +3,9 @@
 [![Build Status](https://travis-ci.org/BankFacil/vanilla-masker.svg)](https://travis-ci.org/BankFacil/vanilla-masker)
 [![Code Climate](https://codeclimate.com/github/BankFacil/vanilla-masker.png)](https://codeclimate.com/github/BankFacil/vanilla-masker)
 
-A JavaScript input mask
-Now you can use a simple and pure javascript lib to mask html elements. Fuck jQuery, Zepto and any others javascript frameworks!
+It's a pure JavaScript input mask.  
+Now you can use a simple and pure javascript lib to mask html elements.  
+Fuck jQuery, Zepto and any others javascript frameworks!
 
 Let's live now in a lightweight client-side world using VanillaMasker.  
 This is a cross-browser and cross-device lib for desktop and responsible sites.

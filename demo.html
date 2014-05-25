@@ -4,52 +4,59 @@
 		<script src="http://bankfacil.github.io/vanilla-masker/javascripts/vanilla-masker.min.js"></script>
 	</head>
 	<body>
-		<h1><a href="bankfacil.github.io/vanilla-masker">Vanilla.Masker</a></h1>
+		<h1><a href="/">Vanilla.Masker</a></h1>
 
-		<h2>Default:</h2>
-		<input type="text" id="default">
+		<fieldset>
+			<legend>MaskMoney</legend>
+			<h4>Default:</h4>
+			<input type="text" id="default">
 
-		<h2>Zero cents:</h2>
-		<input type="text" id="zeroCents">
+			<h4>Zero cents:</h4>
+			<input type="text" id="zeroCents">
 
-		<h2>Unit R$:</h2>
-		<input type="text" id="unit">
+			<h4>Unit R$:</h4>
+			<input type="text" id="unit">
 
-		<h2>Delimiter ","</h2>
-		<input type="text" id="delimiter">
+			<h4>Delimiter ","</h4>
+			<input type="text" id="delimiter">
 
-		<h2>Separator "."</h2>
-		<input type="text" id="separator">
+			<h4>Separator "."</h4>
+			<input type="text" id="separator">
 
-		<h2>Only numbers</h2>
-		<input type="text" id="numbers">
+			<h4>Multiples $ inputs</h4>
+			<input type="text" class="multiples">
+			<input type="text" class="multiples">
+			<input type="text" class="multiples">
+		</fieldset>
 		
-		<h2>Multiples $ inputs</h2>
-		<input type="text" data-js-multiple>
-		<input type="text" data-js-multiple>
-		<input type="text" data-js-multiple>
+		<fieldset>
+			<legend>MaskNumber</legend>
+			<h4>Only numbers</h4>
+			<input type="text" id="numbers">
+		</fieldset>
+
 		<script>
 			(function() {
 				var defaults = new VanillaMasker();
-				defaults.maskMoney(document.querySelector("#default"));
+				defaults.maskMoney(document.getElementById("default"));
 
 				var zeroCents = new VanillaMasker({zeroCents: true});
-				zeroCents.maskMoney(document.querySelector("#zeroCents"));
+				zeroCents.maskMoney(document.getElementById("zeroCents"));
 
 				var unit = new VanillaMasker({unit: 'R$'});
-				unit.maskMoney(document.querySelector("#unit"));
+				unit.maskMoney(document.getElementById("unit"));
 
 				var delimiter = new VanillaMasker({delimiter: ','});
-				delimiter.maskMoney(document.querySelector("#delimiter"));
+				delimiter.maskMoney(document.getElementById("delimiter"));
 
 				var separator = new VanillaMasker({separator: '.'});
-				separator.maskMoney(document.querySelector("#separator"));
+				separator.maskMoney(document.getElementById("separator"));
 
 				var numbers = new VanillaMasker();
-				numbers.maskNumber(document.querySelector("#numbers"));
+				numbers.maskNumber(document.getElementById("numbers"));
 
 				var multiples = new VanillaMasker({unit: '$'});
-				multiples.maskMoney(document.querySelectorAll("[data-js-multiple]"));
+				multiples.maskMoney(document.getElementsByClassName("multiples"));
 			})();
 		</script>
 	</body>

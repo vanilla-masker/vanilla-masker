@@ -1,27 +1,28 @@
 (function() {
 
-  var DIGIT = '9', ALPHA = 'A', WILDCARD = '?';
+  var DIGIT = "9", ALPHA = "A", WILDCARD = "?";
 
   var VanillaMasker = function(opts) {
     opts = opts || {};
     this.opts = {
-      precision: opts.hasOwnProperty('precision') ? opts.precision : 2,
-      separator: opts.separator || ',',
-      delimiter: opts.delimiter || '.',
-      unit: opts.unit && (opts.unit + ' ') || '',
+      precision: opts.hasOwnProperty("precision") ? opts.precision : 2,
+      separator: opts.separator || ",",
+      delimiter: opts.delimiter || ".",
+      unit: opts.unit && (opts.unit + " ") || "",
       zeroCents: opts.zeroCents,
-      phone: opts.phone || '(99) 9999-9999'
+      phone: opts.phone || "(99) 9999-9999"
     };
-    this.lastOutput = '';
+    this.lastOutput = "";
     this.moneyPrecision = opts.zeroCents ? 0 : this.opts.precision;
   };
 
-  function _maskElement(el, maskFunction) {
+  VanillaMasker.prototype.maskElement = function(el, maskFunction) {
     try {
-      var elSliced = [].slice.call(el)
+      var that = this
+        , elSliced = [].slice.call(el)
         , elements = elSliced.length ? elSliced : [el]
         , onType = function(e) {
-          e.target.value = VanillaMasker[maskFunction](e.target.value);
+          e.target.value = that[maskFunction](e.target.value);
         }
       ;
       for (var i = 0, len = elements.length; i < len; i++) {
@@ -36,10 +37,10 @@
     } catch(e) {
       console.log("The element is null.");
     }
-  }
+  };
 
   VanillaMasker.prototype.maskMoney = function(el) {
-    _maskElement(el, 'toMoney');
+    this.maskElement(el, "toMoney");
   };
 
   VanillaMasker.prototype.toMoney = function(input) {
@@ -53,27 +54,27 @@
         , zeroRegExp = new RegExp(zeroMatcher, "g")
         , initialInputLength = input.length || 0
       ;
-      input = input.toString().replace(zeroRegExp, '');
+      input = input.toString().replace(zeroRegExp, "");
       if (initialInputLength < this.lastOutput.length) {
         input = input.slice(0, input.length - 1);
       }
     }
-    var number = input.toString().replace(/[\D]/g, '')
+    var number = input.toString().replace(/[\D]/g, "")
       , clearDelimiter = new RegExp("^(0|\\"+ delimiter +")")
       , clearSeparator = new RegExp("(\\"+ separator +")$")
       , money = number.substr(0, number.length - this.moneyPrecision)
       , masked = money.substr(0, money.length % 3)
-      , cents = new Array(precision + 1).join('0')
+      , cents = new Array(precision + 1).join("0")
     ;
     money = money.substr(money.length % 3, money.length);
     for (var i = 0, len = money.length; i < len; i++) {
       if (i % 3 === 0) {
         masked += delimiter;
       }
-      masked += money.charAt(i);
+      masked += money[i];
     }
-    masked = masked.replace(clearDelimiter, '');
-    masked = masked.length ? masked : '0';
+    masked = masked.replace(clearDelimiter, "");
+    masked = masked.length ? masked : "0";
     if (!this.opts.zeroCents) {
       var beginCents = number.length - precision;
       var centsValue = number.substr(beginCents, precision);
@@ -82,24 +83,41 @@
       cents = (cents + centsValue).slice(-centsSliced);
     }
     var output = (unit + masked + separator + cents);
-    this.lastOutput = output = output.replace(clearSeparator, '');
+    this.lastOutput = output = output.replace(clearSeparator, "");
     return output;
   };
 
   VanillaMasker.prototype.maskNumber = function(el) {
-    _maskElement(el, 'toNumber');
+    this.maskElement(el, "toNumber");
   };
 
   VanillaMasker.prototype.toNumber = function(input) {
-    return input.toString().replace(/[\D]/g, '');
+    return input.toString().replace(/[\D]/g, "");
   };
 
   VanillaMasker.prototype.maskPhone = function(el) {
-    _maskElement(el, 'toPhone');
+    this.maskElement(el, "toPhone");
   };
 
-  // TODO: Code toPhone conversor
   VanillaMasker.prototype.toPhone = function(input) {
+    var output = ""
+      , noMaskInput = input.toString().replace(/[^0-9a-zA-Z]/g, "")
+      , noMaskInputLen = noMaskInput.length
+      , phoneMask = this.opts.phone
+      , phoneMaskLen = phoneMask.length
+    ;
+    // Is not working yet!
+    if (noMaskInputLen < phoneMaskLen) {
+      for (var i = 0; i < noMaskInputLen; i++) {
+        if ((phoneMask[i] === DIGIT && noMaskInput[i].match(/[0-9]/)) || 
+            (phoneMask[i] === ALPHA && noMaskInput[i].match(/[a-zA-Z]/))) {
+          output += noMaskInput[i];
+        } else {
+          output += phoneMask[i] + noMaskInput[i];
+        }
+      }
+      return output;
+    }
     return input;
   };
 

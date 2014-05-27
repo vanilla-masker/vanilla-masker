@@ -14,12 +14,22 @@ module.exports = function(grunt) {
         separator: ";"
       },
       dev: {
-        src: ["src/vanilla-masker.js", "src/modules/*.js"],
+        src: ["src/vanilla-masker.js"],
         dest: "public/vanilla-masker.js"
       },
       build: {
-        src: ["src/vanilla-masker.js", "src/modules/*.js"],
+        src: ["src/vanilla-masker.js"],
         dest: "build/vanilla-masker.js"
+      }
+    },
+
+    // Jasmine Runner ================================
+    jasmine: {
+      dev: {
+        src: ['src/vanilla-masker.js'],
+        options: {
+          specs: 'tests/*_spec.js'
+        }
       }
     },
 
@@ -28,7 +38,7 @@ module.exports = function(grunt) {
       options: {
         laxcomma: true
       },
-      all: ["src/vanilla-masker.js", "src/modules/*.js"]
+      all: ["src/vanilla-masker.js"]
     },
 
     // Minification ==================================
@@ -36,22 +46,6 @@ module.exports = function(grunt) {
       minify: {
         files: {
           "build/vanilla-masker.min.js": ["build/vanilla-masker.js"]
-        }
-      }
-    },
-
-    // Jasmine Runner ================================
-    jasmine: {
-      dev: {
-        src: ['public/vanilla-masker.js'],
-        options: {
-          specs: 'tests/*_spec.js'
-        }
-      },
-      build: {
-        src: ['build/vanilla-masker.js'],
-        options: {
-          specs: 'tests/*_spec.js'
         }
       }
     },
@@ -77,7 +71,7 @@ module.exports = function(grunt) {
     watch: {
       livereload: {
         options: { livereload: true },
-        files: ['src/**/*','public/*', 'tests/*'],
+        files: ['src/*', 'tests/*', 'Gruntfile.js', 'package.json'],
         tasks: ['default']
       }
     }
@@ -94,8 +88,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks("grunt-contrib-watch");
 
-  grunt.registerTask("default", ["clean:dev", "concat:dev", "jshint", "jasmine:dev"]);
+  grunt.registerTask("default", ["jshint", "jasmine:dev"]);
   grunt.registerTask("test", ["default"]);
-  grunt.registerTask("dev", ["default", "connect", "watch"]);
-  grunt.registerTask("build", ["clean:build", "concat:build", "jshint", "jasmine:build", "uglify", "compress"]);
+  grunt.registerTask("dev", ["default", "clean:dev", "concat:dev", "connect", "watch"]);
+  grunt.registerTask("build", ["default", "clean:build", "concat:build", "uglify", "compress"]);
 };

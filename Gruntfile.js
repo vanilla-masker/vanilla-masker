@@ -19,7 +19,7 @@ module.exports = function(grunt) {
       },
       build: {
         src: ["src/vanilla-masker.js"],
-        dest: "build/vanilla-masker.js"
+        dest: "build/vanilla-masker.min.js"
       }
     },
 
@@ -45,7 +45,7 @@ module.exports = function(grunt) {
     uglify: {
       minify: {
         files: {
-          "build/vanilla-masker.min.js": ["build/vanilla-masker.js"]
+          "build/vanilla-masker.min.js": ["build/vanilla-masker.min.js"]
         }
       }
     },

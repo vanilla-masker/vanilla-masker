@@ -50,11 +50,11 @@ This is a cross-browser and cross-device lib for desktop and responsible sites.<
 
 <ul>
 <li>
-<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.js">development version</a> (4.41 Kbytes);</li>
+<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.js">development version</a> (4.83 Kbytes);</li>
 <li>
-<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js">minified version</a> (1.96 Kbytes);</li>
+<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js">minified version</a> (2.59 Kbytes);</li>
 <li>
-<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.gz.js">gzipped version</a> (751 bytes);</li>
+<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.gz.js">gzipped version</a> (1020 bytes);</li>
 </ul><p>Or install it using <a href="http://bower.io">Bower</a>: <code>bower install --save vanilla-masker</code></p>
 
 <p>Include it into your html page:</p>
@@ -70,20 +70,24 @@ This is a cross-browser and cross-device lib for desktop and responsible sites.<
 <p>You can use the code below...</p>
 
 <div class="highlight highlight-javascript"><pre><span class="c1">// Constructor</span>
-<span class="c1">// Input number example: 1234567</span>
+<span class="c1">// Input number example: 1234567890</span>
 <span class="kd">var</span> <span class="nx">masker</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VanillaMasker</span><span class="p">({</span>
-  <span class="c1">// Decimal precision -&gt; "67"</span>
+  <span class="c1">// Decimal precision -&gt; "90"</span>
   <span class="nx">precision</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> 
-  <span class="c1">// Decimal separator -&gt; ",67"</span>
+  <span class="c1">// Decimal separator -&gt; ",90"</span>
   <span class="nx">separator</span><span class="o">:</span> <span class="s1">','</span><span class="p">,</span> 
-  <span class="c1">// Number delimiter -&gt; "123.45"</span>
+  <span class="c1">// Number delimiter -&gt; "12.345.678"</span>
   <span class="nx">delimiter</span><span class="o">:</span> <span class="s1">'.'</span><span class="p">,</span> 
-  <span class="c1">// Money unit -&gt; "R$ 12.345,67"</span>
+  <span class="c1">// Money unit -&gt; "R$ 12.345.678,90"</span>
   <span class="nx">unit</span><span class="o">:</span> <span class="s1">'R$'</span><span class="p">,</span> 
   <span class="c1">// Force type only number instead decimal,</span>
   <span class="c1">// masking decimals with ",00"</span>
-  <span class="c1">// Zero cents -&gt; "R$ 1.234.567,00"</span>
-  <span class="nx">zeroCents</span><span class="o">:</span> <span class="kc">true</span> 
+  <span class="c1">// Zero cents -&gt; "R$ 1.234.567.890,00"</span>
+  <span class="nx">zeroCents</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="c1">// Phone format</span>
+  <span class="nx">phone</span><span class="o">:</span> <span class="s1">'(99) 9999-9999'</span><span class="p">,</span>
+  <span class="c1">// Date format</span>
+  <span class="nx">date</span><span class="o">:</span> <span class="s1">'99/99/9999'</span>
 <span class="p">});</span>
 
 <span class="c1">// Functions</span>
@@ -101,6 +105,30 @@ This is a cross-browser and cross-device lib for desktop and responsible sites.<
 
 <span class="c1">// Converts any string to number </span>
 <span class="nx">masker</span><span class="p">.</span><span class="nx">toNumber</span><span class="p">(</span><span class="s2">"123ac34"</span><span class="p">);</span> <span class="c1">// -&gt; 12334</span>
+
+<span class="c1">// Listen the input element masking it to date format.</span>
+<span class="nx">masker</span><span class="p">.</span><span class="nx">maskDate</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"input"</span><span class="p">));</span>
+
+<span class="c1">// Converts any string to date string </span>
+<span class="nx">masker</span><span class="p">.</span><span class="nx">toDate</span><span class="p">(</span><span class="s2">"12121900"</span><span class="p">);</span> <span class="c1">// -&gt; 12/12/1990</span>
+
+<span class="c1">// Listen the input element masking it to cpf format.</span>
+<span class="nx">masker</span><span class="p">.</span><span class="nx">maskCPF</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"input"</span><span class="p">));</span>
+
+<span class="c1">// Converts any string to cpf format </span>
+<span class="nx">masker</span><span class="p">.</span><span class="nx">toCPF</span><span class="p">(</span><span class="s2">"99999999999"</span><span class="p">);</span> <span class="c1">// -&gt; 999.999.999-99</span>
+
+<span class="c1">// Listen the input element masking it to cnpj format.</span>
+<span class="nx">masker</span><span class="p">.</span><span class="nx">maskCNPJ</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"input"</span><span class="p">));</span>
+
+<span class="c1">// Converts any string to cnpj format </span>
+<span class="nx">masker</span><span class="p">.</span><span class="nx">toCNPJ</span><span class="p">(</span><span class="s2">"99999999000199"</span><span class="p">);</span> <span class="c1">// -&gt; 99.999.999.0001-99</span>
+
+<span class="c1">// Listen the input element masking it to phone format.</span>
+<span class="nx">masker</span><span class="p">.</span><span class="nx">maskPhone</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"input"</span><span class="p">));</span>
+
+<span class="c1">// Converts any string to phone format </span>
+<span class="nx">masker</span><span class="p">.</span><span class="nx">toPhone</span><span class="p">(</span><span class="s2">"1199999999"</span><span class="p">);</span> <span class="c1">// -&gt; (11) 9999-9999</span>
 </pre></div>
 
 <h1>
@@ -134,7 +162,6 @@ This is a cross-browser and cross-device lib for desktop and responsible sites.<
 <a name="todo---we-need-pull-requests-" class="anchor" href="#todo---we-need-pull-requests-"><span class="octicon octicon-link"></span></a>TODO - we need pull requests :]</h1>
 
 <ul>
-<li>Mask custom inputs methods, like maskPhone, maskZipCode, etc;</li>
 <li>AMD support;</li>
 <li>Beautify Demo Page;</li>
 </ul><h1>

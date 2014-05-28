@@ -1,6 +1,6 @@
 (function() {
 
-  var DIGIT = "9", ALPHA = "A", WILDCARD = "?";
+  var DIGIT = "9", ALPHA = "A";
 
   var VanillaMasker = function(opts) {
     opts = opts || {};
@@ -10,13 +10,16 @@
       delimiter: opts.delimiter || ".",
       unit: opts.unit && (opts.unit + " ") || "",
       zeroCents: opts.zeroCents,
-      phone: opts.phone || "(99) 9999-9999"
+      phone: opts.phone || "(99) 9999-9999",
+      date: opts.date || "99/99/9999",
+      cpf: "999.999.999-99",
+      cnpj: "99.999.999/9999-99"
     };
     this.lastOutput = "";
     this.moneyPrecision = opts.zeroCents ? 0 : this.opts.precision;
   };
 
-  VanillaMasker.prototype.maskElement = function(el, maskFunction) {
+  VanillaMasker.prototype.bindElement = function(el, maskFunction) {
     try {
       var that = this
         , elSliced = [].slice.call(el)
@@ -40,7 +43,7 @@
   };
 
   VanillaMasker.prototype.maskMoney = function(el) {
-    this.maskElement(el, "toMoney");
+    this.bindElement(el, "toMoney");
   };
 
   VanillaMasker.prototype.toMoney = function(input) {
@@ -88,19 +91,15 @@
   };
 
   VanillaMasker.prototype.maskNumber = function(el) {
-    this.maskElement(el, "toNumber");
+    this.bindElement(el, "toNumber");
   };
 
   VanillaMasker.prototype.toNumber = function(input) {
     return input.toString().replace(/[\D]/g, "");
   };
 
-  VanillaMasker.prototype.maskPhone = function(el) {
-    this.maskElement(el, "toPhone");
-  };
-
-  VanillaMasker.prototype.toPhone = function(input) {
-    var output = this.opts.phone.split("")
+  VanillaMasker.prototype.maskUsingTemplate = function(input, maskPattern) {
+    var output = maskPattern.split("")
       , values = input.toString().replace(/[^0-9a-zA-Z]/g, "")
       , index = 0, i = 0
     ;
@@ -113,6 +112,38 @@
       }
     }
     return output.join("").substr(0, i);
+  };
+
+  VanillaMasker.prototype.maskPhone = function(el) {
+    this.bindElement(el, "toPhone");
+  };
+
+  VanillaMasker.prototype.toPhone = function(input) {
+    return this.maskUsingTemplate(input, this.opts.phone);
+  };
+
+  VanillaMasker.prototype.maskCPF = function(el) {
+    this.bindElement(el, "toCPF");
+  };
+
+  VanillaMasker.prototype.toCPF = function(input) {
+    return this.maskUsingTemplate(input, this.opts.cpf);
+  };
+
+  VanillaMasker.prototype.maskCNPJ = function(el) {
+    this.bindElement(el, "toCNPJ");
+  };
+
+  VanillaMasker.prototype.toCNPJ = function(input) {
+    return this.maskUsingTemplate(input, this.opts.cnpj);
+  };
+
+  VanillaMasker.prototype.maskDate = function(el) {
+    this.bindElement(el, "toDate");
+  };
+
+  VanillaMasker.prototype.toDate = function(input) {
+    return this.maskUsingTemplate(input, this.opts.date);
   };
 
   window.VanillaMasker = VanillaMasker;

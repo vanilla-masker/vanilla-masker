@@ -100,25 +100,19 @@
   };
 
   VanillaMasker.prototype.toPhone = function(input) {
-    var output = ""
-      , noMaskInput = input.toString().replace(/[^0-9a-zA-Z]/g, "")
-      , noMaskInputLen = noMaskInput.length
-      , phoneMask = this.opts.phone
-      , phoneMaskLen = phoneMask.length
+    var output = this.opts.phone.split("")
+      , values = input.toString().replace(/[^0-9a-zA-Z]/g, "")
+      , index = 0, i = 0
     ;
-    // Is not working yet!
-    if (noMaskInputLen < phoneMaskLen) {
-      for (var i = 0; i < noMaskInputLen; i++) {
-        if ((phoneMask[i] === DIGIT && noMaskInput[i].match(/[0-9]/)) || 
-            (phoneMask[i] === ALPHA && noMaskInput[i].match(/[a-zA-Z]/))) {
-          output += noMaskInput[i];
-        } else {
-          output += phoneMask[i] + noMaskInput[i];
-        }
+    for (var len = output.length; i < len; i++) {
+      if (index >= values.length) break;
+      if ((output[i] === DIGIT && values[index].match(/[0-9]/)) ||
+          (output[i] === ALPHA && values[index].match(/[a-zA-Z]/))) {
+        output[i] = values[index];
+        index++;
       }
-      return output;
     }
-    return input;
+    return output.join("").substr(0, i);
   };
 
   window.VanillaMasker = VanillaMasker;

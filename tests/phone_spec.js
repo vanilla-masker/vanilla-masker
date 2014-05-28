@@ -22,14 +22,19 @@ describe("VanillaMasker.maskPhone", function() {
 
 describe("VanillaMasker.toPhone", function() {
 
-  it('returns (10) 9991-1111 number when input is 1099911111', function() {
+  it('returns "(10) 9991-1111" number when input is 1099911111', function() {
     var masker = new VanillaMasker();
     expect(masker.toPhone(1099911111)).toEqual('(10) 9991-1111');
   });
 
-  it('returns (10) 11 number when input is 1011', function() {
+  it('returns "(10) 11" number when input is 1011', function() {
     var masker = new VanillaMasker();
     expect(masker.toPhone('1011')).toEqual('(10) 11');
+  });
+
+  it('returns "+10 11 4444-44" number when input is 1011444444', function() {
+    var masker = new VanillaMasker({phone: "+99 99 9999-99"});
+    expect(masker.toPhone('1011444444')).toEqual('+10 11 4444-44');
   });
 
 });

@@ -15,9 +15,9 @@ The [demo page](http://bankfacil.github.io/vanilla-masker/demo.html).
 # How to use
 
 Download the lib: 
-* [development version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.js) (4.41 Kbytes);
-* [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js) (1.96 Kbytes);
-* [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.gz.js) (751 bytes);
+* [development version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.js) (4.83 Kbytes);
+* [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js) (2.59 Kbytes);
+* [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.gz.js) (1020 bytes);
 
 Or install it using [Bower](http://bower.io): `bower install --save vanilla-masker`
 
@@ -34,20 +34,24 @@ And given these simple inputs tag:
 You can use the code below...
 ``` javascript
 // Constructor
-// Input number example: 1234567
+// Input number example: 1234567890
 var masker = new VanillaMasker({
-  // Decimal precision -> "67"
+  // Decimal precision -> "90"
   precision: 2, 
-  // Decimal separator -> ",67"
+  // Decimal separator -> ",90"
   separator: ',', 
-  // Number delimiter -> "123.45"
+  // Number delimiter -> "12.345.678"
   delimiter: '.', 
-  // Money unit -> "R$ 12.345,67"
+  // Money unit -> "R$ 12.345.678,90"
   unit: 'R$', 
   // Force type only number instead decimal,
   // masking decimals with ",00"
-  // Zero cents -> "R$ 1.234.567,00"
-  zeroCents: true 
+  // Zero cents -> "R$ 1.234.567.890,00"
+  zeroCents: true,
+  // Phone format
+  phone: '(99) 9999-9999',
+  // Date format
+  date: '99/99/9999'
 });
 
 // Functions
@@ -65,6 +69,30 @@ masker.maskNumber(document.querySelector("input"));
 
 // Converts any string to number 
 masker.toNumber("123ac34"); // -> 12334
+
+// Listen the input element masking it to date format.
+masker.maskDate(document.querySelector("input"));
+
+// Converts any string to date string 
+masker.toDate("12121900"); // -> 12/12/1990
+
+// Listen the input element masking it to cpf format.
+masker.maskCPF(document.querySelector("input"));
+
+// Converts any string to cpf format 
+masker.toCPF("99999999999"); // -> 999.999.999-99
+
+// Listen the input element masking it to cnpj format.
+masker.maskCNPJ(document.querySelector("input"));
+
+// Converts any string to cnpj format 
+masker.toCNPJ("99999999000199"); // -> 99.999.999.0001-99
+
+// Listen the input element masking it to phone format.
+masker.maskPhone(document.querySelector("input"));
+
+// Converts any string to phone format 
+masker.toPhone("1199999999"); // -> (11) 9999-9999
 ```
 
 # How to run localhost
@@ -86,7 +114,6 @@ masker.toNumber("123ac34"); // -> 12334
 
 # TODO - we need pull requests :]
 
-* Mask custom inputs methods, like maskPhone, maskZipCode, etc;
 * AMD support;
 * Beautify Demo Page;
 

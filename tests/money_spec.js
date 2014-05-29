@@ -47,6 +47,16 @@ describe("VanillaMasker.toMoney", function() {
     expect(masker.toMoney(10)).toEqual('0,10');
   });
 
+  it('returns 199,59 money when number is 199.59 with decimal', function() {
+    var masker = new VanillaMasker();
+    expect(masker.toMoney(199.59)).toEqual('199,59');
+  });
+
+  it('returns 199,59 money when number is a string 199.59 with decimal', function() {
+    var masker = new VanillaMasker();
+    expect(masker.toMoney('199.59')).toEqual('199,59');
+  });
+
   it('returns 1.000,00 money when number is a string', function() {
     var masker = new VanillaMasker();
     expect(masker.toMoney('100000')).toEqual('1.000,00');

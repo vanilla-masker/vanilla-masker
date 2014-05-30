@@ -48,6 +48,9 @@
 
 			<h4>Document</h4>
 			<input type="text" id="doc">
+
+			<h4>Car plate</h4>
+			<input type="text" id="carPlate">
 		</fieldset>
 
 		<script>
@@ -84,6 +87,9 @@
 
 				var doc = new VanillaMasker();
 				doc.maskPattern(document.getElementById("doc"), '999.999.999-99');
+
+				var carPlate = new VanillaMasker();
+				carPlate.maskPattern(document.getElementById("carPlate"), 'AAA-9999');
 			})();
 		</script>
 	</body>

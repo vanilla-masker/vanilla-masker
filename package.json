@@ -1,6 +1,6 @@
 {
   "name": "vanilla-masker",
-  "version": "1.0.2",
+  "version": "0.3.0",
   "description": "VanillaMasker is a pure javascript input mask.",
   "scripts": {
     "start": "grunt dev",

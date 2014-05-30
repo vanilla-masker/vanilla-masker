@@ -9,23 +9,19 @@
       separator: opts.separator || ",",
       delimiter: opts.delimiter || ".",
       unit: opts.unit && (opts.unit + " ") || "",
-      zeroCents: opts.zeroCents,
-      phone: opts.phone || "(99) 9999-9999",
-      date: opts.date || "99/99/9999",
-      cpf: "999.999.999-99",
-      cnpj: "99.999.999/9999-99"
+      zeroCents: opts.zeroCents
     };
     this.lastOutput = "";
     this.moneyPrecision = opts.zeroCents ? 0 : this.opts.precision;
   };
 
-  VanillaMasker.prototype.bindElement = function(el, maskFunction) {
+  VanillaMasker.prototype.bindElement = function(el, maskFunction, params) {
     try {
       var that = this
         , elSliced = [].slice.call(el)
         , elements = elSliced.length ? elSliced : [el]
         , onType = function(e) {
-          e.target.value = that[maskFunction](e.target.value);
+          e.target.value = that[maskFunction](e.target.value, params);
         }
       ;
       for (var i = 0, len = elements.length; i < len; i++) {
@@ -46,7 +42,7 @@
     this.bindElement(el, "toMoney");
   };
 
-  VanillaMasker.prototype.toMoney = function(input) {
+  VanillaMasker.prototype.toMoney = function(value) {
     var precision = this.opts.precision
       , separator = this.opts.separator
       , delimiter = this.opts.delimiter
@@ -55,14 +51,14 @@
     if (this.opts.zeroCents) {
       var zeroMatcher = ("("+ separator +"[0]{0,"+ precision +"})")
         , zeroRegExp = new RegExp(zeroMatcher, "g")
-        , initialInputLength = input.length || 0
+        , initialInputLength = value.length || 0
       ;
-      input = input.toString().replace(zeroRegExp, "");
+      value = value.toString().replace(zeroRegExp, "");
       if (initialInputLength < this.lastOutput.length) {
-        input = input.slice(0, input.length - 1);
+        value = value.slice(0, value.length - 1);
       }
     }
-    var number = input.toString().replace(/[\D]/g, "")
+    var number = value.toString().replace(/[\D]/g, "")
       , clearDelimiter = new RegExp("^(0|\\"+ delimiter +")")
       , clearSeparator = new RegExp("(\\"+ separator +")$")
       , money = number.substr(0, number.length - this.moneyPrecision)
@@ -94,13 +90,17 @@
     this.bindElement(el, "toNumber");
   };
 
-  VanillaMasker.prototype.toNumber = function(input) {
-    return input.toString().replace(/[\D]/g, "");
+  VanillaMasker.prototype.toNumber = function(value) {
+    return value.toString().replace(/[\D]/g, "");
   };
 
-  VanillaMasker.prototype.maskUsingTemplate = function(input, maskPattern) {
-    var output = maskPattern.split("")
-      , values = input.toString().replace(/[^0-9a-zA-Z]/g, "")
+  VanillaMasker.prototype.maskPattern = function(el, pattern) {
+    this.bindElement(el, "toPattern", pattern);
+  };
+
+  VanillaMasker.prototype.toPattern = function(value, pattern) {
+    var output = pattern.split("")
+      , values = value.toString().replace(/[^0-9a-zA-Z]/g, "")
       , index = 0, i = 0
     ;
     for (var len = output.length; i < len; i++) {
@@ -112,38 +112,6 @@
       }
     }
     return output.join("").substr(0, i);
-  };
-
-  VanillaMasker.prototype.maskPhone = function(el) {
-    this.bindElement(el, "toPhone");
-  };
-
-  VanillaMasker.prototype.toPhone = function(input) {
-    return this.maskUsingTemplate(input, this.opts.phone);
-  };
-
-  VanillaMasker.prototype.maskCPF = function(el) {
-    this.bindElement(el, "toCPF");
-  };
-
-  VanillaMasker.prototype.toCPF = function(input) {
-    return this.maskUsingTemplate(input, this.opts.cpf);
-  };
-
-  VanillaMasker.prototype.maskCNPJ = function(el) {
-    this.bindElement(el, "toCNPJ");
-  };
-
-  VanillaMasker.prototype.toCNPJ = function(input) {
-    return this.maskUsingTemplate(input, this.opts.cnpj);
-  };
-
-  VanillaMasker.prototype.maskDate = function(el) {
-    this.bindElement(el, "toDate");
-  };
-
-  VanillaMasker.prototype.toDate = function(input) {
-    return this.maskUsingTemplate(input, this.opts.date);
   };
 
   window.VanillaMasker = VanillaMasker;

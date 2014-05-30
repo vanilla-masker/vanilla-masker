@@ -70,29 +70,15 @@ masker.maskNumber(document.querySelector("input"));
 // Converts any string to number 
 masker.toNumber("123ac34"); // -> 12334
 
-// Listen the input element masking it to date format.
-masker.maskDate(document.querySelector("input"));
+// Listen the input element masking it to format with pattern.
+masker.maskPattern(document.querySelector("input"), "(99) 9999-9999");
 
-// Converts any string to date string 
-masker.toDate("12121900"); // -> 12/12/1990
-
-// Listen the input element masking it to cpf format.
-masker.maskCPF(document.querySelector("input"));
-
-// Converts any string to cpf format 
-masker.toCPF("99999999999"); // -> 999.999.999-99
-
-// Listen the input element masking it to cnpj format.
-masker.maskCNPJ(document.querySelector("input"));
-
-// Converts any string to cnpj format 
-masker.toCNPJ("99999999000199"); // -> 99.999.999.0001-99
-
-// Listen the input element masking it to phone format.
-masker.maskPhone(document.querySelector("input"));
-
-// Converts any string to phone format 
-masker.toPhone("1199999999"); // -> (11) 9999-9999
+// Converts value to masked phone
+masker.toPattern(1099911111, "(99) 9999-9999"); // -> (10) 9991-1111
+// Converts value to masked date
+masker.toPattern(12122000, "99/99/9999"); // -> 12/12/2000
+// Converts value to masked document
+masker.toPattern(99911111101, "999.999.999-99"); // -> 999.111.111-01
 ```
 
 # How to run localhost

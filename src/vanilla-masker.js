@@ -97,15 +97,18 @@
   VanillaMasker.prototype.toPattern = function(value, pattern) {
     var output = pattern.split(""),
         values = value.toString().replace(/[^0-9a-zA-Z]/g, ""),
-        index = 0, i = 0
+        index = 0, 
+        i
     ;
-    for (var len = output.length; i < len; i++) {
+    for (i = 0; i < output.length; i++) {
       if (index >= values.length) {
         break;
       }
       if ((output[i] === DIGIT && values[index].match(/[0-9]/)) ||
           (output[i] === ALPHA && values[index].match(/[a-zA-Z]/))) {
         output[i] = values[index++];
+      } else if (output[i] === DIGIT || output[i] === ALPHA) {
+        output = output.slice(0, i);
       }
     }
     return output.join("").substr(0, i);

@@ -22,44 +22,54 @@ describe("VanillaMasker.maskPattern", function() {
 
 describe("VanillaMasker.toPattern", function() {
 
-  it('returns "(10) 9991-1111" number when input is 1099911111', function() {
+  it('returns "(10) 9991-1111" pattern when input is 1099911111', function() {
     var masker = new VanillaMasker();
     expect(masker.toPattern(1099911111, '(99) 9999-9999')).toEqual('(10) 9991-1111');
   });
 
-  it('returns "(10) 11" number when input is 1011', function() {
+  it('returns "(10) 11" pattern when input is 1011', function() {
     var masker = new VanillaMasker();
     expect(masker.toPattern('1011', '(99) 9999-9999')).toEqual('(10) 11');
   });
 
-  it('returns "+10 11 4444-44" number when input is 1011444444', function() {
+  it('returns "+10 11 4444-44" pattern when input is 1011444444', function() {
     var masker = new VanillaMasker();
     expect(masker.toPattern('1011444444', '+99 99 9999-99')).toEqual('+10 11 4444-44');
   });
 
-  it('returns "12/12/2000" number when input is 12122000', function() {
+  it('returns "12/12/2000" pattern when input is 12122000', function() {
     var masker = new VanillaMasker();
     expect(masker.toPattern(12122000, '99/99/9999')).toEqual('12/12/2000');
   });
 
-  it('returns "10/11" number when input is 1011', function() {
+  it('returns "10/11" pattern when input is 1011', function() {
     var masker = new VanillaMasker();
     expect(masker.toPattern('1011', '99/99/9999')).toEqual('10/11');
   });
 
-  it('returns "2000/12/12" number when input is 20001212', function() {
+  it('returns "2000/12/12" pattern when input is 20001212', function() {
     var masker = new VanillaMasker();
     expect(masker.toPattern('20001212', '9999/99/99')).toEqual('2000/12/12');
   });
 
-  it('returns "999.111.111-01" number when input is 99911111101', function() {
+  it('returns "999.111.111-01" pattern when input is 99911111101', function() {
     var masker = new VanillaMasker();
     expect(masker.toPattern(99911111101, '999.999.999-99')).toEqual('999.111.111-01');
   });
 
-  it('returns "101.1" number when input is 1011', function() {
+  it('returns "101.1" pattern when input is 1011', function() {
     var masker = new VanillaMasker();
     expect(masker.toPattern('1011', '999.999.999-99')).toEqual('101.1');
+  });
+
+  it('returns "ABC-1234" pattern when input is ABC1234', function() {
+    var masker = new VanillaMasker();
+    expect(masker.toPattern('ABC1234', 'AAA-1234')).toEqual('ABC-1234');
+  });
+
+  it('returns incomplete result: "AB" when input is AB1 and pattern is AAA-99', function() {
+    var masker = new VanillaMasker();
+    expect(masker.toPattern('AB1', 'AAA-99')).toEqual('AB');
   });
 
 });

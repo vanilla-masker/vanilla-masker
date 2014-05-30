@@ -50,11 +50,11 @@ This is a cross-browser and cross-device lib for desktop and responsible sites.<
 
 <ul>
 <li>
-<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/src/vanilla-masker.js">development version</a> (4.83 Kbytes);</li>
+<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/src/vanilla-masker.js">development version</a> (3.96 Kbytes);</li>
 <li>
-<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js">minified version</a> (2.59 Kbytes);</li>
+<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js">minified version</a> (1.98 Kbytes);</li>
 <li>
-<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.gz.js">gzipped version</a> (1020 bytes);</li>
+<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.gz.js">gzipped version</a> (894 bytes);</li>
 </ul><p>Or install it using <a href="http://bower.io">Bower</a>: <code>bower install --save vanilla-masker</code></p>
 
 <p>Include it into your html page:</p>
@@ -106,29 +106,15 @@ This is a cross-browser and cross-device lib for desktop and responsible sites.<
 <span class="c1">// Converts any string to number </span>
 <span class="nx">masker</span><span class="p">.</span><span class="nx">toNumber</span><span class="p">(</span><span class="s2">"123ac34"</span><span class="p">);</span> <span class="c1">// -&gt; 12334</span>
 
-<span class="c1">// Listen the input element masking it to date format.</span>
-<span class="nx">masker</span><span class="p">.</span><span class="nx">maskDate</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"input"</span><span class="p">));</span>
+<span class="c1">// Listen the input element masking it to format with pattern.</span>
+<span class="nx">masker</span><span class="p">.</span><span class="nx">maskPattern</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"input"</span><span class="p">),</span> <span class="s2">"(99) 9999-9999"</span><span class="p">);</span>
 
-<span class="c1">// Converts any string to date string </span>
-<span class="nx">masker</span><span class="p">.</span><span class="nx">toDate</span><span class="p">(</span><span class="s2">"12121900"</span><span class="p">);</span> <span class="c1">// -&gt; 12/12/1990</span>
-
-<span class="c1">// Listen the input element masking it to cpf format.</span>
-<span class="nx">masker</span><span class="p">.</span><span class="nx">maskCPF</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"input"</span><span class="p">));</span>
-
-<span class="c1">// Converts any string to cpf format </span>
-<span class="nx">masker</span><span class="p">.</span><span class="nx">toCPF</span><span class="p">(</span><span class="s2">"99999999999"</span><span class="p">);</span> <span class="c1">// -&gt; 999.999.999-99</span>
-
-<span class="c1">// Listen the input element masking it to cnpj format.</span>
-<span class="nx">masker</span><span class="p">.</span><span class="nx">maskCNPJ</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"input"</span><span class="p">));</span>
-
-<span class="c1">// Converts any string to cnpj format </span>
-<span class="nx">masker</span><span class="p">.</span><span class="nx">toCNPJ</span><span class="p">(</span><span class="s2">"99999999000199"</span><span class="p">);</span> <span class="c1">// -&gt; 99.999.999.0001-99</span>
-
-<span class="c1">// Listen the input element masking it to phone format.</span>
-<span class="nx">masker</span><span class="p">.</span><span class="nx">maskPhone</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"input"</span><span class="p">));</span>
-
-<span class="c1">// Converts any string to phone format </span>
-<span class="nx">masker</span><span class="p">.</span><span class="nx">toPhone</span><span class="p">(</span><span class="s2">"1199999999"</span><span class="p">);</span> <span class="c1">// -&gt; (11) 9999-9999</span>
+<span class="c1">// Converts value to masked phone</span>
+<span class="nx">masker</span><span class="p">.</span><span class="nx">toPattern</span><span class="p">(</span><span class="mi">1099911111</span><span class="p">,</span> <span class="s2">"(99) 9999-9999"</span><span class="p">);</span> <span class="c1">// -&gt; (10) 9991-1111</span>
+<span class="c1">// Converts value to masked date</span>
+<span class="nx">masker</span><span class="p">.</span><span class="nx">toPattern</span><span class="p">(</span><span class="mi">12122000</span><span class="p">,</span> <span class="s2">"99/99/9999"</span><span class="p">);</span> <span class="c1">// -&gt; 12/12/2000</span>
+<span class="c1">// Converts value to masked document</span>
+<span class="nx">masker</span><span class="p">.</span><span class="nx">toPattern</span><span class="p">(</span><span class="mi">99911111101</span><span class="p">,</span> <span class="s2">"999.999.999-99"</span><span class="p">);</span> <span class="c1">// -&gt; 999.111.111-01</span>
 </pre></div>
 
 <h1>

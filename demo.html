@@ -1,10 +1,21 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Vanilla.Masker</title>
 		<script src="http://bankfacil.github.io/vanilla-masker/javascripts/vanilla-masker.min.js"></script>
 	</head>
 	<body>
-		<h1><a href="/">Vanilla.Masker</a></h1>
+		<h1>Vanilla.Masker</h1>
+
+		<fieldset>
+			<legend>MaskPatterns</legend>
+			<h4>Telephone</h4>
+			<input type="text" id="phone" autofocus="autofocus">
+			<h4>CPF</h4>
+			<input type="text" id="cpf">
+			<h4>Date</h4>
+			<input type="text" id="date">
+		</fieldset>
 
 		<fieldset>
 			<legend>MaskMoney</legend>
@@ -22,11 +33,6 @@
 
 			<h4>Separator "."</h4>
 			<input type="text" id="separator">
-
-			<h4>Multiples $ inputs</h4>
-			<input type="text" class="multiples">
-			<input type="text" class="multiples">
-			<input type="text" class="multiples">
 		</fieldset>
 		
 		<fieldset>
@@ -34,7 +40,7 @@
 			<h4>Only numbers</h4>
 			<input type="text" id="numbers">
 		</fieldset>
-
+		
 		<script>
 			(function() {
 				var defaults = new VanillaMasker();
@@ -55,8 +61,14 @@
 				var numbers = new VanillaMasker();
 				numbers.maskNumber(document.getElementById("numbers"));
 
-				var multiples = new VanillaMasker({unit: '$'});
-				multiples.maskMoney(document.getElementsByClassName("multiples"));
+				var phone = new VanillaMasker();
+				phone.maskPattern(document.getElementById("phone"), "(99) 9999-9999");
+
+				var cpf = new VanillaMasker();
+				cpf.maskPattern(document.getElementById("cpf"), "999.999.999-99");
+
+				var date = new VanillaMasker();
+				date.maskPattern(document.getElementById("date"), "99/99/9999");
 			})();
 		</script>
 	</body>

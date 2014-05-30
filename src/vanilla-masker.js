@@ -15,14 +15,14 @@
     this.moneyPrecision = opts.zeroCents ? 0 : this.opts.precision;
   };
 
-  VanillaMasker.prototype.bindElement = function(el, maskFunction, params) {
+  VanillaMasker.prototype.bindElementToMask = function(el, maskFunction, params) {
     try {
-      var that = this
-        , elSliced = [].slice.call(el)
-        , elements = elSliced.length ? elSliced : [el]
-        , onType = function(e) {
-          e.target.value = that[maskFunction](e.target.value, params);
-        }
+      var that = this,
+          elSliced = [].slice.call(el),
+          elements = elSliced.length ? elSliced : [el],
+          onType = function(e) {
+            e.target.value = that[maskFunction](e.target.value, params);
+          }
       ;
       for (var i = 0, len = elements.length; i < len; i++) {
         if (elements[i].addEventListener) {
@@ -34,60 +34,56 @@
         }
       }
     } catch(e) {
-      console.log("The element is null.");
+      console.log("There is no element to bind.");
     }
   };
 
   VanillaMasker.prototype.maskMoney = function(el) {
-    this.bindElement(el, "toMoney");
+    this.bindElementToMask(el, "toMoney");
   };
 
   VanillaMasker.prototype.toMoney = function(value) {
-    var precision = this.opts.precision
-      , separator = this.opts.separator
-      , delimiter = this.opts.delimiter
-      , unit = this.opts.unit
-    ;
     if (this.opts.zeroCents) {
-      var zeroMatcher = ("("+ separator +"[0]{0,"+ precision +"})")
-        , zeroRegExp = new RegExp(zeroMatcher, "g")
-        , initialInputLength = value.length || 0
+      var zeroMatcher = ("("+ this.opts.separator +"[0]{0,"+ this.opts.precision +"})"),
+          zeroRegExp = new RegExp(zeroMatcher, "g"),
+          initialInputLength = value.length || 0
       ;
       value = value.toString().replace(zeroRegExp, "");
       if (initialInputLength < this.lastOutput.length) {
         value = value.slice(0, value.length - 1);
       }
     }
-    var number = value.toString().replace(/[\D]/g, "")
-      , clearDelimiter = new RegExp("^(0|\\"+ delimiter +")")
-      , clearSeparator = new RegExp("(\\"+ separator +")$")
-      , money = number.substr(0, number.length - this.moneyPrecision)
-      , masked = money.substr(0, money.length % 3)
-      , cents = new Array(precision + 1).join("0")
+    var number = value.toString().replace(/[\D]/g, ""),
+        clearDelimiter = new RegExp("^(0|\\"+ this.opts.delimiter +")"),
+        clearSeparator = new RegExp("(\\"+ this.opts.separator +")$"),
+        money = number.substr(0, number.length - this.moneyPrecision),
+        masked = money.substr(0, money.length % 3),
+        cents = new Array(this.opts.precision + 1).join("0")
     ;
     money = money.substr(money.length % 3, money.length);
     for (var i = 0, len = money.length; i < len; i++) {
       if (i % 3 === 0) {
-        masked += delimiter;
+        masked += this.opts.delimiter;
       }
       masked += money[i];
     }
     masked = masked.replace(clearDelimiter, "");
     masked = masked.length ? masked : "0";
     if (!this.opts.zeroCents) {
-      var beginCents = number.length - precision;
-      var centsValue = number.substr(beginCents, precision);
-      var centsLength = centsValue.length;
-      var centsSliced = (precision > centsLength) ? precision : centsLength;
+      var beginCents = number.length - this.opts.precision,
+          centsValue = number.substr(beginCents, this.opts.precision),
+          centsLength = centsValue.length,
+          centsSliced = (this.opts.precision > centsLength) ? this.opts.precision : centsLength
+      ;
       cents = (cents + centsValue).slice(-centsSliced);
     }
-    var output = (unit + masked + separator + cents);
+    var output = (this.opts.unit + masked + this.opts.separator + cents);
     this.lastOutput = output = output.replace(clearSeparator, "");
     return output;
   };
 
   VanillaMasker.prototype.maskNumber = function(el) {
-    this.bindElement(el, "toNumber");
+    this.bindElementToMask(el, "toNumber");
   };
 
   VanillaMasker.prototype.toNumber = function(value) {
@@ -95,20 +91,21 @@
   };
 
   VanillaMasker.prototype.maskPattern = function(el, pattern) {
-    this.bindElement(el, "toPattern", pattern);
+    this.bindElementToMask(el, "toPattern", pattern);
   };
 
   VanillaMasker.prototype.toPattern = function(value, pattern) {
-    var output = pattern.split("")
-      , values = value.toString().replace(/[^0-9a-zA-Z]/g, "")
-      , index = 0, i = 0
+    var output = pattern.split(""),
+        values = value.toString().replace(/[^0-9a-zA-Z]/g, ""),
+        index = 0, i = 0
     ;
     for (var len = output.length; i < len; i++) {
-      if (index >= values.length) break;
+      if (index >= values.length) {
+        break;
+      }
       if ((output[i] === DIGIT && values[index].match(/[0-9]/)) ||
           (output[i] === ALPHA && values[index].match(/[a-zA-Z]/))) {
-        output[i] = values[index];
-        index++;
+        output[i] = values[index++];
       }
     }
     return output.join("").substr(0, i);

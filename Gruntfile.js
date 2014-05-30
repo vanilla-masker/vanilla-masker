@@ -35,9 +35,6 @@ module.exports = function(grunt) {
 
     // JSHint ========================================
     jshint: {
-      options: {
-        laxcomma: true
-      },
       all: ["src/vanilla-masker.js"]
     },
 

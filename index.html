@@ -69,8 +69,10 @@ This is a cross-browser and cross-device lib for desktop and responsible sites.<
 
 <p>You can use the code below...</p>
 
-<div class="highlight highlight-javascript"><pre><span class="c1">// Constructor</span>
-<span class="c1">// Input number example: 1234567890</span>
+<h3>
+<a name="constructor" class="anchor" href="#constructor"><span class="octicon octicon-link"></span></a>Constructor</h3>
+
+<div class="highlight highlight-javascript"><pre><span class="c1">// Input number example: 1234567890</span>
 <span class="kd">var</span> <span class="nx">masker</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VanillaMasker</span><span class="p">({</span>
   <span class="c1">// Decimal precision -&gt; "90"</span>
   <span class="nx">precision</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> 
@@ -83,15 +85,14 @@ This is a cross-browser and cross-device lib for desktop and responsible sites.<
   <span class="c1">// Force type only number instead decimal,</span>
   <span class="c1">// masking decimals with ",00"</span>
   <span class="c1">// Zero cents -&gt; "R$ 1.234.567.890,00"</span>
-  <span class="nx">zeroCents</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="c1">// Phone format</span>
-  <span class="nx">phone</span><span class="o">:</span> <span class="s1">'(99) 9999-9999'</span><span class="p">,</span>
-  <span class="c1">// Date format</span>
-  <span class="nx">date</span><span class="o">:</span> <span class="s1">'99/99/9999'</span>
+  <span class="nx">zeroCents</span><span class="o">:</span> <span class="kc">true</span>
 <span class="p">});</span>
+</pre></div>
 
-<span class="c1">// Functions</span>
-<span class="c1">// Listen the input element masking it to money.</span>
+<h3>
+<a name="masking-to-money-format" class="anchor" href="#masking-to-money-format"><span class="octicon octicon-link"></span></a>Masking to money format</h3>
+
+<div class="highlight highlight-javascript"><pre><span class="c1">// Listen the input element masking it to money.</span>
 <span class="nx">masker</span><span class="p">.</span><span class="nx">maskMoney</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"input"</span><span class="p">));</span>
 
 <span class="c1">// Listen array of input elements masking it to money.</span>
@@ -99,14 +100,22 @@ This is a cross-browser and cross-device lib for desktop and responsible sites.<
 
 <span class="c1">// Converts number to money string</span>
 <span class="nx">masker</span><span class="p">.</span><span class="nx">toMoney</span><span class="p">(</span><span class="mi">1234</span><span class="p">);</span> <span class="c1">// -&gt; R$ 1.234,00</span>
+</pre></div>
 
-<span class="c1">// Listen the input element masking it to number.</span>
+<h3>
+<a name="masking-only-numbers" class="anchor" href="#masking-only-numbers"><span class="octicon octicon-link"></span></a>Masking only numbers</h3>
+
+<div class="highlight highlight-javascript"><pre><span class="c1">// Listen the input element masking it to number.</span>
 <span class="nx">masker</span><span class="p">.</span><span class="nx">maskNumber</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"input"</span><span class="p">));</span>
 
 <span class="c1">// Converts any string to number </span>
 <span class="nx">masker</span><span class="p">.</span><span class="nx">toNumber</span><span class="p">(</span><span class="s2">"123ac34"</span><span class="p">);</span> <span class="c1">// -&gt; 12334</span>
+</pre></div>
 
-<span class="c1">// Listen the input element masking it to format with pattern.</span>
+<h3>
+<a name="masking-custom-pattern" class="anchor" href="#masking-custom-pattern"><span class="octicon octicon-link"></span></a>Masking custom pattern</h3>
+
+<div class="highlight highlight-javascript"><pre><span class="c1">// Listen the input element masking it to format with pattern.</span>
 <span class="nx">masker</span><span class="p">.</span><span class="nx">maskPattern</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"input"</span><span class="p">),</span> <span class="s2">"(99) 9999-9999"</span><span class="p">);</span>
 
 <span class="c1">// Converts value to masked phone</span>
@@ -115,6 +124,8 @@ This is a cross-browser and cross-device lib for desktop and responsible sites.<
 <span class="nx">masker</span><span class="p">.</span><span class="nx">toPattern</span><span class="p">(</span><span class="mi">12122000</span><span class="p">,</span> <span class="s2">"99/99/9999"</span><span class="p">);</span> <span class="c1">// -&gt; 12/12/2000</span>
 <span class="c1">// Converts value to masked document</span>
 <span class="nx">masker</span><span class="p">.</span><span class="nx">toPattern</span><span class="p">(</span><span class="mi">99911111101</span><span class="p">,</span> <span class="s2">"999.999.999-99"</span><span class="p">);</span> <span class="c1">// -&gt; 999.111.111-01</span>
+<span class="c1">// Converts value to masked car plate</span>
+<span class="nx">masker</span><span class="p">.</span><span class="nx">toPattern</span><span class="p">(</span><span class="s1">'ABC1234'</span><span class="p">,</span> <span class="s2">"AAA-9999"</span><span class="p">);</span> <span class="c1">// -&gt; ABC-1234</span>
 </pre></div>
 
 <h1>
@@ -148,6 +159,8 @@ This is a cross-browser and cross-device lib for desktop and responsible sites.<
 <a name="todo---we-need-pull-requests-" class="anchor" href="#todo---we-need-pull-requests-"><span class="octicon octicon-link"></span></a>TODO - we need pull requests :]</h1>
 
 <ul>
+<li>Internet Explorer 8 support;</li>
+<li>Opera mobile support;</li>
 <li>AMD support;</li>
 <li>Beautify Demo Page;</li>
 </ul><h1>
@@ -177,6 +190,36 @@ Leandro Alvares da Costa - <a href="mailto:leandroadacosta@gmail.com">leandroada
 Henrique Antonini Silvério - <a href="mailto:contato@henriquesilverio.com">contato@henriquesilverio.com</a></p>
 
 <h1>
+<a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a>Changelog</h1>
+
+<h2>
+<a name="030" class="anchor" href="#030"><span class="octicon octicon-link"></span></a>0.3.0</h2>
+
+<ul>
+<li>Accepting elements from mask function</li>
+<li>Changed maskPhone, maskCPF, maskCNPJ and maskDate to maskPattern function</li>
+<li>Added toPattern function</li>
+<li>Fixed maskPattern when types pattern "A" in a mask which has only pattern "9"</li>
+</ul><h2>
+<a name="020" class="anchor" href="#020"><span class="octicon octicon-link"></span></a>0.2.0</h2>
+
+<ul>
+<li>Added zeroCents to maskMoney function</li>
+<li>Added maskPhone, maskCPF, maskCNPJ and maskDate function</li>
+<li>Added bindElementToMask function</li>
+</ul><h2>
+<a name="010" class="anchor" href="#010"><span class="octicon octicon-link"></span></a>0.1.0</h2>
+
+<ul>
+<li>Added maskMoney</li>
+<li>Added Bower support</li>
+<li>Added Demo page</li>
+<li>Added JSHint</li>
+<li>Mobile browser support</li>
+<li>Added Grunt build</li>
+<li>Added Travis-CI</li>
+<li>Added CodeClimate</li>
+</ul><h1>
 <a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h1>
 
 <p>MIT License: <a href="http://bankfacil.mit-license.org">http://bankfacil.mit-license.org</a></p>

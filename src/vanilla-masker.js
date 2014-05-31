@@ -18,10 +18,13 @@
   VanillaMasker.prototype.bindElementToMask = function(el, maskFunction, params) {
     try {
       var that = this,
-          elSliced = [].slice.call(el),
-          elements = elSliced.length ? elSliced : [el],
+          elements = el.length ? el : [el],
           onType = function(e) {
-            e.target.value = that[maskFunction](e.target.value, params);
+            if (e.target) {
+              e.target.value = that[maskFunction](e.target.value, params);
+            } else {
+              e.srcElement.value = that[maskFunction](e.srcElement.value, params);
+            }
           }
       ;
       for (var i = 0, len = elements.length; i < len; i++) {

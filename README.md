@@ -124,7 +124,7 @@ Desktop browsers:
 * Firefox
 * Safari
 * Opera
-* Internet Explorer 9+ (coming soon IE8 support)
+* Internet Explorer 8+
 
 Mobile browsers:
 
@@ -148,6 +148,7 @@ Henrique Antonini Silvério - contato@henriquesilverio.com
 * Changed maskPhone, maskCPF, maskCNPJ and maskDate to maskPattern function
 * Added toPattern function
 * Fixed maskPattern when types pattern "A" in a mask which has only pattern "9"
+* Internet Explorer 8 support
 
 ## 0.2.0
 

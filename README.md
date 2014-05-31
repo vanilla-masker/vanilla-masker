@@ -32,8 +32,10 @@ And given these simple inputs tag:
 ```
 
 You can use the code below...
+
+### Constructor
+
 ``` javascript
-// Constructor
 // Input number example: 1234567890
 var masker = new VanillaMasker({
   // Decimal precision -> "90"
@@ -47,14 +49,13 @@ var masker = new VanillaMasker({
   // Force type only number instead decimal,
   // masking decimals with ",00"
   // Zero cents -> "R$ 1.234.567.890,00"
-  zeroCents: true,
-  // Phone format
-  phone: '(99) 9999-9999',
-  // Date format
-  date: '99/99/9999'
+  zeroCents: true
 });
+```
 
-// Functions
+### Masking to money format
+
+``` javascript
 // Listen the input element masking it to money.
 masker.maskMoney(document.querySelector("input"));
 
@@ -63,13 +64,21 @@ masker.maskMoney(document.querySelectorAll("input"));
 
 // Converts number to money string
 masker.toMoney(1234); // -> R$ 1.234,00
+```
 
+### Masking only numbers
+
+``` javascript
 // Listen the input element masking it to number.
 masker.maskNumber(document.querySelector("input"));
 
 // Converts any string to number 
 masker.toNumber("123ac34"); // -> 12334
+```
 
+### Masking custom pattern
+
+``` javascript
 // Listen the input element masking it to format with pattern.
 masker.maskPattern(document.querySelector("input"), "(99) 9999-9999");
 
@@ -79,6 +88,8 @@ masker.toPattern(1099911111, "(99) 9999-9999"); // -> (10) 9991-1111
 masker.toPattern(12122000, "99/99/9999"); // -> 12/12/2000
 // Converts value to masked document
 masker.toPattern(99911111101, "999.999.999-99"); // -> 999.111.111-01
+// Converts value to masked car plate
+masker.toPattern('ABC1234', "AAA-9999"); // -> ABC-1234
 ```
 
 # How to run localhost
@@ -100,6 +111,8 @@ masker.toPattern(99911111101, "999.999.999-99"); // -> 999.111.111-01
 
 # TODO - we need pull requests :]
 
+* Internet Explorer 8 support;
+* Opera mobile support;
 * AMD support;
 * Beautify Demo Page;
 
@@ -126,6 +139,32 @@ Mobile browsers:
 Caio Ribeiro Pereira - caio.ribeiro.pereira@gmail.com  
 Leandro Alvares da Costa - leandroadacosta@gmail.com  
 Henrique Antonini Silvério - contato@henriquesilverio.com
+
+# Changelog
+
+## 0.3.0
+
+* Accepting elements from mask function
+* Changed maskPhone, maskCPF, maskCNPJ and maskDate to maskPattern function
+* Added toPattern function
+* Fixed maskPattern when types pattern "A" in a mask which has only pattern "9"
+
+## 0.2.0
+
+* Added zeroCents to maskMoney function
+* Added maskPhone, maskCPF, maskCNPJ and maskDate function
+* Added bindElementToMask function
+
+## 0.1.0
+
+* Added maskMoney
+* Added Bower support
+* Added Demo page
+* Added JSHint
+* Mobile browser support
+* Added Grunt build
+* Added Travis-CI
+* Added CodeClimate
 
 # License
 

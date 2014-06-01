@@ -111,7 +111,6 @@ masker.toPattern('ABC1234', "AAA-9999"); // -> ABC-1234
 
 # TODO - we need pull requests :]
 
-* Internet Explorer 8 support;
 * Opera mobile support;
 * AMD support;
 * Beautify Demo Page;

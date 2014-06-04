@@ -34,19 +34,19 @@
 <p><a href="https://travis-ci.org/BankFacil/vanilla-masker"><img src="https://travis-ci.org/BankFacil/vanilla-masker.svg" alt="Build Status"></a>
 <a href="https://codeclimate.com/github/BankFacil/vanilla-masker"><img src="https://codeclimate.com/github/BankFacil/vanilla-masker.png" alt="Code Climate"></a></p>
 
-<p>It's a pure JavaScript input mask.<br>
-Now you can use a simple and pure javascript lib to mask html elements.<br>
-Fuck jQuery, Zepto and any others javascript frameworks!</p>
+<p>It's a pure JavaScript mask input.<br>
+Now you can use a simple and pure javascript lib to mask your input elements, without need to load jQuery or Zepto to do it.
+By the way fuck jQuery, Zepto or any others javascript frameworks!</p>
 
-<p>Let's live now in a lightweight client-side world using VanillaMasker.<br>
-This is a cross-browser and cross-device lib for desktop and responsible sites.</p>
+<p>Let's live a lightweight client-side world using VanillaMasker.<br>
+Don't worry about where this will work, because this is a cross-browser and cross-device library. And if you find any bug, please let us know about it [reporting an issue].(<a href="https://github.com/BankFacil/vanilla-masker/issues">https://github.com/BankFacil/vanilla-masker/issues</a>)</p>
 
-<p>The <a href="http://bankfacil.github.io/vanilla-masker/demo.html">demo page</a>.</p>
+<p>If you wanna see how this lib works, [click here to test this demo page].(<a href="http://bankfacil.github.io/vanilla-masker/demo.html">http://bankfacil.github.io/vanilla-masker/demo.html</a>).</p>
 
 <h1>
-<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use</h1>
+<a name="how-to-install" class="anchor" href="#how-to-install"><span class="octicon octicon-link"></span></a>How to install</h1>
 
-<p>Download the lib: </p>
+<p>You can download the lib: </p>
 
 <ul>
 <li>
@@ -55,22 +55,34 @@ This is a cross-browser and cross-device lib for desktop and responsible sites.<
 <a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js">minified version</a> (2.21 Kbytes);</li>
 <li>
 <a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.gz.js">gzipped version</a> (912 bytes);</li>
-</ul><p>Or install it using <a href="http://bower.io">Bower</a>: <code>bower install --save vanilla-masker</code></p>
+</ul><p>Please, this lib don't have CDN yet, so you need to download and put it in your own site. </p>
 
-<p>Include it into your html page:</p>
+<p>You can install it via bower too, using this command: <code>bower install --save vanilla-masker</code></p>
 
-<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"vanilla-masker.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-</pre></div>
-
-<p>And given these simple inputs tag:</p>
-
-<div class="highlight highlight-html"><pre><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
-</pre></div>
-
-<p>You can use the code below...</p>
+<h1>
+<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use</h1>
 
 <h3>
-<a name="constructor" class="anchor" href="#constructor"><span class="octicon octicon-link"></span></a>Constructor</h3>
+<a name="loading-the-lib" class="anchor" href="#loading-the-lib"><span class="octicon octicon-link"></span></a>Loading the lib</h3>
+
+<p>Like I said, you need to download and put this lib in your own site, using this tag below:</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;html&gt;</span>
+   <span class="nt">&lt;head&gt;</span>
+      <span class="c">&lt;!-- Loading the vanilla-masker lib --&gt;</span>
+      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"vanilla-masker.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+   <span class="nt">&lt;/head&gt;</span>
+   <span class="nt">&lt;body&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+<h3>
+<a name="using-the-lib" class="anchor" href="#using-the-lib"><span class="octicon octicon-link"></span></a>Using the lib</h3>
+
+<h4>
+<a name="constructor" class="anchor" href="#constructor"><span class="octicon octicon-link"></span></a>Constructor</h4>
 
 <div class="highlight highlight-javascript"><pre><span class="c1">// Input number example: 1234567890</span>
 <span class="kd">var</span> <span class="nx">masker</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VanillaMasker</span><span class="p">({</span>
@@ -89,8 +101,8 @@ This is a cross-browser and cross-device lib for desktop and responsible sites.<
 <span class="p">});</span>
 </pre></div>
 
-<h3>
-<a name="masking-to-money-format" class="anchor" href="#masking-to-money-format"><span class="octicon octicon-link"></span></a>Masking to money format</h3>
+<h4>
+<a name="masking-to-money-format" class="anchor" href="#masking-to-money-format"><span class="octicon octicon-link"></span></a>Masking to money format</h4>
 
 <div class="highlight highlight-javascript"><pre><span class="c1">// Listen the input element masking it to money.</span>
 <span class="nx">masker</span><span class="p">.</span><span class="nx">maskMoney</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"input"</span><span class="p">));</span>
@@ -102,8 +114,8 @@ This is a cross-browser and cross-device lib for desktop and responsible sites.<
 <span class="nx">masker</span><span class="p">.</span><span class="nx">toMoney</span><span class="p">(</span><span class="mi">1234</span><span class="p">);</span> <span class="c1">// -&gt; R$ 1.234,00</span>
 </pre></div>
 
-<h3>
-<a name="masking-only-numbers" class="anchor" href="#masking-only-numbers"><span class="octicon octicon-link"></span></a>Masking only numbers</h3>
+<h4>
+<a name="masking-only-numbers" class="anchor" href="#masking-only-numbers"><span class="octicon octicon-link"></span></a>Masking only numbers</h4>
 
 <div class="highlight highlight-javascript"><pre><span class="c1">// Listen the input element masking it to number.</span>
 <span class="nx">masker</span><span class="p">.</span><span class="nx">maskNumber</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"input"</span><span class="p">));</span>
@@ -112,8 +124,8 @@ This is a cross-browser and cross-device lib for desktop and responsible sites.<
 <span class="nx">masker</span><span class="p">.</span><span class="nx">toNumber</span><span class="p">(</span><span class="s2">"123ac34"</span><span class="p">);</span> <span class="c1">// -&gt; 12334</span>
 </pre></div>
 
-<h3>
-<a name="masking-custom-pattern" class="anchor" href="#masking-custom-pattern"><span class="octicon octicon-link"></span></a>Masking custom pattern</h3>
+<h4>
+<a name="masking-custom-pattern" class="anchor" href="#masking-custom-pattern"><span class="octicon octicon-link"></span></a>Masking custom pattern</h4>
 
 <div class="highlight highlight-javascript"><pre><span class="c1">// Listen the input element masking it to format with pattern.</span>
 <span class="nx">masker</span><span class="p">.</span><span class="nx">maskPattern</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"input"</span><span class="p">),</span> <span class="s2">"(99) 9999-9999"</span><span class="p">);</span>
@@ -159,8 +171,7 @@ This is a cross-browser and cross-device lib for desktop and responsible sites.<
 <a name="todo---we-need-pull-requests-" class="anchor" href="#todo---we-need-pull-requests-"><span class="octicon octicon-link"></span></a>TODO - we need pull requests :]</h1>
 
 <ul>
-<li>Internet Explorer 8 support;</li>
-<li>Opera mobile support;</li>
+<li>Test Opera mini browser;</li>
 <li>AMD support;</li>
 <li>Beautify Demo Page;</li>
 </ul><h1>
@@ -169,19 +180,19 @@ This is a cross-browser and cross-device lib for desktop and responsible sites.<
 <p>Desktop browsers:</p>
 
 <ul>
-<li>Chrome</li>
-<li>Firefox</li>
-<li>Safari</li>
-<li>Opera</li>
+<li>Chrome 4.0+</li>
+<li>Firefox 2.0+</li>
+<li>Safari 4.0+</li>
+<li>Opera 10.0+</li>
 <li>Internet Explorer 8+</li>
 </ul><p>Mobile browsers:</p>
 
 <ul>
-<li>Android (2.2+) native browsers</li>
-<li>Chrome mobile</li>
-<li>Dolphin</li>
-<li>Opera mobile (not tested yet)</li>
-<li>iOS</li>
+<li>Android browser 2.2+</li>
+<li>Chrome mobile 35.0+</li>
+<li>Firefox mobile 29.0+</li>
+<li>Opera mobile 10.0+</li>
+<li>iOS Safari 3.2+</li>
 </ul><h1>
 <a name="contributors" class="anchor" href="#contributors"><span class="octicon octicon-link"></span></a>Contributors</h1>
 

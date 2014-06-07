@@ -1,5 +1,12 @@
-(function() {
-
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
+    define(factory);
+  } else {
+    // Browser globals.
+    root.VanillaMasker = factory();
+  }
+}(this, function() {
   var DIGIT = "9", ALPHA = "A";
 
   var VanillaMasker = function(opts) {
@@ -100,7 +107,7 @@
   VanillaMasker.prototype.toPattern = function(value, pattern) {
     var output = pattern.split(""),
         values = value.toString().replace(/[^0-9a-zA-Z]/g, ""),
-        index = 0, 
+        index = 0,
         i
     ;
     for (i = 0; i < output.length; i++) {
@@ -117,6 +124,6 @@
     return output.join("").substr(0, i);
   };
 
-  window.VanillaMasker = VanillaMasker;
-
-})();
+  // Return a value to define the module export.
+  return VanillaMasker;
+}));

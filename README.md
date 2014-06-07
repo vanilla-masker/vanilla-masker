@@ -15,9 +15,9 @@ If you wanna see how this lib works, [click here to test this demo page](http://
 # How to install
 
 You can download the lib: 
-* [development version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/src/vanilla-masker.js) (4.17 Kbytes);
-* [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js) (2.21 Kbytes);
-* [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.gz.js) (912 bytes);
+* [development version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/src/vanilla-masker.js) (4.43 Kbytes);
+* [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js) (2.28 Kbytes);
+* [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.gz.js) (946 bytes);
 
 Please, this lib don't have CDN yet, so you need to download and put it in your own site. 
 
@@ -156,6 +156,7 @@ Henrique Antonini Silvério - contato@henriquesilverio.com
 * Added toPattern function
 * Fixed maskPattern when types pattern "A" in a mask which has only pattern "9"
 * Internet Explorer 8 support
+* Added AMD support (only client-side)
 
 ## 0.2.0
 

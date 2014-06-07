@@ -121,7 +121,6 @@ masker.toPattern('ABC1234', "AAA-9999"); // -> ABC-1234
 # TODO - we need pull requests :]
 
 * Test Opera mini browser;
-* AMD support;
 * Beautify Demo Page;
 
 # Compatibility

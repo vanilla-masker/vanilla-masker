@@ -31,12 +31,11 @@ Like I said, you need to download and put this lib in your own site, using this 
 
 ``` html
 <html>
-   <head>
-      <!-- Loading the vanilla-masker lib -->
-      <script src="vanilla-masker.min.js"></script>
-   </head>
+   <head></head>
    <body>
       <input type="text">
+      <!-- Loading the vanilla-masker lib -->
+      <script src="vanilla-masker.min.js"></script>
    </body>
 </html>
 ```

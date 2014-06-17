@@ -82,6 +82,7 @@ masker.maskNumber(document.querySelector("input"));
 
 // Converts any string to number 
 masker.toNumber("123ac34"); // -> 12334
+masker.toNumber("-123ac34"); // -> -12334
 ```
 
 #### Masking custom pattern

@@ -50,11 +50,11 @@ Don't worry about where this will work, because this is a cross-browser and cros
 
 <ul>
 <li>
-<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/src/vanilla-masker.js">development version</a> (4.17 Kbytes);</li>
+<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/src/vanilla-masker.js">development version</a> (4.43 Kbytes);</li>
 <li>
-<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js">minified version</a> (2.21 Kbytes);</li>
+<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js">minified version</a> (2.28 Kbytes);</li>
 <li>
-<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.gz.js">gzipped version</a> (912 bytes);</li>
+<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.gz.js">gzipped version</a> (946 bytes);</li>
 </ul><p>Please, this lib don't have CDN yet, so you need to download and put it in your own site. </p>
 
 <p>You can install it via bower too, using this command: <code>bower install --save vanilla-masker</code></p>
@@ -68,12 +68,11 @@ Don't worry about where this will work, because this is a cross-browser and cros
 <p>Like I said, you need to download and put this lib in your own site, using this tag below:</p>
 
 <div class="highlight highlight-html"><pre><span class="nt">&lt;html&gt;</span>
-   <span class="nt">&lt;head&gt;</span>
-      <span class="c">&lt;!-- Loading the vanilla-masker lib --&gt;</span>
-      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"vanilla-masker.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-   <span class="nt">&lt;/head&gt;</span>
+   <span class="nt">&lt;head&gt;&lt;/head&gt;</span>
    <span class="nt">&lt;body&gt;</span>
       <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+      <span class="c">&lt;!-- Loading the vanilla-masker lib --&gt;</span>
+      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"vanilla-masker.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
    <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
 </pre></div>
@@ -122,6 +121,7 @@ Don't worry about where this will work, because this is a cross-browser and cros
 
 <span class="c1">// Converts any string to number </span>
 <span class="nx">masker</span><span class="p">.</span><span class="nx">toNumber</span><span class="p">(</span><span class="s2">"123ac34"</span><span class="p">);</span> <span class="c1">// -&gt; 12334</span>
+<span class="nx">masker</span><span class="p">.</span><span class="nx">toNumber</span><span class="p">(</span><span class="s2">"-123ac34"</span><span class="p">);</span> <span class="c1">// -&gt; -12334</span>
 </pre></div>
 
 <h4>
@@ -172,7 +172,6 @@ Don't worry about where this will work, because this is a cross-browser and cros
 
 <ul>
 <li>Test Opera mini browser;</li>
-<li>AMD support;</li>
 <li>Beautify Demo Page;</li>
 </ul><h1>
 <a name="compatibility" class="anchor" href="#compatibility"><span class="octicon octicon-link"></span></a>Compatibility</h1>
@@ -212,6 +211,8 @@ Henrique Antonini Silvério - <a href="mailto:contato@henriquesilverio.com">cont
 <li>Added toPattern function</li>
 <li>Fixed maskPattern when types pattern "A" in a mask which has only pattern "9"</li>
 <li>Internet Explorer 8 support</li>
+<li>Added AMD support (only client-side)</li>
+<li>maskNumber function accepts negative numbers </li>
 </ul><h2>
 <a name="020" class="anchor" href="#020"><span class="octicon octicon-link"></span></a>0.2.0</h2>
 

@@ -32,9 +32,14 @@ describe("VanillaMasker.toNumber", function() {
     expect(masker.toNumber('1a0b0c000')).toEqual('100000');
   });
 
-  it('returns 10 number when input is -10', function() {
+  it('returns 10 number when input is 1-0', function() {
     var masker = new VanillaMasker();
-    expect(masker.toNumber('-10')).toEqual('10');
+    expect(masker.toNumber('1-0')).toEqual('10');
+  });
+
+  it('returns -10 number when input is -10', function() {
+    var masker = new VanillaMasker();
+    expect(masker.toNumber('-10')).toEqual('-10');
   });
 
 });

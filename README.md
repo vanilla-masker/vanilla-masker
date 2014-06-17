@@ -156,6 +156,7 @@ Henrique Antonini Silvério - contato@henriquesilverio.com
 * Fixed maskPattern when types pattern "A" in a mask which has only pattern "9"
 * Internet Explorer 8 support
 * Added AMD support (only client-side)
+* maskNumber function accepts negative numbers 
 
 ## 0.2.0
 

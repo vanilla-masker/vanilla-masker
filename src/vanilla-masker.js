@@ -97,7 +97,7 @@
   };
 
   VanillaMasker.prototype.toNumber = function(value) {
-    return value.toString().replace(/[\D]/g, "");
+    return value.toString().replace(/(?!^-)[^0-9]/g, "");
   };
 
   VanillaMasker.prototype.maskPattern = function(el, pattern) {

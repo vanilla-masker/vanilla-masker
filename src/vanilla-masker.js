@@ -17,7 +17,7 @@
       delimiter: opts.delimiter || ".",
       unit: opts.unit && (opts.unit + " ") || "",
       zeroCents: opts.zeroCents,
-      suppressLogging: opts.suppressLogging ? true : false,
+      suppressLogging: opts.suppressLogging ? true : false
     };
     this.lastOutput = "";
     this.moneyPrecision = opts.zeroCents ? 0 : this.opts.precision;

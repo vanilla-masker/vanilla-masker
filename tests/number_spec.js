@@ -18,6 +18,17 @@ describe("VanillaMasker.maskNumber", function() {
     expect(console.log).toHaveBeenCalledWith('There is no element to bind.');
   });
 
+  it('do not console log "There is no element to bind." if element is [] and suppressLogging = true', function() {
+    spyOn(console, 'log');
+    new VanillaMasker({suppressLogging: true}).maskNumber([]);
+    expect(console.log).not.toHaveBeenCalledWith('There is no element to bind.');
+  });
+
+  it('console log "There is no element to bind." if the element is [] and suppressLogging = false', function() {
+    spyOn(console, 'log');
+    new VanillaMasker({suppressLogging: false}).maskNumber([]);
+    expect(console.log).toHaveBeenCalledWith('There is no element to bind.');
+  });
 });
 
 describe("VanillaMasker.toNumber", function() {

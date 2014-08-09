@@ -16,7 +16,8 @@
       separator: opts.separator || ",",
       delimiter: opts.delimiter || ".",
       unit: opts.unit && (opts.unit + " ") || "",
-      zeroCents: opts.zeroCents
+      zeroCents: opts.zeroCents,
+      suppressLogging: opts.suppressLogging ? true : false
     };
     this.lastOutput = "";
     this.moneyPrecision = opts.zeroCents ? 0 : this.opts.precision;
@@ -44,7 +45,9 @@
         }
       }
     } catch(e) {
-      console.log("There is no element to bind.");
+      if(!this.opts.suppressLogging){
+          console.log("There is no element to bind.");
+      }
     }
   };
 

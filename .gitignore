@@ -1,5 +1,5 @@
 node_modules
-public
+public/vanilla-masker.js
 .DS_Store
 _SpecRunner.html
 .grunt

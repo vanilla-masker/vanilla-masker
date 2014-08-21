@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>Vanilla.Masker</title>
-		<script src="/vanilla-masker.min.js"></script>
+		<script src="/vanilla-masker.js"></script>
 	</head>
 	<body>
 		<h1>Vanilla.Masker</h1>
@@ -10,13 +10,13 @@
 		<fieldset>
 			<legend>#maskMoney</legend>
 
-			<h4>Default:</h4>
+			<h4>Default</h4>
 			<input type="text" id="default">
 
-			<h4>Zero cents:</h4>
+			<h4>Zero cents</h4>
 			<input type="text" id="zeroCents">
 
-			<h4>Unit R$:</h4>
+			<h4>Unit R$</h4>
 			<input type="text" id="unit">
 
 			<h4>Delimiter ","</h4>
@@ -24,6 +24,9 @@
 
 			<h4>Separator "."</h4>
 			<input type="text" id="separator">
+
+			<h4>Default with values</h4>
+			<input type="text" id="defaultValues" value="1000">
 		</fieldset>
 
 		<br>
@@ -43,6 +46,9 @@
 			<h4>Phone</h4>
 			<input type="text" id="phone">
 
+			<h4>Phone with values</h4>
+			<input type="text" id="phoneValues" value="3141232312">
+
 			<h4>Date</h4>
 			<input type="text" id="date">
 
@@ -59,6 +65,9 @@
 				var defaults = new VanillaMasker();
 				defaults.maskMoney(document.getElementById("default"));
 
+				var defaultValues = new VanillaMasker();
+				defaultValues.maskMoney(document.getElementById("defaultValues"));
+
 				var zeroCents = new VanillaMasker({zeroCents: true});
 				zeroCents.maskMoney(document.getElementById("zeroCents"));
 
@@ -71,9 +80,6 @@
 				var separator = new VanillaMasker({separator: '.'});
 				separator.maskMoney(document.getElementById("separator"));
 
-				var multiples = new VanillaMasker({unit: '$'});
-				multiples.maskMoney(document.getElementsByClassName("multiples"));
-
 				// #maskNumber
 				var numbers = new VanillaMasker();
 				numbers.maskNumber(document.getElementById("numbers"));
@@ -81,6 +87,9 @@
 				// #maskPattern
 				var phone = new VanillaMasker();
 				phone.maskPattern(document.getElementById("phone"), '(99) 9999-9999');
+
+				var phoneValues = new VanillaMasker();
+				phoneValues.maskPattern(document.getElementById("phoneValues"), '(99) 9999-9999');
 
 				var date = new VanillaMasker();
 				date.maskPattern(document.getElementById("date"), '99/99/9999');

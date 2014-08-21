@@ -1,33 +1,33 @@
 describe("VanillaMasker.maskPattern", function() {
 
-  it('console log "There is no element to bind." if the element is undefined', function() {
+  it('console log "VanillaMasker: There is no element to bind." if the element is undefined', function() {
     spyOn(console, 'log');
     new VanillaMasker().maskPattern(undefined);
-    expect(console.log).toHaveBeenCalledWith('There is no element to bind.');
+    expect(console.log).toHaveBeenCalledWith('VanillaMasker: There is no element to bind.');
   });
 
-  it('console log "There is no element to bind." if the element is null', function() {
+  it('console log "VanillaMasker: There is no element to bind." if the element is null', function() {
     spyOn(console, 'log');
     new VanillaMasker().maskPattern(null);
-    expect(console.log).toHaveBeenCalledWith('There is no element to bind.');
+    expect(console.log).toHaveBeenCalledWith('VanillaMasker: There is no element to bind.');
   });
 
-  it('console log "There is no element to bind." if the element is []', function() {
+  it('console log "VanillaMasker: There is no element to bind." if the element is []', function() {
     spyOn(console, 'log');
     new VanillaMasker().maskPattern([]);
-    expect(console.log).toHaveBeenCalledWith('There is no element to bind.');
+    expect(console.log).toHaveBeenCalledWith('VanillaMasker: There is no element to bind.');
   });
 
-  it('do not console log "There is no element to bind." if the element is [] and suppressLogging = true', function() {
+  it('do not console log "VanillaMasker: There is no element to bind." if the element is [] and suppressLogging = true', function() {
     spyOn(console, 'log');
     new VanillaMasker({suppressLogging: true}).maskPattern([]);
-    expect(console.log).not.toHaveBeenCalledWith('There is no element to bind.');
+    expect(console.log).not.toHaveBeenCalledWith('VanillaMasker: There is no element to bind.');
   });
 
-  it('console log "There is no element to bind." if the element is [] and suppressLogging = false', function() {
+  it('console log "VanillaMasker: There is no element to bind." if the element is [] and suppressLogging = false', function() {
     spyOn(console, 'log');
     new VanillaMasker({suppressLogging: false}).maskPattern([]);
-    expect(console.log).toHaveBeenCalledWith('There is no element to bind.');
+    expect(console.log).toHaveBeenCalledWith('VanillaMasker: There is no element to bind.');
   });
 });
 

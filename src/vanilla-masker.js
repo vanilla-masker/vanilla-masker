@@ -1,9 +1,7 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
     define(factory);
   } else {
-    // Browser globals.
     root.VanillaMasker = factory();
   }
 }(this, function() {
@@ -43,10 +41,11 @@
           elements[i].attachEvent("onkeyup", onType);
           elements[i].attachEvent("onkeydown", onType);
         }
+        elements[i].value = this[maskFunction](elements[i].value, params);
       }
     } catch(e) {
-      if(!this.opts.suppressLogging){
-          console.log("There is no element to bind.");
+      if (!this.opts.suppressLogging) {
+        console.log("VanillaMasker: There is no element to bind.");
       }
     }
   };
@@ -127,6 +126,5 @@
     return output.join("").substr(0, i);
   };
 
-  // Return a value to define the module export.
   return VanillaMasker;
 }));

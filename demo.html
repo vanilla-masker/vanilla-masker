@@ -11,10 +11,7 @@
 			<legend>#maskMoney</legend>
 
 			<h4>Default</h4>
-			<input type="text" id="default">
-
-			<h4>Default with values</h4>
-			<input type="text" id="defaultValues" value="99100">
+			<input type="text" id="default" maxlength="7">
 
 			<h4>Zero cents</h4>
 			<input type="text" id="zeroCents">
@@ -22,11 +19,17 @@
 			<h4>Unit R$</h4>
 			<input type="text" id="unit">
 
+			<h4>Suffix Unit R$</h4>
+			<input type="text" id="suffixUnit">
+
 			<h4>Delimiter ","</h4>
 			<input type="text" id="delimiter">
 
 			<h4>Separator "."</h4>
 			<input type="text" id="separator">
+
+			<h4>Default with values</h4>
+			<input type="text" id="defaultValues" value="1000">
 		</fieldset>
 
 		<br>
@@ -47,7 +50,7 @@
 			<input type="text" id="phone">
 
 			<h4>Phone with values</h4>
-			<input type="text" id="phoneValues" value="1231340001">
+			<input type="text" id="phoneValues" value="3141232312">
 
 			<h4>Date</h4>
 			<input type="text" id="date">
@@ -73,6 +76,9 @@
 
 				var unit = new VanillaMasker({unit: 'R$'});
 				unit.maskMoney(document.getElementById("unit"));
+
+				var suffixUnit = new VanillaMasker({suffixUnit: 'R$'});
+				suffixUnit.maskMoney(document.getElementById("suffixUnit"));
 
 				var delimiter = new VanillaMasker({delimiter: ','});
 				delimiter.maskMoney(document.getElementById("delimiter"));

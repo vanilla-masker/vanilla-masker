@@ -152,6 +152,8 @@ Henrique Antonini Silvério - contato@henriquesilverio.com
 ## 0.3.1
 
 * Fix mask when input has values.
+* Fix cursor navigation.
+* Fix delete char at specific position.
 
 ## 0.3.0
 

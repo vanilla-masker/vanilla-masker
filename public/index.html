@@ -19,6 +19,9 @@
 			<h4>Unit R$</h4>
 			<input type="text" id="unit">
 
+			<h4>Suffix Unit R$</h4>
+			<input type="text" id="suffixUnit">
+
 			<h4>Delimiter ","</h4>
 			<input type="text" id="delimiter">
 
@@ -73,6 +76,9 @@
 
 				var unit = new VanillaMasker({unit: 'R$'});
 				unit.maskMoney(document.getElementById("unit"));
+
+				var suffixUnit = new VanillaMasker({suffixUnit: 'R$'});
+				suffixUnit.maskMoney(document.getElementById("suffixUnit"));
 
 				var delimiter = new VanillaMasker({delimiter: ','});
 				delimiter.maskMoney(document.getElementById("delimiter"));

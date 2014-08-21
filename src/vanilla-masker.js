@@ -17,6 +17,7 @@
       separator: opts.separator || ",",
       delimiter: opts.delimiter || ".",
       unit: opts.unit && (opts.unit + " ") || "",
+      suffixUnit: opts.suffixUnit && (" " + opts.suffixUnit) || "",
       zeroCents: opts.zeroCents,
       suppressLogging: opts.suppressLogging ? true : false
     };
@@ -31,10 +32,13 @@
           onType = function(e) {
             if (that.isAllowedKeyCode(e.keyCode)) {
               setTimeout(function() {
+                var suffixLength = that.opts.suffixUnit.length;
                 if (e.target) {
                   e.target.value = that[maskFunction](e.target.value, params);
+                  e.target.setSelectionRange(e.target.value.length, (e.target.value.length - suffixLength));
                 } else {
                   e.srcElement.value = that[maskFunction](e.srcElement.value, params);
+                  e.srcElement.setSelectionRange(e.srcElement.value.length, (e.srcElement.value.length - suffixLength));
                 }
               }, 0);
             }
@@ -108,7 +112,7 @@
       ;
       cents = (cents + centsValue).slice(-centsSliced);
     }
-    var output = (this.opts.unit + masked + this.opts.separator + cents);
+    var output = (this.opts.unit + masked + this.opts.separator + cents + this.opts.suffixUnit);
     this.lastOutput = output = output.replace(clearSeparator, "");
     return output;
   };

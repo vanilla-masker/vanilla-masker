@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -93,10 +93,14 @@ Don't worry about where this will work, because this is a cross-browser and cros
   <span class="nx">delimiter</span><span class="o">:</span> <span class="s1">'.'</span><span class="p">,</span> 
   <span class="c1">// Money unit -&gt; "R$ 12.345.678,90"</span>
   <span class="nx">unit</span><span class="o">:</span> <span class="s1">'R$'</span><span class="p">,</span> 
+  <span class="c1">// Money unit -&gt; "12.345.678,90 R$"</span>
+  <span class="nx">suffixUnit</span><span class="o">:</span> <span class="s1">'R$'</span><span class="p">,</span> 
   <span class="c1">// Force type only number instead decimal,</span>
   <span class="c1">// masking decimals with ",00"</span>
   <span class="c1">// Zero cents -&gt; "R$ 1.234.567.890,00"</span>
-  <span class="nx">zeroCents</span><span class="o">:</span> <span class="kc">true</span>
+  <span class="nx">zeroCents</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="c1">// Enable console.log warnings</span>
+  <span class="nx">suppressLogging</span><span class="o">:</span> <span class="kc">true</span>
 <span class="p">});</span>
 </pre></div>
 
@@ -203,6 +207,18 @@ Henrique Antonini Silvério - <a href="mailto:contato@henriquesilverio.com">cont
 <a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a>Changelog</h1>
 
 <h2>
+<a name="032" class="anchor" href="#032"><span class="octicon octicon-link"></span></a>0.3.2</h2>
+
+<ul>
+<li>Added suffixUnit support for maskMoney.</li>
+</ul><h2>
+<a name="031" class="anchor" href="#031"><span class="octicon octicon-link"></span></a>0.3.1</h2>
+
+<ul>
+<li>Fix mask when input has values.</li>
+<li>Fix cursor navigation.</li>
+<li>Fix delete char at specific position.</li>
+</ul><h2>
 <a name="030" class="anchor" href="#030"><span class="octicon octicon-link"></span></a>0.3.0</h2>
 
 <ul>

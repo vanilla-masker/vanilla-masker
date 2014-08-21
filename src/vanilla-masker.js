@@ -5,7 +5,10 @@
     root.VanillaMasker = factory();
   }
 }(this, function() {
-  var DIGIT = "9", ALPHA = "A";
+  var DIGIT = "9", 
+      ALPHA = "A", 
+      BY_PASS_KEYS = [9, 16, 17, 18, 36, 37, 38, 39, 40, 91, 92, 93]
+  ;
 
   var VanillaMasker = function(opts) {
     opts = opts || {};
@@ -26,22 +29,29 @@
       var that = this,
           elements = el.length ? el : [el],
           onType = function(e) {
-            if (e.target) {
-              e.target.value = that[maskFunction](e.target.value, params);
-            } else {
-              e.srcElement.value = that[maskFunction](e.srcElement.value, params);
+            if (that.isAllowedKeyCode(e.keyCode)) {
+              setTimeout(function() {
+                if (e.target) {
+                  e.target.value = that[maskFunction](e.target.value, params);
+                } else {
+                  e.srcElement.value = that[maskFunction](e.srcElement.value, params);
+                }
+              }, 0);
             }
           }
       ;
       for (var i = 0, len = elements.length; i < len; i++) {
         if (elements[i].addEventListener) {
+          elements[i].addEventListener("keypress", onType);
           elements[i].addEventListener("keyup", onType);
           elements[i].addEventListener("keydown", onType);
         } else {
           elements[i].attachEvent("onkeyup", onType);
           elements[i].attachEvent("onkeydown", onType);
         }
-        elements[i].value = this[maskFunction](elements[i].value, params);
+        if (elements[i].value) {
+          elements[i].value = this[maskFunction](elements[i].value, params);
+        }
       }
     } catch(e) {
       if (!this.opts.suppressLogging) {
@@ -49,6 +59,15 @@
       }
     }
   };
+
+  VanillaMasker.prototype.isAllowedKeyCode = function(keyCode) {
+    for (var i = 0, len = BY_PASS_KEYS.length; i < len; i++) {
+      if (keyCode == BY_PASS_KEYS[i]) {
+        return false;
+      }
+    }
+    return true;
+  };  
 
   VanillaMasker.prototype.maskMoney = function(el) {
     this.bindElementToMask(el, "toMoney");

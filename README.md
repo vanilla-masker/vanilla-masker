@@ -149,6 +149,10 @@ Henrique Antonini Silvério - contato@henriquesilverio.com
 
 # Changelog
 
+## 0.3.1
+
+* Fix mask when input has values.
+
 ## 0.3.0
 
 * Accepting elements from mask function

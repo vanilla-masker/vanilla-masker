@@ -30,15 +30,12 @@
       var that = this,
           elements = el.length ? el : [el],
           onType = function(e) {
+            var source = e.target || e.srcElement;
             if (that.isAllowedKeyCode(e.keyCode)) {
               setTimeout(function() {
-                var suffixLength = that.opts.suffixUnit.length;
-                if (e.target) {
-                  e.target.value = that[maskFunction](e.target.value, params);
-                  e.target.setSelectionRange(e.target.value.length, (e.target.value.length - suffixLength));
-                } else {
-                  e.srcElement.value = that[maskFunction](e.srcElement.value, params);
-                  e.srcElement.setSelectionRange(e.srcElement.value.length, (e.srcElement.value.length - suffixLength));
+                source.value = that[maskFunction](source.value, params);
+                if (source.setSelectionRange) {
+                  source.setSelectionRange(source.value.length, (source.value.length - that.opts.suffixUnit.length));
                 }
               }, 0);
             }

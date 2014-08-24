@@ -153,6 +153,10 @@ Henrique Antonini Silvério - contato@henriquesilverio.com
 
 # Changelog
 
+## 0.3.3
+
+* Bugfix IE8 into setSelectionRange cursor.
+
 ## 0.3.2
 
 * Added suffixUnit support for maskMoney.

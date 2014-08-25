@@ -34,7 +34,7 @@
             if (that.isAllowedKeyCode(e.keyCode)) {
               setTimeout(function() {
                 source.value = that[maskFunction](source.value, params);
-                if (source.setSelectionRange) {
+                if (source.setSelectionRange && that.opts.suffixUnit.length) {
                   source.setSelectionRange(source.value.length, (source.value.length - that.opts.suffixUnit.length));
                 }
               }, 0);

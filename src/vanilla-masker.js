@@ -43,7 +43,6 @@
       ;
       for (var i = 0, len = elements.length; i < len; i++) {
         if (elements[i].addEventListener) {
-          elements[i].addEventListener("keypress", onType);
           elements[i].addEventListener("keyup", onType);
           elements[i].addEventListener("keydown", onType);
         } else {

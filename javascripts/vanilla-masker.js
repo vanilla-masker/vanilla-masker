@@ -34,7 +34,7 @@
             if (that.isAllowedKeyCode(e.keyCode)) {
               setTimeout(function() {
                 source.value = that[maskFunction](source.value, params);
-                if (source.setSelectionRange) {
+                if (source.setSelectionRange && that.opts.suffixUnit.length) {
                   source.setSelectionRange(source.value.length, (source.value.length - that.opts.suffixUnit.length));
                 }
               }, 0);
@@ -43,7 +43,6 @@
       ;
       for (var i = 0, len = elements.length; i < len; i++) {
         if (elements[i].addEventListener) {
-          elements[i].addEventListener("keypress", onType);
           elements[i].addEventListener("keyup", onType);
           elements[i].addEventListener("keydown", onType);
         } else {

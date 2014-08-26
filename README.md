@@ -158,6 +158,7 @@ Henrique Antonini Silvério - contato@henriquesilverio.com
 * Bugfix IE8 into setSelectionRange cursor.
 * Bugfix ZeroCents.
 * Bugfix lastOutput state for single element.
+* Bugfix bower.json set main file.
 
 ## 0.3.2
 

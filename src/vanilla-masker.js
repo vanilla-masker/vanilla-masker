@@ -21,7 +21,6 @@
       zeroCents: opts.zeroCents,
       suppressLogging: opts.suppressLogging ? true : false
     };
-    this.lastOutput = "";
     this.moneyPrecision = opts.zeroCents ? 0 : this.opts.precision;
   };
 
@@ -33,7 +32,8 @@
             var source = e.target || e.srcElement;
             if (that.isAllowedKeyCode(e.keyCode)) {
               setTimeout(function() {
-                source.value = that[maskFunction](source.value, params);
+                source.value = that[maskFunction](source.value, params || source.lastOutput);
+                source.lastOutput = source.value;
                 if (source.setSelectionRange && that.opts.suffixUnit.length) {
                   source.setSelectionRange(source.value.length, (source.value.length - that.opts.suffixUnit.length));
                 }
@@ -42,6 +42,7 @@
           }
       ;
       for (var i = 0, len = elements.length; i < len; i++) {
+        elements[i].lastOutput = "";
         if (elements[i].addEventListener) {
           elements[i].addEventListener("keyup", onType);
           elements[i].addEventListener("keydown", onType);
@@ -51,7 +52,6 @@
         }
         if (elements[i].value.length) {
           elements[i].value = this[maskFunction](elements[i].value, params);
-          this.lastOutput = "";
         }
       }
     } catch(e) {
@@ -74,12 +74,13 @@
     this.bindElementToMask(el, "toMoney");
   };
 
-  VanillaMasker.prototype.toMoney = function(value) {
+  VanillaMasker.prototype.toMoney = function(value, lastOutput) {
     if (this.opts.zeroCents) {
+      lastOutput = lastOutput || "";
       var zeroMatcher = ("("+ this.opts.separator +"[0]{0,"+ this.opts.precision +"})"),
           zeroRegExp = new RegExp(zeroMatcher, "g"),
           digitsLength = value.toString().replace(/[\D]/g, "").length || 0,
-          lastDigitLength = this.lastOutput.toString().replace(/[\D]/g, "").length || 0
+          lastDigitLength = lastOutput.toString().replace(/[\D]/g, "").length || 0
       ;
       value = value.toString().replace(zeroRegExp, "");
       if (digitsLength < lastDigitLength) {
@@ -111,8 +112,7 @@
       cents = (cents + centsValue).slice(-centsSliced);
     }
     var output = this.opts.unit + masked + this.opts.separator + cents + this.opts.suffixUnit;
-    this.lastOutput = output = output.replace(clearSeparator, "");
-    return output;
+    return output.replace(clearSeparator, "");
   };
 
   VanillaMasker.prototype.maskNumber = function(el) {

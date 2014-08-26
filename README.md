@@ -155,10 +155,10 @@ Henrique Antonini Silvério - contato@henriquesilverio.com
 
 ## 0.3.3
 
-* Bugfix IE8 into setSelectionRange cursor.
-* Bugfix ZeroCents.
-* Bugfix lastOutput state for single element.
-* Bugfix bower.json set main file.
+* Fix ignore setSelectionRange cursor for IE8.
+* Fix ZeroCents behavior for maskMoney.
+* Fix last output state for single element.
+* Fix Bower main file.
 
 ## 0.3.2
 

@@ -51,6 +51,7 @@
         }
         if (elements[i].value.length) {
           elements[i].value = this[maskFunction](elements[i].value, params);
+          this.lastOutput = "";
         }
       }
     } catch(e) {

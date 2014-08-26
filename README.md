@@ -156,6 +156,7 @@ Henrique Antonini Silvério - contato@henriquesilverio.com
 ## 0.3.3
 
 * Bugfix IE8 into setSelectionRange cursor.
+* Bugfix ZeroCents.
 
 ## 0.3.2
 

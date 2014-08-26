@@ -49,7 +49,7 @@
           elements[i].attachEvent("onkeyup", onType);
           elements[i].attachEvent("onkeydown", onType);
         }
-        if (elements[i].value) {
+        if (elements[i].value.length) {
           elements[i].value = this[maskFunction](elements[i].value, params);
         }
       }
@@ -77,10 +77,11 @@
     if (this.opts.zeroCents) {
       var zeroMatcher = ("("+ this.opts.separator +"[0]{0,"+ this.opts.precision +"})"),
           zeroRegExp = new RegExp(zeroMatcher, "g"),
-          initialInputLength = value.length || 0
+          digitsLength = value.toString().replace(/[\D]/g, "").length || 0,
+          lastDigitLength = this.lastOutput.toString().replace(/[\D]/g, "").length || 0
       ;
       value = value.toString().replace(zeroRegExp, "");
-      if (initialInputLength < this.lastOutput.length) {
+      if (digitsLength < lastDigitLength) {
         value = value.slice(0, value.length - 1);
       }
     }
@@ -108,7 +109,7 @@
       ;
       cents = (cents + centsValue).slice(-centsSliced);
     }
-    var output = (this.opts.unit + masked + this.opts.separator + cents + this.opts.suffixUnit);
+    var output = this.opts.unit + masked + this.opts.separator + cents + this.opts.suffixUnit;
     this.lastOutput = output = output.replace(clearSeparator, "");
     return output;
   };

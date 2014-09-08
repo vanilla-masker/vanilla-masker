@@ -10,7 +10,7 @@ By the way fuck jQuery, Zepto or any others javascript frameworks!
 Let's live a lightweight client-side world using VanillaMasker.  
 Don't worry about where this will work, because this is a cross-browser and cross-device library. And if you find any bug, please let us know about it [reporting an issue](https://github.com/BankFacil/vanilla-masker/issues).
 
-If you wanna see how this lib works, [click here to test this demo page](http://bankfacil.github.io/vanilla-masker/demo.html).
+If you wanna see how this lib works, click to test this [demo page](http://bankfacil.github.io/vanilla-masker/demo.html).
 
 # How to install
 

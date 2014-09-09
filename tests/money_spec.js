@@ -1,33 +1,15 @@
 describe("VanillaMasker.maskMoney", function() {
 
   it('console log "VanillaMasker: There is no element to bind." if the element is undefined', function() {
-    spyOn(console, 'log');
-    new VanillaMasker().maskMoney(undefined);
-    expect(console.log).toHaveBeenCalledWith('VanillaMasker: There is no element to bind.');
+    expect(function() {
+      VMasker(undefined).maskMoney();
+    }).toThrow(new Error('VanillaMasker: There is no element to bind.'));
   });
 
   it('console log "VanillaMasker: There is no element to bind." if the element is null', function() {
-    spyOn(console, 'log');
-    new VanillaMasker().maskMoney(null);
-    expect(console.log).toHaveBeenCalledWith('VanillaMasker: There is no element to bind.');
-  });
-
-  it('console log "VanillaMasker: There is no element to bind." if the element is []', function() {
-    spyOn(console, 'log');
-    new VanillaMasker().maskMoney([]);
-    expect(console.log).toHaveBeenCalledWith('VanillaMasker: There is no element to bind.');
-  });
-
-  it('do not console log "VanillaMasker: There is no element to bind." if element is [] and suppressLogging = true', function() {
-    spyOn(console, 'log');
-    new VanillaMasker({suppressLogging: true}).maskMoney([]);
-    expect(console.log).not.toHaveBeenCalledWith('VanillaMasker: There is no element to bind.');
-  });
-
-  it('console log "VanillaMasker: There is no element to bind." if the element is [] and suppressLogging = false', function() {
-    spyOn(console, 'log');
-    new VanillaMasker({suppressLogging: false}).maskMoney([]);
-    expect(console.log).toHaveBeenCalledWith('VanillaMasker: There is no element to bind.');
+    expect(function() {
+      VMasker(null).maskMoney();
+    }).toThrow(new Error('VanillaMasker: There is no element to bind.'));
   });
 });
 

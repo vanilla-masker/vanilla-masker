@@ -7,63 +7,62 @@
 }(this, function() {
   var DIGIT = "9", 
       ALPHA = "A", 
-      BY_PASS_KEYS = [9, 16, 17, 18, 36, 37, 38, 39, 40, 91, 92, 93]
+      BY_PASS_KEYS = [9, 16, 17, 18, 36, 37, 38, 39, 40, 91, 92, 93],
+      isAllowedKeyCode = function(keyCode) {
+        for (var i = 0, len = BY_PASS_KEYS.length; i < len; i++) {
+          if (keyCode == BY_PASS_KEYS[i]) {
+            return false;
+          }
+        }
+        return true;
+      },
+      mergeMoneyOptions = function(opts) {
+        opts = opts || {};
+        opts = {
+          precision: opts.hasOwnProperty("precision") ? opts.precision : 2,
+          separator: opts.separator || ",",
+          delimiter: opts.delimiter || ".",
+          unit: opts.unit && (opts.unit.replace(/[\s]/g,'') + " ") || "",
+          suffixUnit: opts.suffixUnit && (" " + opts.suffixUnit.replace(/[\s]/g,'')) || "",
+          zeroCents: opts.zeroCents,
+          lastOutput: opts.lastOutput
+        };
+        opts.moneyPrecision = opts.zeroCents ? 0 : opts.precision;
+        return opts;
+      }
   ;
 
-  var isAllowedKeyCode = function(keyCode) {
-    for (var i = 0, len = BY_PASS_KEYS.length; i < len; i++) {
-      if (keyCode == BY_PASS_KEYS[i]) {
-        return false;
-      }
-    }
-    return true;
-  };
-
-  var mergeMoneyOptions = function(opts) {
-    opts = opts || {};
-    opts = {
-      precision: opts.hasOwnProperty("precision") ? opts.precision : 2,
-      separator: opts.separator || ",",
-      delimiter: opts.delimiter || ".",
-      unit: opts.unit && (opts.unit + " ") || "",
-      suffixUnit: opts.suffixUnit && (" " + opts.suffixUnit) || "",
-      zeroCents: opts.zeroCents
-    };
-    opts.moneyPrecision = opts.zeroCents ? 0 : opts.precision;
-    return opts;
-  };
-
   var VanillaMasker = function(el) {
-    this.el = el;
+    this.elements = el.length ? el : [el];
   };
 
   VanillaMasker.prototype.bindElementToMask = function(maskFunction) {
     var that = this,
-        elements = this.el.length ? this.el : [this.el],
         onType = function(e) {
           var source = e.target || e.srcElement;
           if (isAllowedKeyCode(e.keyCode)) {
             setTimeout(function() {
-              source.value = VMasker[maskFunction](source.value, that.opts, source.lastOutput);
+              that.opts.lastOutput = source.lastOutput;
+              source.value = VMasker[maskFunction](source.value, that.opts);
               source.lastOutput = source.value;
-              if (source.setSelectionRange && that.opts && that.opts.suffixUnit) {
+              if (source.setSelectionRange && that.opts.suffixUnit) {
                 source.setSelectionRange(source.value.length, (source.value.length - that.opts.suffixUnit.length));
               }
             }, 0);
           }
         }
     ;
-    for (var i = 0, len = elements.length; i < len; i++) {
-      elements[i].lastOutput = "";
-      if (elements[i].addEventListener) {
-        elements[i].addEventListener("keyup", onType);
-        elements[i].addEventListener("keydown", onType);
+    for (var i = 0, len = this.elements.length; i < len; i++) {
+      this.elements[i].lastOutput = "";
+      if (this.elements[i].addEventListener) {
+        this.elements[i].addEventListener("keyup", onType);
+        this.elements[i].addEventListener("keydown", onType);
       } else {
-        elements[i].attachEvent("onkeyup", onType);
-        elements[i].attachEvent("onkeydown", onType);
+        this.elements[i].attachEvent("onkeyup", onType);
+        this.elements[i].attachEvent("onkeydown", onType);
       }
-      if (elements[i].value.length) {
-        elements[i].value = VMasker[maskFunction](elements[i].value, this.opts);
+      if (this.elements[i].value.length) {
+        this.elements[i].value = VMasker[maskFunction](this.elements[i].value, this.opts);
       }
     }
   };
@@ -74,6 +73,7 @@
   };
 
   VanillaMasker.prototype.maskNumber = function() {
+    this.opts = {};
     this.bindElementToMask("toNumber");
   };
 
@@ -82,24 +82,21 @@
     this.bindElementToMask("toPattern");
   };
 
-  var VMasker = function(el, consoleLogging) {
-    try {
-      return new VanillaMasker(el);
-    } catch(e) {
-      if (consoleLogging) {
-        console.log("VanillaMasker: There is no element to bind.");
-      }
+  var VMasker = function(el) {
+    if (!el) {
+      throw new Error("VanillaMasker: There is no element to bind.");
     }
+    return new VanillaMasker(el);
   };
 
-  VMasker.toMoney = function(value, opts, lastOutput) {
+  VMasker.toMoney = function(value, opts) {
     opts = mergeMoneyOptions(opts);
     if (opts.zeroCents) {
-      lastOutput = lastOutput || "";
+      opts.lastOutput = opts.lastOutput || "";
       var zeroMatcher = ("("+ opts.separator +"[0]{0,"+ opts.precision +"})"),
           zeroRegExp = new RegExp(zeroMatcher, "g"),
           digitsLength = value.toString().replace(/[\D]/g, "").length || 0,
-          lastDigitLength = lastOutput.toString().replace(/[\D]/g, "").length || 0
+          lastDigitLength = opts.lastOutput.toString().replace(/[\D]/g, "").length || 0
       ;
       value = value.toString().replace(zeroRegExp, "");
       if (digitsLength < lastDigitLength) {

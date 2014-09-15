@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Vanilla.Masker</title>
+		<title>VanillaMasker</title>
 		<script src="javascripts/vanilla-masker.js"></script>
 	</head>
 	<body>
-		<h1>Vanilla.Masker</h1>
+		<h1>VanillaMasker</h1>
 
 		<fieldset>
-			<legend>#maskMoney</legend>
+			<legend>VMasker(element).maskMoney(options);</legend>
 
 			<h4>Default</h4>
 			<input type="text" id="default" maxlength="7">
@@ -35,7 +35,7 @@
 		<br>
 		
 		<fieldset>
-			<legend>#maskNumber</legend>
+			<legend>VMasker(element).maskNumber();</legend>
 
 			<h4>Only numbers</h4>
 			<input type="text" id="numbers">
@@ -44,7 +44,7 @@
 		<br>
 
 		<fieldset>
-			<legend>#maskPattern</legend>
+			<legend>VMasker(element).maskPattern(pattern);</legend>
 
 			<h4>Phone</h4>
 			<input type="text" id="phone">
@@ -65,46 +65,23 @@
 		<script>
 			(function() {
 				// #maskMoney
-				var defaults = new VanillaMasker();
-				defaults.maskMoney(document.getElementById("default"));
-
-				var defaultValues = new VanillaMasker();
-				defaultValues.maskMoney(document.getElementById("defaultValues"));
-
-				var zeroCents = new VanillaMasker({zeroCents: true});
-				zeroCents.maskMoney(document.getElementById("zeroCents"));
-
-				var unit = new VanillaMasker({unit: 'R$'});
-				unit.maskMoney(document.getElementById("unit"));
-
-				var suffixUnit = new VanillaMasker({suffixUnit: 'R$'});
-				suffixUnit.maskMoney(document.getElementById("suffixUnit"));
-
-				var delimiter = new VanillaMasker({delimiter: ','});
-				delimiter.maskMoney(document.getElementById("delimiter"));
-
-				var separator = new VanillaMasker({separator: '.'});
-				separator.maskMoney(document.getElementById("separator"));
+				VMasker(document.getElementById("default")).maskMoney();
+				VMasker(document.getElementById("defaultValues")).maskMoney();
+				VMasker(document.getElementById("zeroCents")).maskMoney({zeroCents: true});
+				VMasker(document.getElementById("unit")).maskMoney({unit: 'R$'});
+				VMasker(document.getElementById("suffixUnit")).maskMoney({suffixUnit: 'R$'});
+				VMasker(document.getElementById("delimiter")).maskMoney({delimiter: ','});
+				VMasker(document.getElementById("separator")).maskMoney({separator: '.'});
 
 				// #maskNumber
-				var numbers = new VanillaMasker();
-				numbers.maskNumber(document.getElementById("numbers"));
+				VMasker(document.getElementById("numbers")).maskNumber();
 
 				// #maskPattern
-				var phone = new VanillaMasker();
-				phone.maskPattern(document.getElementById("phone"), '(99) 9999-9999');
-
-				var phoneValues = new VanillaMasker();
-				phoneValues.maskPattern(document.getElementById("phoneValues"), '(99) 9999-9999');
-
-				var date = new VanillaMasker();
-				date.maskPattern(document.getElementById("date"), '99/99/9999');
-
-				var doc = new VanillaMasker();
-				doc.maskPattern(document.getElementById("doc"), '999.999.999-99');
-
-				var carPlate = new VanillaMasker();
-				carPlate.maskPattern(document.getElementById("carPlate"), 'AAA-9999');
+				VMasker(document.getElementById("phone")).maskPattern('(99) 9999-9999');
+				VMasker(document.getElementById("phoneValues")).maskPattern('(99) 9999-9999');
+				VMasker(document.getElementById("date")).maskPattern('99/99/9999');
+				VMasker(document.getElementById("doc")).maskPattern('999.999.999-99');
+				VMasker(document.getElementById("carPlate")).maskPattern('AAA-9999');
 			})();
 		</script>
 	</body>

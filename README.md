@@ -5,7 +5,6 @@
 
 It's a pure JavaScript mask input.  
 Now you can use a simple and pure javascript lib to mask your input elements, without need to load jQuery or Zepto to do it.
-By the way fuck jQuery, Zepto or any others javascript frameworks!
 
 Let's live a lightweight client-side world using VanillaMasker.  
 Don't worry about where this will work, because this is a cross-browser and cross-device library. And if you find any bug, please let us know about it [reporting an issue](https://github.com/BankFacil/vanilla-masker/issues).

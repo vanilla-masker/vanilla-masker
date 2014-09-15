@@ -41,7 +41,7 @@ By the way fuck jQuery, Zepto or any others javascript frameworks!</p>
 <p>Let's live a lightweight client-side world using VanillaMasker.<br>
 Don't worry about where this will work, because this is a cross-browser and cross-device library. And if you find any bug, please let us know about it <a href="https://github.com/BankFacil/vanilla-masker/issues">reporting an issue</a>.</p>
 
-<p>If you wanna see how this lib works, <a href="http://bankfacil.github.io/vanilla-masker/demo.html">click here to test this demo page</a>.</p>
+<p>If you wanna see how this lib works, click to test this <a href="http://bankfacil.github.io/vanilla-masker/demo.html">demo page</a>.</p>
 
 <h1>
 <a name="how-to-install" class="anchor" href="#how-to-install"><span class="octicon octicon-link"></span></a>How to install</h1>
@@ -50,11 +50,11 @@ Don't worry about where this will work, because this is a cross-browser and cros
 
 <ul>
 <li>
-<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/src/vanilla-masker.js">development version</a> (4.43 Kbytes);</li>
+<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/src/vanilla-masker.js">development version</a> (5.5 Kbytes);</li>
 <li>
-<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js">minified version</a> (2.28 Kbytes);</li>
+<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js">minified version</a> (2.9 Kbytes);</li>
 <li>
-<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.gz.js">gzipped version</a> (946 bytes);</li>
+<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.gz.js">gzipped version</a> (1.2 Kbytes);</li>
 </ul><p>Please, this lib don't have CDN yet, so you need to download and put it in your own site. </p>
 
 <p>You can install it via bower too, using this command: <code>bower install --save vanilla-masker</code></p>
@@ -81,10 +81,14 @@ Don't worry about where this will work, because this is a cross-browser and cros
 <a name="using-the-lib" class="anchor" href="#using-the-lib"><span class="octicon octicon-link"></span></a>Using the lib</h3>
 
 <h4>
-<a name="constructor" class="anchor" href="#constructor"><span class="octicon octicon-link"></span></a>Constructor</h4>
+<a name="money-format" class="anchor" href="#money-format"><span class="octicon octicon-link"></span></a>Money format</h4>
 
-<div class="highlight highlight-javascript"><pre><span class="c1">// Input number example: 1234567890</span>
-<span class="kd">var</span> <span class="nx">masker</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VanillaMasker</span><span class="p">({</span>
+<div class="highlight highlight-javascript"><pre>
+<span class="c1">// Masking input element to money.</span>
+<span class="nx">VMasker</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"data-js-input"</span><span class="p">)).</span><span class="nx">maskMoney</span><span class="p">();</span>
+
+<span class="c1">// Masking input element to money with options.</span>
+<span class="nx">VMasker</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"data-js-input"</span><span class="p">)).</span><span class="nx">maskMoney</span><span class="p">({</span>
   <span class="c1">// Decimal precision -&gt; "90"</span>
   <span class="nx">precision</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> 
   <span class="c1">// Decimal separator -&gt; ",90"</span>
@@ -98,50 +102,41 @@ Don't worry about where this will work, because this is a cross-browser and cros
   <span class="c1">// Force type only number instead decimal,</span>
   <span class="c1">// masking decimals with ",00"</span>
   <span class="c1">// Zero cents -&gt; "R$ 1.234.567.890,00"</span>
-  <span class="nx">zeroCents</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="c1">// Enable console.log warnings</span>
-  <span class="nx">suppressLogging</span><span class="o">:</span> <span class="kc">true</span>
+  <span class="nx">zeroCents</span><span class="o">:</span> <span class="kc">true</span>
 <span class="p">});</span>
-</pre></div>
 
-<h4>
-<a name="masking-to-money-format" class="anchor" href="#masking-to-money-format"><span class="octicon octicon-link"></span></a>Masking to money format</h4>
-
-<div class="highlight highlight-javascript"><pre><span class="c1">// Listen the input element masking it to money.</span>
-<span class="nx">masker</span><span class="p">.</span><span class="nx">maskMoney</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"input"</span><span class="p">));</span>
-
-<span class="c1">// Listen array of input elements masking it to money.</span>
-<span class="nx">masker</span><span class="p">.</span><span class="nx">maskMoney</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">"input"</span><span class="p">));</span>
+<span class="c1">// Masking an array of input elements to money.</span>
+<span class="nx">VMasker</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">"data-js-input"</span><span class="p">)).</span><span class="nx">maskMoney</span><span class="p">();</span>
 
 <span class="c1">// Converts number to money string</span>
-<span class="nx">masker</span><span class="p">.</span><span class="nx">toMoney</span><span class="p">(</span><span class="mi">1234</span><span class="p">);</span> <span class="c1">// -&gt; R$ 1.234,00</span>
+<span class="nx">VMasker</span><span class="p">.</span><span class="nx">toMoney</span><span class="p">(</span><span class="mi">1234</span><span class="p">);</span> <span class="c1">// -&gt; R$ 1.234,00</span>
 </pre></div>
 
 <h4>
-<a name="masking-only-numbers" class="anchor" href="#masking-only-numbers"><span class="octicon octicon-link"></span></a>Masking only numbers</h4>
+<a name="only-numbers" class="anchor" href="#only-numbers"><span class="octicon octicon-link"></span></a>Only numbers</h4>
 
-<div class="highlight highlight-javascript"><pre><span class="c1">// Listen the input element masking it to number.</span>
-<span class="nx">masker</span><span class="p">.</span><span class="nx">maskNumber</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"input"</span><span class="p">));</span>
+<div class="highlight highlight-javascript"><pre><span class="c1">// Masking input element to number.</span>
+<span class="nx">VMasker</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"data-js-input"</span><span class="p">)).</span><span class="nx">maskNumber</span><span class="p">();</span>
 
 <span class="c1">// Converts any string to number </span>
-<span class="nx">masker</span><span class="p">.</span><span class="nx">toNumber</span><span class="p">(</span><span class="s2">"123ac34"</span><span class="p">);</span> <span class="c1">// -&gt; 12334</span>
-<span class="nx">masker</span><span class="p">.</span><span class="nx">toNumber</span><span class="p">(</span><span class="s2">"-123ac34"</span><span class="p">);</span> <span class="c1">// -&gt; -12334</span>
+<span class="nx">VMasker</span><span class="p">.</span><span class="nx">toNumber</span><span class="p">(</span><span class="s2">"123ac34"</span><span class="p">);</span> <span class="c1">// -&gt; 12334</span>
+<span class="nx">VMasker</span><span class="p">.</span><span class="nx">toNumber</span><span class="p">(</span><span class="s2">"-123ac34"</span><span class="p">);</span> <span class="c1">// -&gt; -12334</span>
 </pre></div>
 
 <h4>
-<a name="masking-custom-pattern" class="anchor" href="#masking-custom-pattern"><span class="octicon octicon-link"></span></a>Masking custom pattern</h4>
+<a name="custom-pattern" class="anchor" href="#custom-pattern"><span class="octicon octicon-link"></span></a>Custom pattern</h4>
 
 <div class="highlight highlight-javascript"><pre><span class="c1">// Listen the input element masking it to format with pattern.</span>
-<span class="nx">masker</span><span class="p">.</span><span class="nx">maskPattern</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"input"</span><span class="p">),</span> <span class="s2">"(99) 9999-9999"</span><span class="p">);</span>
+<span class="nx">VMasker</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"input"</span><span class="p">)).</span><span class="nx">maskPattern</span><span class="p">(</span><span class="s2">"(99) 9999-9999"</span><span class="p">);</span>
 
 <span class="c1">// Converts value to masked phone</span>
-<span class="nx">masker</span><span class="p">.</span><span class="nx">toPattern</span><span class="p">(</span><span class="mi">1099911111</span><span class="p">,</span> <span class="s2">"(99) 9999-9999"</span><span class="p">);</span> <span class="c1">// -&gt; (10) 9991-1111</span>
+<span class="nx">VMasker</span><span class="p">.</span><span class="nx">toPattern</span><span class="p">(</span><span class="mi">1099911111</span><span class="p">,</span> <span class="s2">"(99) 9999-9999"</span><span class="p">);</span> <span class="c1">// -&gt; (10) 9991-1111</span>
 <span class="c1">// Converts value to masked date</span>
-<span class="nx">masker</span><span class="p">.</span><span class="nx">toPattern</span><span class="p">(</span><span class="mi">12122000</span><span class="p">,</span> <span class="s2">"99/99/9999"</span><span class="p">);</span> <span class="c1">// -&gt; 12/12/2000</span>
+<span class="nx">VMasker</span><span class="p">.</span><span class="nx">toPattern</span><span class="p">(</span><span class="mi">12122000</span><span class="p">,</span> <span class="s2">"99/99/9999"</span><span class="p">);</span> <span class="c1">// -&gt; 12/12/2000</span>
 <span class="c1">// Converts value to masked document</span>
-<span class="nx">masker</span><span class="p">.</span><span class="nx">toPattern</span><span class="p">(</span><span class="mi">99911111101</span><span class="p">,</span> <span class="s2">"999.999.999-99"</span><span class="p">);</span> <span class="c1">// -&gt; 999.111.111-01</span>
+<span class="nx">VMasker</span><span class="p">.</span><span class="nx">toPattern</span><span class="p">(</span><span class="mi">99911111101</span><span class="p">,</span> <span class="s2">"999.999.999-99"</span><span class="p">);</span> <span class="c1">// -&gt; 999.111.111-01</span>
 <span class="c1">// Converts value to masked car plate</span>
-<span class="nx">masker</span><span class="p">.</span><span class="nx">toPattern</span><span class="p">(</span><span class="s1">'ABC1234'</span><span class="p">,</span> <span class="s2">"AAA-9999"</span><span class="p">);</span> <span class="c1">// -&gt; ABC-1234</span>
+<span class="nx">VMasker</span><span class="p">.</span><span class="nx">toPattern</span><span class="p">(</span><span class="s1">'ABC1234'</span><span class="p">,</span> <span class="s2">"AAA-9999"</span><span class="p">);</span> <span class="c1">// -&gt; ABC-1234</span>
 </pre></div>
 
 <h1>
@@ -196,6 +191,7 @@ Don't worry about where this will work, because this is a cross-browser and cros
 <li>Firefox mobile 29.0+</li>
 <li>Opera mobile 10.0+</li>
 <li>iOS Safari 3.2+</li>
+<li>Windows Phone</li>
 </ul><h1>
 <a name="contributors" class="anchor" href="#contributors"><span class="octicon octicon-link"></span></a>Contributors</h1>
 
@@ -207,6 +203,12 @@ Henrique Antonini Silvério - <a href="mailto:contato@henriquesilverio.com">cont
 <a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a>Changelog</h1>
 
 <h2>
+<a name="100---14092014" class="anchor" href="#100---14092014"><span class="octicon octicon-link"></span></a>1.0.0 - 14/09/2014</h2>
+
+<ul>
+<li>Added VMasker factory as default.</li>
+<li>Fix Windows Phone compatibility.</li>
+</ul><h2>
 <a name="033" class="anchor" href="#033"><span class="octicon octicon-link"></span></a>0.3.3</h2>
 
 <ul>

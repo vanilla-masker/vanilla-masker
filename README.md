@@ -85,7 +85,7 @@ VMasker.toNumber("123ac34"); // -> 12334
 VMasker.toNumber("-123ac34"); // -> -12334
 ```
 
-#### Masking custom pattern
+#### Custom pattern
 
 ``` javascript
 // Listen the input element masking it to format with pattern.

@@ -15,8 +15,8 @@ If you wanna see how this lib works, click to test this [demo page](http://bankf
 # How to install
 
 You can download the lib: 
-* [development version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/src/vanilla-masker.js) (5.4 Kbytes);
-* [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js) (2.85 Kbytes);
+* [development version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/src/vanilla-masker.js) (5.5 Kbytes);
+* [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.js) (2.9 Kbytes);
 * [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/master/build/vanilla-masker.min.gz.js) (1.2 Kbytes);
 
 Please, this lib don't have CDN yet, so you need to download and put it in your own site. 
@@ -41,11 +41,16 @@ Like I said, you need to download and put this lib in your own site, using this 
 ```
 
 ### Using the lib
-#### Constructor
+
+#### Money format
 
 ``` javascript
-// Input number example: 1234567890
-var masker = new VanillaMasker({
+
+// Masking input element to money.
+VMasker(document.querySelector("data-js-input")).maskMoney();
+
+// Masking input element to money with options.
+VMasker(document.querySelector("data-js-input")).maskMoney({
   // Decimal precision -> "90"
   precision: 2, 
   // Decimal separator -> ",90"
@@ -59,50 +64,41 @@ var masker = new VanillaMasker({
   // Force type only number instead decimal,
   // masking decimals with ",00"
   // Zero cents -> "R$ 1.234.567.890,00"
-  zeroCents: true,
-  // Enable console.log warnings
-  suppressLogging: true
+  zeroCents: true
 });
-```
 
-#### Masking to money format
-
-``` javascript
-// Listen the input element masking it to money.
-masker.maskMoney(document.querySelector("input"));
-
-// Listen array of input elements masking it to money.
-masker.maskMoney(document.querySelectorAll("input"));
+// Masking an array of input elements to money.
+VMasker(document.querySelectorAll("data-js-input")).maskMoney();
 
 // Converts number to money string
-masker.toMoney(1234); // -> R$ 1.234,00
+VMasker.toMoney(1234); // -> R$ 1.234,00
 ```
 
-#### Masking only numbers
+#### Only numbers
 
 ``` javascript
-// Listen the input element masking it to number.
-masker.maskNumber(document.querySelector("input"));
+// Masking input element to number.
+VMasker(document.querySelector("data-js-input")).maskNumber();
 
 // Converts any string to number 
-masker.toNumber("123ac34"); // -> 12334
-masker.toNumber("-123ac34"); // -> -12334
+VMasker.toNumber("123ac34"); // -> 12334
+VMasker.toNumber("-123ac34"); // -> -12334
 ```
 
 #### Masking custom pattern
 
 ``` javascript
 // Listen the input element masking it to format with pattern.
-masker.maskPattern(document.querySelector("input"), "(99) 9999-9999");
+VMasker(document.querySelector("input")).maskPattern("(99) 9999-9999");
 
 // Converts value to masked phone
-masker.toPattern(1099911111, "(99) 9999-9999"); // -> (10) 9991-1111
+VMasker.toPattern(1099911111, "(99) 9999-9999"); // -> (10) 9991-1111
 // Converts value to masked date
-masker.toPattern(12122000, "99/99/9999"); // -> 12/12/2000
+VMasker.toPattern(12122000, "99/99/9999"); // -> 12/12/2000
 // Converts value to masked document
-masker.toPattern(99911111101, "999.999.999-99"); // -> 999.111.111-01
+VMasker.toPattern(99911111101, "999.999.999-99"); // -> 999.111.111-01
 // Converts value to masked car plate
-masker.toPattern('ABC1234', "AAA-9999"); // -> ABC-1234
+VMasker.toPattern('ABC1234', "AAA-9999"); // -> ABC-1234
 ```
 
 # How to run localhost
@@ -144,6 +140,7 @@ Mobile browsers:
 * Firefox mobile 29.0+
 * Opera mobile 10.0+
 * iOS Safari 3.2+
+* Windows Phone
 
 # Contributors
 
@@ -152,6 +149,11 @@ Leandro Alvares da Costa - leandroadacosta@gmail.com
 Henrique Antonini Silvério - contato@henriquesilverio.com
 
 # Changelog
+
+## 1.0.0 - 14/09/2014
+
+* Added VMasker factory as default.
+* Fix Windows Phone compatibility.
 
 ## 0.3.3
 

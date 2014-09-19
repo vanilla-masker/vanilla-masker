@@ -5,9 +5,8 @@
 
 It's a pure JavaScript mask input.  
 Now you can use a simple and pure javascript lib to mask your input elements, without need to load jQuery or Zepto to do it.
-By the way fuck jQuery, Zepto or any others javascript frameworks!
 
-Let's live a lightweight client-side world using VanillaMasker.  
+Let's live a lightweight client-side world using micro libraries as VanillaMasker is!  
 Don't worry about where this will work, because this is a cross-browser and cross-device library. And if you find any bug, please let us know about it [reporting an issue](https://github.com/BankFacil/vanilla-masker/issues).
 
 If you wanna see how this lib works, click to test this [demo page](http://bankfacil.github.io/vanilla-masker/demo.html).
@@ -85,7 +84,7 @@ VMasker.toNumber("123ac34"); // -> 12334
 VMasker.toNumber("-123ac34"); // -> -12334
 ```
 
-#### Masking custom pattern
+#### Custom pattern
 
 ``` javascript
 // Listen the input element masking it to format with pattern.

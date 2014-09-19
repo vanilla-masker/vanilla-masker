@@ -32,8 +32,8 @@
       }
   ;
 
-  var VanillaMasker = function(el) {
-    this.elements = el.length ? el : [el];
+  var VanillaMasker = function(elements) {
+    this.elements = elements;
   };
 
   VanillaMasker.prototype.bindElementToMask = function(maskFunction) {
@@ -86,7 +86,8 @@
     if (!el) {
       throw new Error("VanillaMasker: There is no element to bind.");
     }
-    return new VanillaMasker(el);
+    var elements = ("length" in el) ? (el.length ? el : []) : [el];
+    return new VanillaMasker(elements);
   };
 
   VMasker.toMoney = function(value, opts) {

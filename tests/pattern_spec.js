@@ -18,6 +18,12 @@ describe("VanillaMasker.maskPattern", function() {
     }).toThrow(new Error('VanillaMasker: There is no element to bind.'));
   });
 
+  it('does not throw error when element is empty array', function() {
+    expect(function() {
+      VMasker([]).maskPattern();
+    }).not.toThrow();
+  });
+
 });
 
 describe("VanillaMasker.toPattern", function() {

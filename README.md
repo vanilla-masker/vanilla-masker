@@ -150,6 +150,10 @@ Henrique Antonini Silvério - contato@henriquesilverio.com
 
 # Changelog
 
+## 1.0.1 - 19/09/2014
+
+* Fix VMasker factory when element is empty array.
+
 ## 1.0.0 - 14/09/2014
 
 * Added VMasker factory as default.

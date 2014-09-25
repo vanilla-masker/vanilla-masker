@@ -14,11 +14,11 @@ module.exports = function(grunt) {
         separator: ";"
       },
       dev: {
-        src: ["src/vanilla-masker.js"],
+        src: ["lib/vanilla-masker.js"],
         dest: "public/vanilla-masker.js"
       },
       build: {
-        src: ["src/vanilla-masker.js"],
+        src: ["lib/vanilla-masker.js"],
         dest: "build/vanilla-masker.min.js"
       }
     },
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
     // Jasmine Runner ================================
     jasmine: {
       dev: {
-        src: ['src/vanilla-masker.js'],
+        src: ['lib/vanilla-masker.js'],
         options: {
           specs: 'tests/*_spec.js'
         }
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
 
     // JSHint ========================================
     jshint: {
-      all: ["src/vanilla-masker.js"]
+      all: ["lib/vanilla-masker.js"]
     },
 
     // Minification ==================================
@@ -68,7 +68,7 @@ module.exports = function(grunt) {
     watch: {
       livereload: {
         options: { livereload: true },
-        files: ['src/*', 'tests/*', 'Gruntfile.js', 'package.json'],
+        files: ['lib/*', 'tests/*', 'Gruntfile.js', 'package.json'],
         tasks: ['default']
       }
     }

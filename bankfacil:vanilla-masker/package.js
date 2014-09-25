@@ -5,6 +5,6 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('METEOR@0.9.0');
-  api.addFiles('./lib/vanilla-masker.js',['client','server']);
+  api.versionsFrom('METEOR@0.9.2.2');
+  api.addFiles('../lib/vanilla-masker.js');
 });

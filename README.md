@@ -123,7 +123,6 @@ VMasker.toPattern('ABC1234', "AAA-9999"); // -> ABC-1234
 
 * Test Opera mini browser;
 * Beautify Demo Page;
-* Add Meteor Package support;
 * Auto mask using `data-vm` attributes;
 
 # Compatibility

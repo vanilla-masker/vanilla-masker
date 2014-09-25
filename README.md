@@ -22,6 +22,8 @@ Please, this lib don't have CDN yet, so you need to download and put it in your 
 
 You can install it via bower too, using this command: `bower install --save vanilla-masker`
 
+And you can install inside your meteor projects with this command: `meteor add vanilla-masker`
+
 # How to use
 
 ### Loading the lib
@@ -150,6 +152,10 @@ Leandro Alvares da Costa - leandroadacosta@gmail.com
 Henrique Antonini Silvério - contato@henriquesilverio.com
 
 # Changelog
+
+## 1.0.2 - 25/09/2014
+
+* Added Meteor Package support.
 
 ## 1.0.1 - 19/09/2014
 

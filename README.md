@@ -22,7 +22,7 @@ Please, this lib don't have CDN yet, so you need to download and put it in your 
 
 You can install it via bower too, using this command: `bower install --save vanilla-masker`
 
-And you can install inside your meteor projects with this command: `meteor add vanilla-masker`
+And you can install inside your meteor projects with this command: `meteor add bankfacil:vanilla-masker`
 
 # How to use
 

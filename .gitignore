@@ -4,3 +4,4 @@ public/vanilla-masker.js
 _SpecRunner.html
 .grunt
 bower_components
+npm-debug.log

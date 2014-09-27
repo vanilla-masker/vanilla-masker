@@ -41,7 +41,7 @@ Like I said, you need to download and put this lib in your own site, using this 
 </html>
 ```
 
-### Using the lib
+### Common uses
 
 #### Money format
 
@@ -102,6 +102,36 @@ VMasker.toPattern(99911111101, "999.999.999-99"); // -> 999.111.111-01
 VMasker.toPattern('ABC1234', "AAA-9999"); // -> ABC-1234
 ```
 
+### Meteor uses
+
+If your app is built on top of Meteor framework, you can use the lib in this way...
+
+``` html
+<body>
+  <h1>Welcome to Meteor!</h1>
+  {{> myTemplate}}
+</body>
+
+<template name="myTemplate">
+  <input type="text" placeholder="Money" data-vm-mask-money>
+  <input type="text" placeholder="Number" data-vm-mask-number>
+  <input type="text" placeholder="Date" data-vm-mask-date>
+</template>
+
+```
+
+You just need to bind the elements into the template `rendered` function...
+
+``` javascript
+if (Meteor.isClient) {
+  Template.myTemplate.rendered = function() {
+    VMasker(this.find("[data-vm-mask-money]")).maskMoney();
+    VMasker(this.find("[data-vm-mask-number]")).maskNumber();
+    VMasker(this.find("[data-vm-mask-date]")).maskPattern("99/99/9999");
+  };
+}
+```
+
 # How to run localhost
 
 * Install node.js - http://nodejs.org/download
@@ -142,7 +172,7 @@ Mobile browsers:
 * Firefox mobile 29.0+
 * Opera mobile 10.0+
 * iOS Safari 3.2+
-* Windows Phone
+* Windows Phone browsers
 
 # Contributors
 

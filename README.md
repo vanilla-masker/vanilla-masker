@@ -100,6 +100,8 @@ VMasker.toPattern(12122000, "99/99/9999"); // -> 12/12/2000
 VMasker.toPattern(99911111101, "999.999.999-99"); // -> 999.111.111-01
 // Converts value to masked car plate
 VMasker.toPattern('ABC1234', "AAA-9999"); // -> ABC-1234
+// Converts value to masked vehicle identification
+VMasker.toPattern('9BGRD08X04G117974', "SS.SS.SSSSS.S.S.SSSSSS"); // -> 9B.GR.D08X0.4.G.117974
 ```
 
 ### Meteor uses

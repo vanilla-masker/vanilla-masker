@@ -21,7 +21,7 @@
       <div class="inner">
         <h1>VanillaMasker</h1>
         <h2>A pure javascript input masker</h2>
-        <a href="https://github.com/BankFacil/vanilla-masker" class="button"><small>View project on</small>GitHub</a>
+        <a href="https://github.com/BankFacil/vanilla-masker" class="button"><small>View project on</small> GitHub</a>
       </div>
     </header>
 
@@ -54,9 +54,13 @@ Don't worry about where this will work, because this is a cross-browser and cros
 <a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.1/build/vanilla-masker.min.js">minified version</a> (2.9 Kbytes);</li>
 <li>
 <a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.1/build/vanilla-masker.min.gz.js">gzipped version</a> (1.2 Kbytes);</li>
-</ul><p>Please, this lib don't have CDN yet, so you need to download and put it in your own site. </p>
+</ul>
+
+<p>Please, this lib don't have CDN yet, so you need to download and put it in your own site. </p>
 
 <p>You can install it via bower too, using this command: <code>bower install --save vanilla-masker</code></p>
+
+<p>And you can install inside your meteor projects with this command: <code>meteor add bankfacil:vanilla-masker</code></p>
 
 <h1>
 <a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use</h1>
@@ -77,7 +81,7 @@ Don't worry about where this will work, because this is a cross-browser and cros
 </pre></div>
 
 <h3>
-<a name="using-the-lib" class="anchor" href="#using-the-lib"><span class="octicon octicon-link"></span></a>Using the lib</h3>
+<a name="common-uses" class="anchor" href="#common-uses"><span class="octicon octicon-link"></span></a>Common uses</h3>
 
 <h4>
 <a name="money-format" class="anchor" href="#money-format"><span class="octicon octicon-link"></span></a>Money format</h4>
@@ -136,6 +140,37 @@ Don't worry about where this will work, because this is a cross-browser and cros
 <span class="nx">VMasker</span><span class="p">.</span><span class="nx">toPattern</span><span class="p">(</span><span class="mi">99911111101</span><span class="p">,</span> <span class="s2">"999.999.999-99"</span><span class="p">);</span> <span class="c1">// -&gt; 999.111.111-01</span>
 <span class="c1">// Converts value to masked car plate</span>
 <span class="nx">VMasker</span><span class="p">.</span><span class="nx">toPattern</span><span class="p">(</span><span class="s1">'ABC1234'</span><span class="p">,</span> <span class="s2">"AAA-9999"</span><span class="p">);</span> <span class="c1">// -&gt; ABC-1234</span>
+<span class="c1">// Converts value to masked vehicle identification</span>
+<span class="nx">VMasker</span><span class="p">.</span><span class="nx">toPattern</span><span class="p">(</span><span class="s1">'9BGRD08X04G117974'</span><span class="p">,</span> <span class="s2">"SS.SS.SSSSS.S.S.SSSSSS"</span><span class="p">);</span> <span class="c1">// -&gt; 9B.GR.D08X0.4.G.117974</span>
+</pre></div>
+
+<h3>
+<a name="meteor-uses" class="anchor" href="#meteor-uses"><span class="octicon octicon-link"></span></a>Meteor uses</h3>
+
+<p>If your app is built on top of Meteor framework, you can use the lib in this way...</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>Welcome to Meteor!<span class="nt">&lt;/h1&gt;</span>
+  {{&gt; myTemplate}}
+<span class="nt">&lt;/body&gt;</span>
+
+<span class="nt">&lt;template</span> <span class="na">name=</span><span class="s">"myTemplate"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"Money"</span> <span class="na">data-vm-mask-money</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"Number"</span> <span class="na">data-vm-mask-number</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"Date"</span> <span class="na">data-vm-mask-date</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+
+</pre></div>
+
+<p>You just need to bind the elements into the template <code>rendered</code> function...</p>
+
+<div class="highlight highlight-javascript"><pre><span class="k">if</span> <span class="p">(</span><span class="nx">Meteor</span><span class="p">.</span><span class="nx">isClient</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">Template</span><span class="p">.</span><span class="nx">myTemplate</span><span class="p">.</span><span class="nx">rendered</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">VMasker</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">"[data-vm-mask-money]"</span><span class="p">)).</span><span class="nx">maskMoney</span><span class="p">();</span>
+    <span class="nx">VMasker</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">"[data-vm-mask-number]"</span><span class="p">)).</span><span class="nx">maskNumber</span><span class="p">();</span>
+    <span class="nx">VMasker</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">"[data-vm-mask-date]"</span><span class="p">)).</span><span class="nx">maskPattern</span><span class="p">(</span><span class="s2">"99/99/9999"</span><span class="p">);</span>
+  <span class="p">};</span>
+<span class="p">}</span>
 </pre></div>
 
 <h1>
@@ -153,27 +188,34 @@ Don't worry about where this will work, because this is a cross-browser and cros
 <li>Running development mode - <code>grunt dev</code>
 </li>
 <li>Open the browser - http://localhost:4500</li>
-</ul><h1>
+</ul>
+
+<h1>
 <a name="run-test" class="anchor" href="#run-test"><span class="octicon octicon-link"></span></a>Run test</h1>
 
 <ul>
 <li>Run the command: <code>grunt test</code>
 </li>
-</ul><h1>
+</ul>
+
+<h1>
 <a name="build-project" class="anchor" href="#build-project"><span class="octicon octicon-link"></span></a>Build project</h1>
 
 <ul>
 <li>Run the command: <code>grunt build</code>
 </li>
-</ul><h1>
+</ul>
+
+<h1>
 <a name="todo---we-need-pull-requests-" class="anchor" href="#todo---we-need-pull-requests-"><span class="octicon octicon-link"></span></a>TODO - we need pull requests :]</h1>
 
 <ul>
 <li>Test Opera mini browser;</li>
 <li>Beautify Demo Page;</li>
-<li>Add Meteor Package support;</li>
 <li>Auto mask using <code>data-vm</code> attributes;</li>
-</ul><h1>
+</ul>
+
+<h1>
 <a name="compatibility" class="anchor" href="#compatibility"><span class="octicon octicon-link"></span></a>Compatibility</h1>
 
 <p>Desktop browsers:</p>
@@ -184,7 +226,9 @@ Don't worry about where this will work, because this is a cross-browser and cros
 <li>Safari 4.0+</li>
 <li>Opera 10.0+</li>
 <li>Internet Explorer 8+</li>
-</ul><p>Mobile browsers:</p>
+</ul>
+
+<p>Mobile browsers:</p>
 
 <ul>
 <li>Android browser 2.2+</li>
@@ -192,8 +236,10 @@ Don't worry about where this will work, because this is a cross-browser and cros
 <li>Firefox mobile 29.0+</li>
 <li>Opera mobile 10.0+</li>
 <li>iOS Safari 3.2+</li>
-<li>Windows Phone</li>
-</ul><h1>
+<li>Windows Phone browsers</li>
+</ul>
+
+<h1>
 <a name="contributors" class="anchor" href="#contributors"><span class="octicon octicon-link"></span></a>Contributors</h1>
 
 <p>Caio Ribeiro Pereira - <a href="mailto:caio.ribeiro.pereira@gmail.com">caio.ribeiro.pereira@gmail.com</a><br>
@@ -204,17 +250,35 @@ Henrique Antonini Silvério - <a href="mailto:contato@henriquesilverio.com">cont
 <a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a>Changelog</h1>
 
 <h2>
+<a name="103---29102014" class="anchor" href="#103---29102014"><span class="octicon octicon-link"></span></a>1.0.3 - 29/10/2014</h2>
+
+<ul>
+<li>Added pattern "S" to support alphanumerics.</li>
+</ul>
+
+<h2>
+<a name="102---25092014" class="anchor" href="#102---25092014"><span class="octicon octicon-link"></span></a>1.0.2 - 25/09/2014</h2>
+
+<ul>
+<li>Added Meteor Package support.</li>
+</ul>
+
+<h2>
 <a name="101---19092014" class="anchor" href="#101---19092014"><span class="octicon octicon-link"></span></a>1.0.1 - 19/09/2014</h2>
 
 <ul>
 <li>Fix VMasker factory when element is empty array.</li>
-</ul><h2>
+</ul>
+
+<h2>
 <a name="100---14092014" class="anchor" href="#100---14092014"><span class="octicon octicon-link"></span></a>1.0.0 - 14/09/2014</h2>
 
 <ul>
 <li>Added VMasker factory as default.</li>
 <li>Fix Windows Phone compatibility.</li>
-</ul><h2>
+</ul>
+
+<h2>
 <a name="033" class="anchor" href="#033"><span class="octicon octicon-link"></span></a>0.3.3</h2>
 
 <ul>
@@ -222,19 +286,25 @@ Henrique Antonini Silvério - <a href="mailto:contato@henriquesilverio.com">cont
 <li>Fix ZeroCents behavior for maskMoney.</li>
 <li>Fix last output state for single element.</li>
 <li>Fix Bower main file.</li>
-</ul><h2>
+</ul>
+
+<h2>
 <a name="032" class="anchor" href="#032"><span class="octicon octicon-link"></span></a>0.3.2</h2>
 
 <ul>
 <li>Added suffixUnit support for maskMoney.</li>
-</ul><h2>
+</ul>
+
+<h2>
 <a name="031" class="anchor" href="#031"><span class="octicon octicon-link"></span></a>0.3.1</h2>
 
 <ul>
 <li>Fix mask when input has values.</li>
 <li>Fix cursor navigation.</li>
 <li>Fix delete char at specific position.</li>
-</ul><h2>
+</ul>
+
+<h2>
 <a name="030" class="anchor" href="#030"><span class="octicon octicon-link"></span></a>0.3.0</h2>
 
 <ul>
@@ -245,14 +315,18 @@ Henrique Antonini Silvério - <a href="mailto:contato@henriquesilverio.com">cont
 <li>Internet Explorer 8 support</li>
 <li>Added AMD support (only client-side)</li>
 <li>maskNumber function accepts negative numbers </li>
-</ul><h2>
+</ul>
+
+<h2>
 <a name="020" class="anchor" href="#020"><span class="octicon octicon-link"></span></a>0.2.0</h2>
 
 <ul>
 <li>Added zeroCents to maskMoney function</li>
 <li>Added maskPhone, maskCPF, maskCNPJ and maskDate function</li>
 <li>Added bindElementToMask function</li>
-</ul><h2>
+</ul>
+
+<h2>
 <a name="010" class="anchor" href="#010"><span class="octicon octicon-link"></span></a>0.1.0</h2>
 
 <ul>
@@ -264,7 +338,9 @@ Henrique Antonini Silvério - <a href="mailto:contato@henriquesilverio.com">cont
 <li>Added Grunt build</li>
 <li>Added Travis-CI</li>
 <li>Added CodeClimate</li>
-</ul><h1>
+</ul>
+
+<h1>
 <a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h1>
 
 <p>MIT License: <a href="http://bankfacil.mit-license.org">http://bankfacil.mit-license.org</a></p>

@@ -60,6 +60,9 @@
 
 			<h4>Car plate</h4>
 			<input type="text" id="carPlate">
+			
+			<h4>Vehicle identification</h4>
+			<input type="text" id="vin">
 		</fieldset>
 
 		<script>
@@ -82,6 +85,7 @@
 				VMasker(document.getElementById("date")).maskPattern('99/99/9999');
 				VMasker(document.getElementById("doc")).maskPattern('999.999.999-99');
 				VMasker(document.getElementById("carPlate")).maskPattern('AAA-9999');
+				VMasker(document.getElementById("vin")).maskPattern('SS.SS.SSSSS.S.S.SSSSSS');
 			})();
 		</script>
 	</body>

@@ -182,6 +182,10 @@ Henrique Antonini Silvério - contato@henriquesilverio.com
 
 # Changelog
 
+## 1.0.3 - 29/10/2014
+
+* Added pattern "S" to support alphanumerics.
+
 ## 1.0.2 - 25/09/2014
 
 * Added Meteor Package support.

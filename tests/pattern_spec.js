@@ -68,4 +68,7 @@ describe("VanillaMasker.toPattern", function() {
     expect(VMasker.toPattern('AB1', 'AAA-99')).toEqual('AB');
   });
 
+  it('returns "9B.GR.D08X0.4.G.117974" pattern when input is 9BGRD08X04G117974', function() {
+    expect(VMasker.toPattern('9BGRD08X04G117974', 'SS.SS.SSSSS.S.S.SSSSSS')).toEqual('9B.GR.D08X0.4.G.117974');
+  });
 });

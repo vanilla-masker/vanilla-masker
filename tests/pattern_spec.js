@@ -28,6 +28,14 @@ describe("VanillaMasker.maskPattern", function() {
 
 describe("VanillaMasker.toPattern", function() {
 
+  it('returns "(61)" pattern when input is 61', function() {
+    expect(VMasker.toPattern(61, '(99)')).toEqual('(61)');
+  });
+
+  it('returns "(61) 91234-5678" pattern when input is 61912345678', function() {
+    expect(VMasker.toPattern(61912345678, '(99) 99999-9999')).toEqual('(61) 91234-5678');
+  });
+
   it('returns "(10) 9991-1111" pattern when input is 1099911111', function() {
     expect(VMasker.toPattern(1099911111, '(99) 9999-9999')).toEqual('(10) 9991-1111');
   });

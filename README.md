@@ -104,6 +104,14 @@ VMasker.toPattern('ABC1234', "AAA-9999"); // -> ABC-1234
 VMasker.toPattern('9BGRD08X04G117974', "SS.SS.SSSSS.S.S.SSSSSS"); // -> 9B.GR.D08X0.4.G.117974
 ```
 
+#### Undoing a mask
+
+``` javascript
+var el = document.querySelector("input")
+VMasker(el).maskPattern("(99) 9999-9999"); // masking the input
+VMasker(el).unMask(); // unmask!
+```
+
 ### Meteor uses
 
 If your app is built on top of Meteor framework, you can use the lib in this way...
@@ -180,9 +188,15 @@ Mobile browsers:
 
 Caio Ribeiro Pereira - caio.ribeiro.pereira@gmail.com  
 Leandro Alvares da Costa - leandroadacosta@gmail.com  
-Henrique Antonini Silvério - contato@henriquesilverio.com
+Henrique Antonini Silvério - contato@henriquesilverio.com  
+Joilson Marques - joilsonmarques@gmail.com
 
 # Changelog
+
+## 1.0.4 - 02/12/2014
+
+* Added `unbindElementToMask()` function.
+* Added `unMask()` function.
 
 ## 1.0.3 - 29/10/2014
 

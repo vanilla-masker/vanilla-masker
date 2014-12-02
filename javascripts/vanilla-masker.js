@@ -37,6 +37,18 @@
     this.elements = elements;
   };
 
+  VanillaMasker.prototype.unbindElementToMask = function() {
+    for (var i = 0, len = this.elements.length; i < len; i++) {
+      this.elements[i].lastOutput = "";
+      this.elements[i].onkeyup = false;
+      this.elements[i].onkeydown = false;
+      
+      if (this.elements[i].value.length) {
+        this.elements[i].value = this.elements[i].value.replace(/\D/g, '');
+      }
+    }
+  };
+
   VanillaMasker.prototype.bindElementToMask = function(maskFunction) {
     var that = this,
         onType = function(e) {
@@ -55,13 +67,7 @@
     ;
     for (var i = 0, len = this.elements.length; i < len; i++) {
       this.elements[i].lastOutput = "";
-      if (this.elements[i].addEventListener) {
-        this.elements[i].addEventListener("keyup", onType);
-        this.elements[i].addEventListener("keydown", onType);
-      } else {
-        this.elements[i].attachEvent("onkeyup", onType);
-        this.elements[i].attachEvent("onkeydown", onType);
-      }
+      this.elements[i].onkeyup = onType;
       if (this.elements[i].value.length) {
         this.elements[i].value = VMasker[maskFunction](this.elements[i].value, this.opts);
       }
@@ -81,6 +87,10 @@
   VanillaMasker.prototype.maskPattern = function(pattern) {
     this.opts = {pattern: pattern};
     this.bindElementToMask("toPattern");
+  };
+
+  VanillaMasker.prototype.unMask = function() {
+    this.unbindElementToMask();
   };
 
   var VMasker = function(el) {

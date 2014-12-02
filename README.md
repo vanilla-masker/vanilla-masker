@@ -14,9 +14,9 @@ If you wanna see how this lib works, click to test this [demo page](http://bankf
 # How to install
 
 You can download the lib: 
-* [development version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.1/src/vanilla-masker.js) (5.5 Kbytes);
-* [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.1/build/vanilla-masker.min.js) (2.9 Kbytes);
-* [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.1/build/vanilla-masker.min.gz.js) (1.2 Kbytes);
+* [development version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.4/src/vanilla-masker.js) (5.98 Kbytes);
+* [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.4/build/vanilla-masker.min.js) (3.16 Kbytes);
+* [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.4/build/vanilla-masker.min.gz.js) (1.2 Kbytes);
 
 Please, this lib don't have CDN yet, so you need to download and put it in your own site. 
 
@@ -104,6 +104,14 @@ VMasker.toPattern('ABC1234', "AAA-9999"); // -> ABC-1234
 VMasker.toPattern('9BGRD08X04G117974', "SS.SS.SSSSS.S.S.SSSSSS"); // -> 9B.GR.D08X0.4.G.117974
 ```
 
+#### Undoing a mask
+
+``` javascript
+var el = document.querySelector("input")
+VMasker(el).maskPattern("(99) 9999-9999"); // masking the input
+VMasker(el).unMask(); // unmask!
+```
+
 ### Meteor uses
 
 If your app is built on top of Meteor framework, you can use the lib in this way...
@@ -180,9 +188,15 @@ Mobile browsers:
 
 Caio Ribeiro Pereira - caio.ribeiro.pereira@gmail.com  
 Leandro Alvares da Costa - leandroadacosta@gmail.com  
-Henrique Antonini Silvério - contato@henriquesilverio.com
+Henrique Antonini Silvério - contato@henriquesilverio.com  
+Joilson Marques - joilsonmarques@gmail.com
 
 # Changelog
+
+## 1.0.4 - 02/12/2014
+
+* Added `unbindElementToMask()` function.
+* Added `unMask()` function.
 
 ## 1.0.3 - 29/10/2014
 

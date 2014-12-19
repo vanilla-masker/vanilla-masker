@@ -14,9 +14,9 @@ If you wanna see how this lib works, click to test this [demo page](http://bankf
 # How to install
 
 You can download the lib: 
-* [development version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.5/src/vanilla-masker.js) (6 Kbytes);
-* [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.5/build/vanilla-masker.min.js) (3.2 Kbytes);
-* [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.5/build/vanilla-masker.min.gz.js) (1.2 Kbytes);
+* [development version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.6/src/vanilla-masker.js) (6.2 Kbytes);
+* [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.6/build/vanilla-masker.min.js) (3.24 Kbytes);
+* [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.6/build/vanilla-masker.min.gz.js) (1.3 Kbytes);
 
 Please, this lib don't have CDN yet, so you need to download and put it in your own site. 
 
@@ -163,7 +163,7 @@ if (Meteor.isClient) {
 
 * Test Opera mini browser;
 * Beautify Demo Page;
-* Auto mask using `data-vm` attributes;
+* Bind mask using `data-vm` attributes;
 
 # Compatibility
 
@@ -189,13 +189,19 @@ Mobile browsers:
 Caio Ribeiro Pereira - caio.ribeiro.pereira@gmail.com  
 Leandro Alvares da Costa - leandroadacosta@gmail.com  
 Henrique Antonini Silvério - contato@henriquesilverio.com  
-Joilson Marques - joilsonmarques@gmail.com
+Joilson Marques - joilsonmarques@gmail.com  
+Leonardo Andrade - leonardopandrade@gmail.com
 
 # Changelog
 
+## 1.0.6 - 19/12/2014
+
+* Bug fix #26 - [See this pull request](https://github.com/BankFacil/vanilla-masker/pull/26)
+* Bug fix #24 - [See this pull request](https://github.com/BankFacil/vanilla-masker/pull/24)
+
 ## 1.0.5 - 06/12/2014
 
-* Bug fix - [See pull request](https://github.com/BankFacil/vanilla-masker/pull/19)
+* Bug fix - [See this pull request](https://github.com/BankFacil/vanilla-masker/pull/19)
 
 ## 1.0.4 - 02/12/2014
 

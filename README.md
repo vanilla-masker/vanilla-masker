@@ -14,9 +14,9 @@ If you wanna see how this lib works, click to test this [demo page](http://bankf
 # How to install
 
 You can download the lib: 
-* [development version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.6/src/vanilla-masker.js) (6.2 Kbytes);
-* [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.6/build/vanilla-masker.min.js) (3.24 Kbytes);
-* [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.6/build/vanilla-masker.min.gz.js) (1.3 Kbytes);
+* [development version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.7/src/vanilla-masker.js) (6.2 Kbytes);
+* [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.7/build/vanilla-masker.min.js) (3.24 Kbytes);
+* [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.7/build/vanilla-masker.min.gz.js) (1.3 Kbytes);
 
 Please, this lib don't have CDN yet, so you need to download and put it in your own site. 
 
@@ -193,6 +193,10 @@ Joilson Marques - joilsonmarques@gmail.com
 Leonardo Andrade - leonardopandrade@gmail.com
 
 # Changelog
+
+## 1.0.7 - 26/01/2015
+
+* Bug fix #28 - [See this issue](https://github.com/BankFacil/vanilla-masker/issues/28)
 
 ## 1.0.6 - 19/12/2014
 

@@ -14,7 +14,7 @@ If you wanna see how this lib works, click to test this [demo page](http://bankf
 # How to install
 
 You can download the lib: 
-* [development version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.8/src/vanilla-masker.js) (6.2 Kbytes);
+* [development version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.8/lib/vanilla-masker.js) (6.2 Kbytes);
 * [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.8/build/vanilla-masker.min.js) (3.24 Kbytes);
 * [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.8/build/vanilla-masker.min.gz.js) (1.3 Kbytes);
 

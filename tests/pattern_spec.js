@@ -83,4 +83,22 @@ describe("VanillaMasker.toPattern", function() {
   it('returns "BB.G" pattern when input is 9BG', function() {
     expect(VMasker.toPattern('BBG', 'SS.SS.SSSSS.S.S.SSSSSS')).toEqual('BB.G');
   });
+
+  it('returns "(4xx) xxx-xxxx" when input is 4 and placeholder is x', function(){
+    expect(VMasker.toPattern('4', {pattern: "(999) 999-9999", placeholder: "x"})).toEqual('(4xx) xxx-xxxx');
+  });
+
+  it('returns "(___) ___-_____" when input is empty and placeholder is _', function(){
+    expect(VMasker.toPattern('', {pattern: "(999) 999-9999", placeholder: "_"})).toEqual('(___) ___-____');
+  });
+
+  it('returns "(111) 111-1111" when input is 1111111111 and placeholder is _', function(){
+    expect(VMasker.toPattern('1111111111', {pattern: "(999) 999-9999", placeholder: "_"})).toEqual('(111) 111-1111');
+  });
+
+  it('returns "(aaa) _____" when input is aaa999aaaa and placeholder is _', function(){
+    expect(VMasker.toPattern('aaa999aaaa', {pattern: "(AAA) AAAAA", placeholder: "_"})).toEqual('(aaa) _____');
+  });
+
+
 });

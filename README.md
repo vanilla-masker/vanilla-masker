@@ -102,6 +102,9 @@ VMasker.toPattern(99911111101, "999.999.999-99"); // -> 999.111.111-01
 VMasker.toPattern('ABC1234', "AAA-9999"); // -> ABC-1234
 // Converts value to masked vehicle identification
 VMasker.toPattern('9BGRD08X04G117974', "SS.SS.SSSSS.S.S.SSSSSS"); // -> 9B.GR.D08X0.4.G.117974
+
+// Pass in an optional placeholder option to represent remaining characters to be entered
+VMasker.toPattern('4', {pattern: "(999) 999-9999", placeholder: "x"}); // -> (4xx) xxx-xxxx
 ```
 
 #### Undoing a mask

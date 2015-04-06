@@ -198,6 +198,8 @@ Leonardo Andrade - leonardopandrade@gmail.com
 
 # Changelog
 
+* Added optional placeholder feature for patterns - [See this pull request](https://github.com/BankFacil/vanilla-masker/pull/35)
+
 ## 1.0.8 - 27/01/2015
 
 * Bug fix #29 - [See this pull request](https://github.com/BankFacil/vanilla-masker/pull/29)

@@ -13,15 +13,20 @@ If you wanna see how this lib works, click to test this [demo page](http://bankf
 
 # How to install
 
-You can download the lib: 
+### Download script
 * [development version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.9/lib/vanilla-masker.js) (6.2 Kbytes);
 * [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.9/build/vanilla-masker.min.js) (3.24 Kbytes);
 * [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.9/build/vanilla-masker.min.gz.js) (1.3 Kbytes);
 
 Please, this lib don't have CDN yet, so you need to download and put it in your own site. 
 
+### NPM
+For npm users you just run this command: `npm install vanilla-masker --save`
+
+### Bower
 You can install it via bower too, using this command: `bower install --save vanilla-masker`
 
+### Meteor
 And you can install inside your meteor projects with this command: `meteor add bankfacil:vanilla-masker`
 
 # How to use

@@ -1,6 +1,8 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     define(factory);
+  } else if (typeof exports === 'object') {
+    module.exports = factory();
   } else {
     root.VMasker = factory();
   }
@@ -30,6 +32,15 @@
         };
         opts.moneyPrecision = opts.zeroCents ? 0 : opts.precision;
         return opts;
+      },
+      // Fill wildcards past index in output with placeholder
+      addPlaceholdersToOutput = function(output, index, placeholder) {
+        for (; index < output.length; index++) {
+          if(output[index] === DIGIT || output[index] === ALPHA || output[index] === ALPHANUM) {
+            output[index] = placeholder;
+          }
+        }
+        return output;
       }
   ;
 
@@ -52,6 +63,7 @@
   VanillaMasker.prototype.bindElementToMask = function(maskFunction) {
     var that = this,
         onType = function(e) {
+          e = e || window.event;
           var source = e.target || e.srcElement;
 
           if (isAllowedKeyCode(e.keyCode)) {
@@ -83,6 +95,11 @@
   VanillaMasker.prototype.maskNumber = function() {
     this.opts = {};
     this.bindElementToMask("toNumber");
+  };
+  
+  VanillaMasker.prototype.maskAlphaNum = function() {
+    this.opts = {};
+    this.bindElementToMask("toAlphaNumeric");
   };
 
   VanillaMasker.prototype.maskPattern = function(pattern) {
@@ -151,22 +168,38 @@
         values = value.toString().replace(/\W/g, ""),
         charsValues = values.replace(/\W/g, ''),
         index = 0,
-        i
+        i,
+        outputLength = output.length,
+        placeholder = (typeof opts === 'object' ? opts.placeholder : undefined)
     ;
-    for (i = 0; i < output.length; i++) {
-
+    
+    for (i = 0; i < outputLength; i++) {
+      // Reached the end of input
       if (index >= values.length) {
         if (patternChars.length == charsValues.length) {
           return output.join("");
         }
-        break;
+        else if ((placeholder !== undefined) && (patternChars.length > charsValues.length)) {
+          return addPlaceholdersToOutput(output, i, placeholder).join("");
+        }
+        else {
+          break;
+        }
       }
-      if ((output[i] === DIGIT && values[index].match(/[0-9]/)) ||
-          (output[i] === ALPHA && values[index].match(/[a-zA-Z]/)) ||
-          (output[i] === ALPHANUM && values[index].match(/[0-9a-zA-Z]/))) {
-        output[i] = values[index++];
-      } else if (output[i] === DIGIT || output[i] === ALPHA || output[i] === ALPHANUM) {
-        output = output.slice(0, i);
+      // Remaining chars in input
+      else{
+        if ((output[i] === DIGIT && values[index].match(/[0-9]/)) ||
+            (output[i] === ALPHA && values[index].match(/[a-zA-Z]/)) ||
+            (output[i] === ALPHANUM && values[index].match(/[0-9a-zA-Z]/))) {
+          output[i] = values[index++];
+        } else if (output[i] === DIGIT || output[i] === ALPHA || output[i] === ALPHANUM) {
+          if(placeholder !== undefined){
+            return addPlaceholdersToOutput(output, i, placeholder).join("");
+          }
+          else{
+            return output.slice(0, i).join("");
+          }
+        }
       }
     }
     return output.join("").substr(0, i);
@@ -174,6 +207,10 @@
 
   VMasker.toNumber = function(value) {
     return value.toString().replace(/(?!^-)[^0-9]/g, "");
+  };
+  
+  VMasker.toAlphaNumeric = function(value) {
+    return value.toString().replace(/[^a-z0-9 ]+/i, "");
   };
 
   return VMasker;

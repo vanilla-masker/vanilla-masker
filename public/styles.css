@@ -8,8 +8,7 @@ h1 {
 }
 input {
   height: 2em;
-  border: 1px solid;
-  border-color: #AAAAAA;
+  border: 1px solid #aaa;
   padding-left: 0.5em;
 }
 legend {

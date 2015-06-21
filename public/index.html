@@ -3,6 +3,7 @@
 	<head>
 		<title>VanillaMasker</title>
 		<script src="/vanilla-masker.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles.css">
 	</head>
 	<body>
 		<h1>VanillaMasker</h1>
@@ -10,25 +11,25 @@
 		<fieldset>
 			<legend>VMasker(element).maskMoney(options);</legend>
 
-			<h4>Default</h4>
+			<label for="default">Default</label>
 			<input type="text" id="default" maxlength="7">
 
-			<h4>Zero cents</h4>
+			<label for="zeroCents">Zero cents</label>
 			<input type="text" id="zeroCents">
 
-			<h4>Unit R$</h4>
+			<label for="unit">Unit R$</label>
 			<input type="text" id="unit">
 
-			<h4>Suffix Unit R$</h4>
+			<label for="suffixUnit">Suffix unit R$</label>
 			<input type="text" id="suffixUnit">
 
-			<h4>Delimiter ","</h4>
+			<label for="delimiter">Delimiter ","</label>
 			<input type="text" id="delimiter">
 
-			<h4>Separator "."</h4>
+			<label for="separator">Separator "."</label>
 			<input type="text" id="separator">
 
-			<h4>Default with values</h4>
+			<label for="defaultValues">Default with values</label>
 			<input type="text" id="defaultValues" value="1000">
 		</fieldset>
 
@@ -37,7 +38,7 @@
 		<fieldset>
 			<legend>VMasker(element).maskNumber();</legend>
 
-			<h4>Only numbers</h4>
+			<label for="numbers">Only numbers</label>
 			<input type="text" id="numbers">
 		</fieldset>
 
@@ -46,23 +47,23 @@
 		<fieldset>
 			<legend>VMasker(element).maskPattern(pattern);</legend>
 
-			<h4>Phone</h4>
+			<label for="phone">Phone</label>
 			<input type="text" id="phone">
 
-			<h4>Phone with values</h4>
+			<label for="phoneValues">Phone with values</label>
 			<input type="text" id="phoneValues" value="3141232312">
 
-			<h4>Date</h4>
+			<label for="date">Date</label>
 			<input type="text" id="date">
 
-			<h4>Document</h4>
+			<label for="doc">Document</label>
 			<input type="text" id="doc">
 
-			<h4>Car plate</h4>
+			<label for="carPlate">Car plate</label>
 			<input type="text" id="carPlate">
 
-			<h4>Vehicle Identification</h4>
-			<input type="text" id="vin">
+			<label for="vid">Vehicle identification</label>
+			<input type="text" id="vid">
 		</fieldset>
 
 		<script>
@@ -85,7 +86,7 @@
 				VMasker(document.getElementById("date")).maskPattern('99/99/9999');
 				VMasker(document.getElementById("doc")).maskPattern('999.999.999-99');
 				VMasker(document.getElementById("carPlate")).maskPattern('AAA-9999');
-				VMasker(document.getElementById("vin")).maskPattern('SS.SS.SSSSS.S.S.SSSSSS');
+				VMasker(document.getElementById("vid")).maskPattern('SS.SS.SSSSS.S.S.SSSSSS');
 			})();
 		</script>
 	</body>

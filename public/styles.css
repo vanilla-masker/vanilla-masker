@@ -1,0 +1,33 @@
+body {
+  font-family: helvetica, arial
+}
+h1 {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+input {
+  height: 2em;
+  border: 1px solid #aaa;
+  padding-left: 0.5em;
+}
+legend {
+  font-style: italic;
+}
+fieldset {
+  max-width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
+label, input {
+  display: block;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+input, legend {
+  margin-bottom: 1em;
+}
+input, fieldset {
+  border-radius: 8px;
+}

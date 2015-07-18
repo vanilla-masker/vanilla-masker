@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/BankFacil/vanilla-masker.svg)](https://travis-ci.org/BankFacil/vanilla-masker)
 [![Code Climate](https://codeclimate.com/github/BankFacil/vanilla-masker.png)](https://codeclimate.com/github/BankFacil/vanilla-masker)
-
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/bankfacil_dev.svg)](https://saucelabs.com/u/bankfacil_dev)
 It's a pure JavaScript mask input.  
 Now you can use a simple and pure javascript lib to mask your input elements, without need to load jQuery or Zepto to do it.
 
@@ -18,7 +18,7 @@ If you wanna see how this lib works, click to test this [demo page](http://bankf
 * [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.9/build/vanilla-masker.min.js) (3.24 Kbytes);
 * [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.9/build/vanilla-masker.min.gz.js) (1.3 Kbytes);
 
-Please, this lib don't have CDN yet, so you need to download and put it in your own site. 
+Please, this lib don't have CDN yet, so you need to download and put it in your own site.
 
 ### NPM
 For npm users you just run this command: `npm install vanilla-masker --save`
@@ -58,15 +58,15 @@ VMasker(document.querySelector("data-js-input")).maskMoney();
 // Masking input element to money with options.
 VMasker(document.querySelector("data-js-input")).maskMoney({
   // Decimal precision -> "90"
-  precision: 2, 
+  precision: 2,
   // Decimal separator -> ",90"
-  separator: ',', 
+  separator: ',',
   // Number delimiter -> "12.345.678"
-  delimiter: '.', 
+  delimiter: '.',
   // Money unit -> "R$ 12.345.678,90"
-  unit: 'R$', 
+  unit: 'R$',
   // Money unit -> "12.345.678,90 R$"
-  suffixUnit: 'R$', 
+  suffixUnit: 'R$',
   // Force type only number instead decimal,
   // masking decimals with ",00"
   // Zero cents -> "R$ 1.234.567.890,00"
@@ -86,7 +86,7 @@ VMasker.toMoney(1234); // -> R$ 1.234,00
 // Masking input element to number.
 VMasker(document.querySelector("data-js-input")).maskNumber();
 
-// Converts any string to number 
+// Converts any string to number
 VMasker.toNumber("123ac34"); // -> 12334
 VMasker.toNumber("-123ac34"); // -> -12334
 ```
@@ -271,7 +271,7 @@ Leonardo Andrade - leonardopandrade@gmail.com
 * Fixed maskPattern when types pattern "A" in a mask which has only pattern "9"
 * Internet Explorer 8 support
 * Added AMD support (only client-side)
-* maskNumber function accepts negative numbers 
+* maskNumber function accepts negative numbers
 
 ## 0.2.0
 

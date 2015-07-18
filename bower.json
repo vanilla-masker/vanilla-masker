@@ -14,7 +14,7 @@
     "Joilson Marques <joilsonmarques@gmail.com>",
     "Leonardo Andrade <leonardopandrade@gmail.com>"
   ],
-  "main": "src/vanilla-masker.js",
+  "main": "lib/vanilla-masker.js",
   "license": "MIT <http://bankfacil.mit-license.org>",
   "bugs": "https://github.com/BankFacil/vanilla-masker/issues",
   "ignore": [

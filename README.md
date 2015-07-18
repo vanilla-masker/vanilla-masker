@@ -18,7 +18,13 @@ If you wanna see how this lib works, click to test this [demo page](http://bankf
 * [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.9/build/vanilla-masker.min.js) (3.24 Kbytes);
 * [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.9/build/vanilla-masker.min.gz.js) (1.3 Kbytes);
 
-Please, this lib don't have CDN yet, so you need to download and put it in your own site. 
+We have the following CDN available, for development or minified versions: 
+
+`//cdn.jsdelivr.net/vanilla-masker/1.0.9/vanilla-masker.js`
+
+`//cdn.jsdelivr.net/vanilla-masker/1.0.9/vanilla-masker.min.js`
+
+We intent to automatically send new versions to the CDN, but keep in mind that the version you want might not be available there. Of course you can always download and put it in your own site. 
 
 ### NPM
 For npm users you just run this command: `npm install vanilla-masker --save`

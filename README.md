@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/BankFacil/vanilla-masker.svg)](https://travis-ci.org/BankFacil/vanilla-masker)
 [![Code Climate](https://codeclimate.com/github/BankFacil/vanilla-masker.png)](https://codeclimate.com/github/BankFacil/vanilla-masker)
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/bankfacil_dev.svg)](https://saucelabs.com/u/bankfacil_dev)
+
 It's a pure JavaScript mask input.  
 Now you can use a simple and pure javascript lib to mask your input elements, without need to load jQuery or Zepto to do it.
 
@@ -14,15 +15,14 @@ If you wanna see how this lib works, click to test this [demo page](http://bankf
 # How to install
 
 ### Download script
-* [development version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.9/lib/vanilla-masker.js) (6.2 Kbytes);
-* [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.9/build/vanilla-masker.min.js) (3.24 Kbytes);
-* [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.9/build/vanilla-masker.min.gz.js) (1.3 Kbytes);
+* [development version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.1.0/lib/vanilla-masker.js) (6.2 Kbytes);
+* [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.1.0/build/vanilla-masker.min.js) (3.24 Kbytes);
+* [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.1.0/build/vanilla-masker.min.gz.js) (1.3 Kbytes);
 
-We have the following CDN available, for development or minified versions: 
+We have the following CDN available, for development or minified versions:
 
-`//cdn.jsdelivr.net/vanilla-masker/1.0.9/vanilla-masker.js`
-
-`//cdn.jsdelivr.net/vanilla-masker/1.0.9/vanilla-masker.min.js`
+`//cdn.jsdelivr.net/vanilla-masker/1.1.0/vanilla-masker.js`  
+`//cdn.jsdelivr.net/vanilla-masker/1.1.0/vanilla-masker.min.js`
 
 We intent to automatically send new versions to the CDN, but keep in mind that the version you want might not be available there. Of course you can always download and put it in your own site. 
 
@@ -208,6 +208,13 @@ Joilson Marques - joilsonmarques@gmail.com
 Leonardo Andrade - leonardopandrade@gmail.com
 
 # Changelog
+
+## 1.1.0 - 13/08/2015
+
+* Improved demo page layout - [See this pull request](https://github.com/BankFacil/vanilla-masker/pull/40)
+* Fixed bower.json - [See this pull request](https://github.com/BankFacil/vanilla-masker/pull/43)
+* When backspace is pressed the pattern is kept - [See this pull request](https://github.com/BankFacil/vanilla-masker/pull/47)
+* Enabled sauce-labs on Travis - [See this pull request](https://github.com/BankFacil/vanilla-masker/pull/44)
 
 ## 1.0.9 - 07/04/2015
 

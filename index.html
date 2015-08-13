@@ -5,7 +5,7 @@
     <title>VanillaMasker by BankFacil</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
@@ -23,7 +23,8 @@
 <a id="whats-this" class="anchor" href="#whats-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's this</h1>
 
 <p><a href="https://travis-ci.org/BankFacil/vanilla-masker"><img src="https://travis-ci.org/BankFacil/vanilla-masker.svg" alt="Build Status"></a>
-<a href="https://codeclimate.com/github/BankFacil/vanilla-masker"><img src="https://codeclimate.com/github/BankFacil/vanilla-masker.png" alt="Code Climate"></a></p>
+<a href="https://codeclimate.com/github/BankFacil/vanilla-masker"><img src="https://codeclimate.com/github/BankFacil/vanilla-masker.png" alt="Code Climate"></a>
+<a href="https://saucelabs.com/u/bankfacil_dev"><img src="https://saucelabs.com/browser-matrix/bankfacil_dev.svg" alt="Sauce Test Status"></a></p>
 
 <p>It's a pure JavaScript mask input.<br>
 Now you can use a simple and pure javascript lib to mask your input elements, without need to load jQuery or Zepto to do it.</p>
@@ -41,14 +42,19 @@ Don't worry about where this will work, because this is a cross-browser and cros
 
 <ul>
 <li>
-<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.9/lib/vanilla-masker.js">development version</a> (6.2 Kbytes);</li>
+<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.1.0/lib/vanilla-masker.js">development version</a> (6.2 Kbytes);</li>
 <li>
-<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.9/build/vanilla-masker.min.js">minified version</a> (3.24 Kbytes);</li>
+<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.1.0/build/vanilla-masker.min.js">minified version</a> (3.24 Kbytes);</li>
 <li>
-<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.0.9/build/vanilla-masker.min.gz.js">gzipped version</a> (1.3 Kbytes);</li>
+<a href="https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.1.0/build/vanilla-masker.min.gz.js">gzipped version</a> (1.3 Kbytes);</li>
 </ul>
 
-<p>Please, this lib don't have CDN yet, so you need to download and put it in your own site. </p>
+<p>We have the following CDN available, for development or minified versions:</p>
+
+<p><code>//cdn.jsdelivr.net/vanilla-masker/1.1.0/vanilla-masker.js</code><br>
+<code>//cdn.jsdelivr.net/vanilla-masker/1.1.0/vanilla-masker.min.js</code></p>
+
+<p>We intent to automatically send new versions to the CDN, but keep in mind that the version you want might not be available there. Of course you can always download and put it in your own site. </p>
 
 <h3>
 <a id="npm" class="anchor" href="#npm" aria-hidden="true"><span class="octicon octicon-link"></span></a>NPM</h3>
@@ -90,20 +96,20 @@ Don't worry about where this will work, because this is a cross-browser and cros
 
 <div class="highlight highlight-javascript"><pre>
 <span class="pl-c">// Masking input element to money.</span>
-VMasker(<span class="pl-c1">document</span>.querySelector(<span class="pl-s"><span class="pl-pds">"</span>data-js-input<span class="pl-pds">"</span></span>)).maskMoney();
+<span class="pl-c1">VMasker</span>(<span class="pl-c1">document</span>.<span class="pl-c1">querySelector</span>(<span class="pl-s"><span class="pl-pds">"</span>data-js-input<span class="pl-pds">"</span></span>)).<span class="pl-c1">maskMoney</span>();
 
 <span class="pl-c">// Masking input element to money with options.</span>
-VMasker(<span class="pl-c1">document</span>.querySelector(<span class="pl-s"><span class="pl-pds">"</span>data-js-input<span class="pl-pds">"</span></span>)).maskMoney({
+<span class="pl-c1">VMasker</span>(<span class="pl-c1">document</span>.<span class="pl-c1">querySelector</span>(<span class="pl-s"><span class="pl-pds">"</span>data-js-input<span class="pl-pds">"</span></span>)).<span class="pl-c1">maskMoney</span>({
   <span class="pl-c">// Decimal precision -&gt; "90"</span>
-  precision<span class="pl-k">:</span> <span class="pl-c1">2</span>, 
+  precision<span class="pl-k">:</span> <span class="pl-c1">2</span>,
   <span class="pl-c">// Decimal separator -&gt; ",90"</span>
-  separator<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>,<span class="pl-pds">'</span></span>, 
+  separator<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>,<span class="pl-pds">'</span></span>,
   <span class="pl-c">// Number delimiter -&gt; "12.345.678"</span>
-  delimiter<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>.<span class="pl-pds">'</span></span>, 
+  delimiter<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>.<span class="pl-pds">'</span></span>,
   <span class="pl-c">// Money unit -&gt; "R$ 12.345.678,90"</span>
-  unit<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>R$<span class="pl-pds">'</span></span>, 
+  unit<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>R$<span class="pl-pds">'</span></span>,
   <span class="pl-c">// Money unit -&gt; "12.345.678,90 R$"</span>
-  suffixUnit<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>R$<span class="pl-pds">'</span></span>, 
+  suffixUnit<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>R$<span class="pl-pds">'</span></span>,
   <span class="pl-c">// Force type only number instead decimal,</span>
   <span class="pl-c">// masking decimals with ",00"</span>
   <span class="pl-c">// Zero cents -&gt; "R$ 1.234.567.890,00"</span>
@@ -111,47 +117,47 @@ VMasker(<span class="pl-c1">document</span>.querySelector(<span class="pl-s"><sp
 });
 
 <span class="pl-c">// Masking an array of input elements to money.</span>
-VMasker(<span class="pl-c1">document</span>.querySelectorAll(<span class="pl-s"><span class="pl-pds">"</span>data-js-input<span class="pl-pds">"</span></span>)).maskMoney();
+<span class="pl-c1">VMasker</span>(<span class="pl-c1">document</span>.<span class="pl-c1">querySelectorAll</span>(<span class="pl-s"><span class="pl-pds">"</span>data-js-input<span class="pl-pds">"</span></span>)).<span class="pl-c1">maskMoney</span>();
 
 <span class="pl-c">// Converts number to money string</span>
-VMasker.toMoney(<span class="pl-c1">1234</span>); <span class="pl-c">// -&gt; R$ 1.234,00</span></pre></div>
+VMasker.<span class="pl-c1">toMoney</span>(<span class="pl-c1">1234</span>); <span class="pl-c">// -&gt; R$ 1.234,00</span></pre></div>
 
 <h4>
 <a id="only-numbers" class="anchor" href="#only-numbers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Only numbers</h4>
 
 <div class="highlight highlight-javascript"><pre><span class="pl-c">// Masking input element to number.</span>
-VMasker(<span class="pl-c1">document</span>.querySelector(<span class="pl-s"><span class="pl-pds">"</span>data-js-input<span class="pl-pds">"</span></span>)).maskNumber();
+<span class="pl-c1">VMasker</span>(<span class="pl-c1">document</span>.<span class="pl-c1">querySelector</span>(<span class="pl-s"><span class="pl-pds">"</span>data-js-input<span class="pl-pds">"</span></span>)).<span class="pl-c1">maskNumber</span>();
 
-<span class="pl-c">// Converts any string to number </span>
-VMasker.toNumber(<span class="pl-s"><span class="pl-pds">"</span>123ac34<span class="pl-pds">"</span></span>); <span class="pl-c">// -&gt; 12334</span>
-VMasker.toNumber(<span class="pl-s"><span class="pl-pds">"</span>-123ac34<span class="pl-pds">"</span></span>); <span class="pl-c">// -&gt; -12334</span></pre></div>
+<span class="pl-c">// Converts any string to number</span>
+VMasker.<span class="pl-c1">toNumber</span>(<span class="pl-s"><span class="pl-pds">"</span>123ac34<span class="pl-pds">"</span></span>); <span class="pl-c">// -&gt; 12334</span>
+VMasker.<span class="pl-c1">toNumber</span>(<span class="pl-s"><span class="pl-pds">"</span>-123ac34<span class="pl-pds">"</span></span>); <span class="pl-c">// -&gt; -12334</span></pre></div>
 
 <h4>
 <a id="custom-pattern" class="anchor" href="#custom-pattern" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom pattern</h4>
 
 <div class="highlight highlight-javascript"><pre><span class="pl-c">// Listen the input element masking it to format with pattern.</span>
-VMasker(<span class="pl-c1">document</span>.querySelector(<span class="pl-s"><span class="pl-pds">"</span>input<span class="pl-pds">"</span></span>)).maskPattern(<span class="pl-s"><span class="pl-pds">"</span>(99) 9999-9999<span class="pl-pds">"</span></span>);
+<span class="pl-c1">VMasker</span>(<span class="pl-c1">document</span>.<span class="pl-c1">querySelector</span>(<span class="pl-s"><span class="pl-pds">"</span>input<span class="pl-pds">"</span></span>)).<span class="pl-c1">maskPattern</span>(<span class="pl-s"><span class="pl-pds">"</span>(99) 9999-9999<span class="pl-pds">"</span></span>);
 
 <span class="pl-c">// Converts value to masked phone</span>
-VMasker.toPattern(<span class="pl-c1">1099911111</span>, <span class="pl-s"><span class="pl-pds">"</span>(99) 9999-9999<span class="pl-pds">"</span></span>); <span class="pl-c">// -&gt; (10) 9991-1111</span>
+VMasker.<span class="pl-c1">toPattern</span>(<span class="pl-c1">1099911111</span>, <span class="pl-s"><span class="pl-pds">"</span>(99) 9999-9999<span class="pl-pds">"</span></span>); <span class="pl-c">// -&gt; (10) 9991-1111</span>
 <span class="pl-c">// Converts value to masked date</span>
-VMasker.toPattern(<span class="pl-c1">12122000</span>, <span class="pl-s"><span class="pl-pds">"</span>99/99/9999<span class="pl-pds">"</span></span>); <span class="pl-c">// -&gt; 12/12/2000</span>
+VMasker.<span class="pl-c1">toPattern</span>(<span class="pl-c1">12122000</span>, <span class="pl-s"><span class="pl-pds">"</span>99/99/9999<span class="pl-pds">"</span></span>); <span class="pl-c">// -&gt; 12/12/2000</span>
 <span class="pl-c">// Converts value to masked document</span>
-VMasker.toPattern(<span class="pl-c1">99911111101</span>, <span class="pl-s"><span class="pl-pds">"</span>999.999.999-99<span class="pl-pds">"</span></span>); <span class="pl-c">// -&gt; 999.111.111-01</span>
+VMasker.<span class="pl-c1">toPattern</span>(<span class="pl-c1">99911111101</span>, <span class="pl-s"><span class="pl-pds">"</span>999.999.999-99<span class="pl-pds">"</span></span>); <span class="pl-c">// -&gt; 999.111.111-01</span>
 <span class="pl-c">// Converts value to masked car plate</span>
-VMasker.toPattern(<span class="pl-s"><span class="pl-pds">'</span>ABC1234<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">"</span>AAA-9999<span class="pl-pds">"</span></span>); <span class="pl-c">// -&gt; ABC-1234</span>
+VMasker.<span class="pl-c1">toPattern</span>(<span class="pl-s"><span class="pl-pds">'</span>ABC1234<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">"</span>AAA-9999<span class="pl-pds">"</span></span>); <span class="pl-c">// -&gt; ABC-1234</span>
 <span class="pl-c">// Converts value to masked vehicle identification</span>
-VMasker.toPattern(<span class="pl-s"><span class="pl-pds">'</span>9BGRD08X04G117974<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SS.SS.SSSSS.S.S.SSSSSS<span class="pl-pds">"</span></span>); <span class="pl-c">// -&gt; 9B.GR.D08X0.4.G.117974</span>
+VMasker.<span class="pl-c1">toPattern</span>(<span class="pl-s"><span class="pl-pds">'</span>9BGRD08X04G117974<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SS.SS.SSSSS.S.S.SSSSSS<span class="pl-pds">"</span></span>); <span class="pl-c">// -&gt; 9B.GR.D08X0.4.G.117974</span>
 
 <span class="pl-c">// Pass in an optional placeholder option to represent remaining characters to be entered</span>
-VMasker.toPattern(<span class="pl-s"><span class="pl-pds">'</span>4<span class="pl-pds">'</span></span>, {pattern<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>(999) 999-9999<span class="pl-pds">"</span></span>, placeholder<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>x<span class="pl-pds">"</span></span>}); <span class="pl-c">// -&gt; (4xx) xxx-xxxx</span></pre></div>
+VMasker.<span class="pl-c1">toPattern</span>(<span class="pl-s"><span class="pl-pds">'</span>4<span class="pl-pds">'</span></span>, {pattern<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>(999) 999-9999<span class="pl-pds">"</span></span>, placeholder<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>x<span class="pl-pds">"</span></span>}); <span class="pl-c">// -&gt; (4xx) xxx-xxxx</span></pre></div>
 
 <h4>
 <a id="undoing-a-mask" class="anchor" href="#undoing-a-mask" aria-hidden="true"><span class="octicon octicon-link"></span></a>Undoing a mask</h4>
 
-<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> el <span class="pl-k">=</span> <span class="pl-c1">document</span>.querySelector(<span class="pl-s"><span class="pl-pds">"</span>input<span class="pl-pds">"</span></span>)
-VMasker(el).maskPattern(<span class="pl-s"><span class="pl-pds">"</span>(99) 9999-9999<span class="pl-pds">"</span></span>); <span class="pl-c">// masking the input</span>
-VMasker(el).unMask(); <span class="pl-c">// unmask!</span></pre></div>
+<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> el <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">querySelector</span>(<span class="pl-s"><span class="pl-pds">"</span>input<span class="pl-pds">"</span></span>)
+<span class="pl-c1">VMasker</span>(el).<span class="pl-c1">maskPattern</span>(<span class="pl-s"><span class="pl-pds">"</span>(99) 9999-9999<span class="pl-pds">"</span></span>); <span class="pl-c">// masking the input</span>
+<span class="pl-c1">VMasker</span>(el).<span class="pl-c1">unMask</span>(); <span class="pl-c">// unmask!</span></pre></div>
 
 <h3>
 <a id="meteor-uses" class="anchor" href="#meteor-uses" aria-hidden="true"><span class="octicon octicon-link"></span></a>Meteor uses</h3>
@@ -172,11 +178,11 @@ VMasker(el).unMask(); <span class="pl-c">// unmask!</span></pre></div>
 
 <p>You just need to bind the elements into the template <code>rendered</code> function...</p>
 
-<div class="highlight highlight-javascript"><pre><span class="pl-k">if</span> (Meteor.isClient) {
+<div class="highlight highlight-javascript"><pre><span class="pl-k">if</span> (Meteor.<span class="pl-c1">isClient</span>) {
   <span class="pl-c1">Template.myTemplate</span>.<span class="pl-en">rendered</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {
-    VMasker(<span class="pl-v">this</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">"</span>[data-vm-mask-money]<span class="pl-pds">"</span></span>)).maskMoney();
-    VMasker(<span class="pl-v">this</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">"</span>[data-vm-mask-number]<span class="pl-pds">"</span></span>)).maskNumber();
-    VMasker(<span class="pl-v">this</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">"</span>[data-vm-mask-date]<span class="pl-pds">"</span></span>)).maskPattern(<span class="pl-s"><span class="pl-pds">"</span>99/99/9999<span class="pl-pds">"</span></span>);
+    <span class="pl-c1">VMasker</span>(<span class="pl-v">this</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">"</span>[data-vm-mask-money]<span class="pl-pds">"</span></span>)).<span class="pl-c1">maskMoney</span>();
+    <span class="pl-c1">VMasker</span>(<span class="pl-v">this</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">"</span>[data-vm-mask-number]<span class="pl-pds">"</span></span>)).<span class="pl-c1">maskNumber</span>();
+    <span class="pl-c1">VMasker</span>(<span class="pl-v">this</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">"</span>[data-vm-mask-date]<span class="pl-pds">"</span></span>)).<span class="pl-c1">maskPattern</span>(<span class="pl-s"><span class="pl-pds">"</span>99/99/9999<span class="pl-pds">"</span></span>);
   };
 }</pre></div>
 
@@ -258,6 +264,20 @@ Leonardo Andrade - <a href="mailto:leonardopandrade@gmail.com">leonardopandrade@
 
 <h1>
 <a id="changelog" class="anchor" href="#changelog" aria-hidden="true"><span class="octicon octicon-link"></span></a>Changelog</h1>
+
+<h2>
+<a id="110---13082015" class="anchor" href="#110---13082015" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.1.0 - 13/08/2015</h2>
+
+<ul>
+<li>Improved demo page layout - <a href="https://github.com/BankFacil/vanilla-masker/pull/40">See this pull request</a>
+</li>
+<li>Fixed bower.json - <a href="https://github.com/BankFacil/vanilla-masker/pull/43">See this pull request</a>
+</li>
+<li>When backspace is pressed the pattern is kept - <a href="https://github.com/BankFacil/vanilla-masker/pull/47">See this pull request</a>
+</li>
+<li>Enabled sauce-labs on Travis - <a href="https://github.com/BankFacil/vanilla-masker/pull/44">See this pull request</a>
+</li>
+</ul>
 
 <h2>
 <a id="109---07042015" class="anchor" href="#109---07042015" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.0.9 - 07/04/2015</h2>
@@ -374,7 +394,7 @@ Leonardo Andrade - <a href="mailto:leonardopandrade@gmail.com">leonardopandrade@
 <li>Fixed maskPattern when types pattern "A" in a mask which has only pattern "9"</li>
 <li>Internet Explorer 8 support</li>
 <li>Added AMD support (only client-side)</li>
-<li>maskNumber function accepts negative numbers </li>
+<li>maskNumber function accepts negative numbers</li>
 </ul>
 
 <h2>
@@ -432,4 +452,3 @@ Join our team! Read about our <a href="https://www.bankfacil.com.br/dev">develop
 
   </body>
 </html>
-

@@ -52,7 +52,7 @@ module.exports = function(grunt) {
       build: {
         options: { mode: 'gzip', level: 9, pretty: true },
         files: [
-          {expand: true, flatten: true, src: ['build/*.js'], dest: 'build', ext: '.min.gz.js'}
+          {expand: true, flatten: true, src: ['build/*.js'], dest: 'build', ext: '.min.js.gz'}
         ]
       }
     },

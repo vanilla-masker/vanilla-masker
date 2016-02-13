@@ -1,32 +1,29 @@
 module.exports = function(grunt) {
-
   var config = {
-
     // Clean folders ================================
     clean: {
       dev: ['public/vanilla-masker*'],
-      build: ['build/vanilla-masker*']
+      build: ['build/']
     },
 
-    // Concat ========================================
-    concat: {
-      options: {
-        separator: ";"
-      },
-      dev: {
-        src: ["lib/vanilla-masker.js"],
-        dest: "public/vanilla-masker.js"
-      },
+    broccoli: {
       build: {
-        src: ["lib/vanilla-masker.js"],
-        dest: "build/vanilla-masker.min.js"
-      }
+        dest: "build/",
+        config: "Brocfile.js",
+      },
+    },
+
+    copy: {
+      globalToPublic: {
+        src: "build/vanilla-masker.js",
+        dest: "public/vanilla-masker.js",
+      },
     },
 
     // Jasmine Runner ================================
     jasmine: {
       dev: {
-        src: ['lib/vanilla-masker.js'],
+        src: ['build/vanilla-masker.js'],
         options: {
           specs: 'tests/*_spec.js'
         }
@@ -36,15 +33,6 @@ module.exports = function(grunt) {
     // JSHint ========================================
     jshint: {
       all: ["lib/vanilla-masker.js"]
-    },
-
-    // Minification ==================================
-    uglify: {
-      minify: {
-        files: {
-          "build/vanilla-masker.min.js": ["build/vanilla-masker.min.js"]
-        }
-      }
     },
 
     // Compress ======================================
@@ -68,7 +56,7 @@ module.exports = function(grunt) {
     watch: {
       livereload: {
         options: { livereload: true },
-        files: ['lib/*', 'tests/*', 'Gruntfile.js', 'package.json'],
+        files: ['lib/*', 'tests/*', 'Gruntfile.js', 'Brocfile.js', 'package.json'],
         tasks: ['default']
       }
     }
@@ -79,14 +67,15 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-clean");
   grunt.loadNpmTasks("grunt-contrib-concat");
   grunt.loadNpmTasks("grunt-contrib-jshint");
-  grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-jasmine");
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks("grunt-contrib-watch");
+  grunt.loadNpmTasks("grunt-contrib-copy");
+  grunt.loadNpmTasks("grunt-broccoli");
 
-  grunt.registerTask("default", ["jshint", "jasmine:dev"]);
+  grunt.registerTask("default", ["build", "copy:globalToPublic", "jasmine:dev"]);
   grunt.registerTask("test", ["default"]);
-  grunt.registerTask("dev", ["default", "clean:dev", "concat:dev", "connect", "watch"]);
-  grunt.registerTask("build", ["default", "clean:build", "concat:build", "uglify", "compress"]);
+  grunt.registerTask("dev", ["clean:dev", "broccoli:build:build", "connect", "watch"]);
+  grunt.registerTask("build", ["clean:build", "broccoli:build:build", "compress:build"]);
 };

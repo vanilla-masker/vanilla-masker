@@ -53,7 +53,7 @@ function createStandaloneTree() {
   // build/vanilla-masker.js: global version of vanilla-masker.js
   var begin = '(function(root) {\n';
   var end = [];
-  end.push("root.VMasker = requireModule('vanilla-masker');");
+  end.push("root.VMasker = requireModule('vanilla-masker')['default'];");
   end.push('}(this));');
   end = end.join('\n');
 

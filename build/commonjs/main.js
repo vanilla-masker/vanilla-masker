@@ -1,3 +1,4 @@
+"use strict";
   var DIGIT = "9",
       ALPHA = "A",
       ALPHANUM = "S",
@@ -204,4 +205,4 @@
     return value.toString().replace(/[^a-z0-9 ]+/i, "");
   };
 
-  export default VMasker;
+  exports["default"] = VMasker;

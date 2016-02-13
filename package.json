@@ -23,7 +23,7 @@
     "Caio Ribeiro Pereira <caio.ribeiro.pereira@gmail.com>",
     "Leandro Alvares da Costa <leandroadacosta@gmail.com>"
   ],
-  "license": "MIT <http://bankfacil.mit-license.org>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/BankFacil/vanilla-masker/issues"
   },

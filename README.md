@@ -4,10 +4,10 @@
 [![Code Climate](https://codeclimate.com/github/BankFacil/vanilla-masker.png)](https://codeclimate.com/github/BankFacil/vanilla-masker)
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/bankfacil_dev.svg)](https://saucelabs.com/u/bankfacil_dev)
 
-It's a pure JavaScript mask input.  
+It's a pure JavaScript mask input.
 Now you can use a simple and pure javascript lib to mask your input elements, without need to load jQuery or Zepto to do it.
 
-Let's live a lightweight client-side world using micro libraries as VanillaMasker is!  
+Let's live a lightweight client-side world using micro libraries as VanillaMasker is!
 Don't worry about where this will work, because this is a cross-browser and cross-device library. And if you find any bug, please let us know about it [reporting an issue](https://github.com/BankFacil/vanilla-masker/issues).
 
 If you wanna see how this lib works, click to test this [demo page](http://bankfacil.github.io/vanilla-masker/demo.html).
@@ -21,10 +21,10 @@ If you wanna see how this lib works, click to test this [demo page](http://bankf
 
 We have the following CDN available, for development or minified versions:
 
-`//cdn.jsdelivr.net/vanilla-masker/1.1.0/vanilla-masker.js`  
+`//cdn.jsdelivr.net/vanilla-masker/1.1.0/vanilla-masker.js`
 `//cdn.jsdelivr.net/vanilla-masker/1.1.0/vanilla-masker.min.js`
 
-We intent to automatically send new versions to the CDN, but keep in mind that the version you want might not be available there. Of course you can always download and put it in your own site. 
+We intent to automatically send new versions to the CDN, but keep in mind that the version you want might not be available there. Of course you can always download and put it in your own site.
 
 ### NPM
 For npm users you just run this command: `npm install vanilla-masker --save`
@@ -226,11 +226,11 @@ Mobile browsers:
 
 # Contributors
 
-Caio Ribeiro Pereira - caio.ribeiro.pereira@gmail.com  
-Leandro Alvares da Costa - leandroadacosta@gmail.com  
+Caio Ribeiro Pereira - caio.ribeiro.pereira@gmail.com
+Leandro Alvares da Costa - leandroadacosta@gmail.com
 Bobby - squidz.bee@gmail.com
-Henrique Antonini Silvério - contato@henriquesilverio.com  
-Joilson Marques - joilsonmarques@gmail.com  
+Henrique Antonini Silvério - contato@henriquesilverio.com
+Joilson Marques - joilsonmarques@gmail.com
 Leonardo Andrade - leonardopandrade@gmail.com
 Thiago Lagden - lagden@gmail.com
 
@@ -336,5 +336,5 @@ MIT License: http://bankfacil.mit-license.org
 
 # Powered by
 
-Bankfacil: http://www.bankfacil.com.br  
+Bankfacil: http://www.bankfacil.com.br
 Join our team! Read about our [development culture](https://www.bankfacil.com.br/dev) and check our [open positions](https://bankfacil.recruiterbox.com/)

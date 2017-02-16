@@ -1,6 +1,6 @@
 # What's this
 
-[![Build Status](https://travis-ci.org/BankFacil/vanilla-masker.svg)](https://travis-ci.org/BankFacil/vanilla-masker)
+[![Build Status](https://travis-ci.org/Creditas/vanilla-masker.svg)](https://travis-ci.org/Creditas/vanilla-masker)
 [![Code Climate](https://codeclimate.com/github/BankFacil/vanilla-masker.png)](https://codeclimate.com/github/BankFacil/vanilla-masker)
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/bankfacil_dev.svg)](https://saucelabs.com/u/bankfacil_dev)
 
@@ -8,16 +8,16 @@ It's a pure JavaScript mask input.
 Now you can use a simple and pure javascript lib to mask your input elements, without need to load jQuery or Zepto to do it.
 
 Let's live a lightweight client-side world using micro libraries as VanillaMasker is!
-Don't worry about where this will work, because this is a cross-browser and cross-device library. And if you find any bug, please let us know about it [reporting an issue](https://github.com/BankFacil/vanilla-masker/issues).
+Don't worry about where this will work, because this is a cross-browser and cross-device library. And if you find any bug, please let us know about it [reporting an issue](https://github.com/Creditas/vanilla-masker/issues).
 
 If you wanna see how this lib works, click to test this [demo page](http://bankfacil.github.io/vanilla-masker/demo.html).
 
 # How to install
 
 ### Download script
-* [development version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.1.0/lib/vanilla-masker.js) (6.2 Kbytes);
-* [minified version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.1.0/build/vanilla-masker.min.js) (3.24 Kbytes);
-* [gzipped version](https://raw.githubusercontent.com/BankFacil/vanilla-masker/1.1.0/build/vanilla-masker.min.gz.js) (1.3 Kbytes);
+* [development version](https://raw.githubusercontent.com/Creditas/vanilla-masker/1.1.0/lib/vanilla-masker.js) (6.2 Kbytes);
+* [minified version](https://raw.githubusercontent.com/Creditas/vanilla-masker/1.1.0/build/vanilla-masker.min.js) (3.24 Kbytes);
+* [gzipped version](https://raw.githubusercontent.com/Creditas/vanilla-masker/1.1.0/build/vanilla-masker.min.gz.js) (1.3 Kbytes);
 
 We have the following CDN available, for development or minified versions:
 
@@ -185,7 +185,7 @@ if (Meteor.isClient) {
 # How to run localhost
 
 * Install node.js - http://nodejs.org/download
-* Clone this repository - `git clone git@github.com:BankFacil/vanilla-masker.git`
+* Clone this repository - `git clone git@github.com:Creditas/vanilla-masker.git`
 * Install Grunt - `npm install -g grunt-cli`
 * Install Grunt dependencies - `cd vanilla-masker && npm install`
 * Running development mode - `grunt dev`
@@ -238,31 +238,31 @@ Thiago Lagden - lagden@gmail.com
 
 ## 1.1.0 - 13/08/2015
 
-* Improved demo page layout - [See this pull request](https://github.com/BankFacil/vanilla-masker/pull/40)
-* Fixed bower.json - [See this pull request](https://github.com/BankFacil/vanilla-masker/pull/43)
-* When backspace is pressed the pattern is kept - [See this pull request](https://github.com/BankFacil/vanilla-masker/pull/47)
-* Enabled sauce-labs on Travis - [See this pull request](https://github.com/BankFacil/vanilla-masker/pull/44)
+* Improved demo page layout - [See this pull request](https://github.com/Creditas/vanilla-masker/pull/40)
+* Fixed bower.json - [See this pull request](https://github.com/Creditas/vanilla-masker/pull/43)
+* When backspace is pressed the pattern is kept - [See this pull request](https://github.com/Creditas/vanilla-masker/pull/47)
+* Enabled sauce-labs on Travis - [See this pull request](https://github.com/Creditas/vanilla-masker/pull/44)
 
 ## 1.0.9 - 07/04/2015
 
-* Added optional placeholder feature for patterns - [See this pull request](https://github.com/BankFacil/vanilla-masker/pull/35)
+* Added optional placeholder feature for patterns - [See this pull request](https://github.com/Creditas/vanilla-masker/pull/35)
 
 ## 1.0.8 - 27/01/2015
 
-* Bug fix #29 - [See this pull request](https://github.com/BankFacil/vanilla-masker/pull/29)
+* Bug fix #29 - [See this pull request](https://github.com/Creditas/vanilla-masker/pull/29)
 
 ## 1.0.7 - 26/01/2015
 
-* Bug fix #28 - [See this issue](https://github.com/BankFacil/vanilla-masker/issues/28)
+* Bug fix #28 - [See this issue](https://github.com/Creditas/vanilla-masker/issues/28)
 
 ## 1.0.6 - 19/12/2014
 
-* Bug fix #26 - [See this pull request](https://github.com/BankFacil/vanilla-masker/pull/26)
-* Bug fix #24 - [See this pull request](https://github.com/BankFacil/vanilla-masker/pull/24)
+* Bug fix #26 - [See this pull request](https://github.com/Creditas/vanilla-masker/pull/26)
+* Bug fix #24 - [See this pull request](https://github.com/Creditas/vanilla-masker/pull/24)
 
 ## 1.0.5 - 06/12/2014
 
-* Bug fix - [See this pull request](https://github.com/BankFacil/vanilla-masker/pull/19)
+* Bug fix - [See this pull request](https://github.com/Creditas/vanilla-masker/pull/19)
 
 ## 1.0.4 - 02/12/2014
 

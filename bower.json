@@ -5,7 +5,7 @@
   "homepage": "http://bankfacil.github.io/vanilla-masker/",
   "repository": {
     "type": "git",
-    "url": "git://github.com/BankFacil/vanilla-masker.git"
+    "url": "git://github.com/Creditas/vanilla-masker.git"
   },
   "authors": [
     "Caio Ribeiro Pereira <caio.ribeiro.pereira@gmail.com>",
@@ -16,7 +16,7 @@
   ],
   "main": "lib/vanilla-masker.js",
   "license": "MIT <http://bankfacil.mit-license.org>",
-  "bugs": "https://github.com/BankFacil/vanilla-masker/issues",
+  "bugs": "https://github.com/Creditas/vanilla-masker/issues",
   "ignore": [
     "*.yml",
     "**/.*",

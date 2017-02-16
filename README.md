@@ -336,5 +336,5 @@ MIT License: http://bankfacil.mit-license.org
 
 # Powered by
 
-Bankfacil: http://www.bankfacil.com.br
-Join our team! Read about our [development culture](https://www.bankfacil.com.br/dev) and check our [open positions](https://bankfacil.recruiterbox.com/)
+Creditas: http://www.creditas.com.br
+Join our team! Check our [open positions](https://creditas.recruiterbox.com/)

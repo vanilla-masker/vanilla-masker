@@ -10,14 +10,14 @@ Now you can use a simple and pure javascript lib to mask your input elements, wi
 Let's live a lightweight client-side world using micro libraries as VanillaMasker is!
 Don't worry about where this will work, because this is a cross-browser and cross-device library. And if you find any bug, please let us know about it [reporting an issue](https://github.com/Creditas/vanilla-masker/issues).
 
-If you wanna see how this lib works, click to test this [demo page](http://creditas.github.io/vanilla-masker/demo.html).
+If you wanna see how this lib works, click to test this [demo page](http://fleury.io/vanilla-masker/demo.html).
 
 # How to install
 
 ### Download script
-* [development version](https://raw.githubusercontent.com/Creditas/vanilla-masker/1.1.0/lib/vanilla-masker.js) (6.2 Kbytes);
-* [minified version](https://raw.githubusercontent.com/Creditas/vanilla-masker/1.1.0/build/vanilla-masker.min.js) (3.24 Kbytes);
-* [gzipped version](https://raw.githubusercontent.com/Creditas/vanilla-masker/1.1.0/build/vanilla-masker.min.gz.js) (1.3 Kbytes);
+* [development version](https://raw.githubusercontent.com/fernandofleury/vanilla-masker/1.1.0/lib/vanilla-masker.js) (6.2 Kbytes);
+* [minified version](https://raw.githubusercontent.com/fernandofleury/vanilla-masker/1.1.0/build/vanilla-masker.min.js) (3.24 Kbytes);
+* [gzipped version](https://raw.githubusercontent.com/fernandofleury/vanilla-masker/1.1.0/build/vanilla-masker.min.gz.js) (1.3 Kbytes);
 
 We have the following CDN available, for development or minified versions:
 

@@ -1,14 +1,12 @@
 # What's this
 
-[![Build Status](https://travis-ci.org/Creditas/vanilla-masker.svg)](https://travis-ci.org/Creditas/vanilla-masker)
-[![Code Climate](https://codeclimate.com/github/BankFacil/vanilla-masker.png)](https://codeclimate.com/github/BankFacil/vanilla-masker)
-[![Sauce Test Status](https://saucelabs.com/browser-matrix/bankfacil_dev.svg)](https://saucelabs.com/u/bankfacil_dev)
+[![Build Status](https://travis-ci.org/fernandofleury/vanilla-masker.svg)](https://travis-ci.org/fernandofleury/vanilla-masker)
 
 It's a pure JavaScript mask input.
 Now you can use a simple and pure javascript lib to mask your input elements, without need to load jQuery or Zepto to do it.
 
 Let's live a lightweight client-side world using micro libraries as VanillaMasker is!
-Don't worry about where this will work, because this is a cross-browser and cross-device library. And if you find any bug, please let us know about it [reporting an issue](https://github.com/Creditas/vanilla-masker/issues).
+Don't worry about where this will work, because this is a cross-browser and cross-device library. And if you find any bug, please let us know about it [reporting an issue](https://github.com/fernandofleury/vanilla-masker/issues).
 
 If you wanna see how this lib works, click to test this [demo page](http://fleury.io/vanilla-masker/demo.html).
 

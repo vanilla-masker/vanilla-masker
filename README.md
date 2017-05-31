@@ -1,21 +1,21 @@
 # What's this
 
-[![Build Status](https://travis-ci.org/fernandofleury/vanilla-masker.svg)](https://travis-ci.org/fernandofleury/vanilla-masker)
+[![Build Status](https://travis-ci.org/vanilla-masker/vanilla-masker.svg)](https://travis-ci.org/vanilla-masker/vanilla-masker)
 
 It's a pure JavaScript mask input.
 Now you can use a simple and pure javascript lib to mask your input elements, without need to load jQuery or Zepto to do it.
 
 Let's live a lightweight client-side world using micro libraries as VanillaMasker is!
-Don't worry about where this will work, because this is a cross-browser and cross-device library. And if you find any bug, please let us know about it [reporting an issue](https://github.com/fernandofleury/vanilla-masker/issues).
+Don't worry about where this will work, because this is a cross-browser and cross-device library. And if you find any bug, please let us know about it [reporting an issue](https://github.com/vanilla-masker/vanilla-masker/issues).
 
 If you wanna see how this lib works, click to test this [demo page](http://fleury.io/vanilla-masker/demo.html).
 
 # How to install
 
 ### Download script
-* [development version](https://raw.githubusercontent.com/fernandofleury/vanilla-masker/1.1.0/lib/vanilla-masker.js) (6.2 Kbytes);
-* [minified version](https://raw.githubusercontent.com/fernandofleury/vanilla-masker/1.1.0/build/vanilla-masker.min.js) (3.24 Kbytes);
-* [gzipped version](https://raw.githubusercontent.com/fernandofleury/vanilla-masker/1.1.0/build/vanilla-masker.min.gz.js) (1.3 Kbytes);
+* [development version](https://raw.githubusercontent.com/vanilla-masker/vanilla-masker/1.1.0/lib/vanilla-masker.js) (6.2 Kbytes);
+* [minified version](https://raw.githubusercontent.com/vanilla-masker/vanilla-masker/1.1.0/build/vanilla-masker.min.js) (3.24 Kbytes);
+* [gzipped version](https://raw.githubusercontent.com/vanilla-masker/vanilla-masker/1.1.0/build/vanilla-masker.min.gz.js) (1.3 Kbytes);
 
 We have the following CDN available, for development or minified versions:
 
@@ -183,7 +183,7 @@ if (Meteor.isClient) {
 # How to run localhost
 
 * Install node.js - http://nodejs.org/download
-* Clone this repository - `git clone git@github.com:Creditas/vanilla-masker.git`
+* Clone this repository - `git clone git@github.com:vanilla-masker/vanilla-masker.git`
 * Install Grunt - `npm install -g grunt-cli`
 * Install Grunt dependencies - `cd vanilla-masker && npm install`
 * Running development mode - `grunt dev`
@@ -235,8 +235,3 @@ Thiago Lagden - lagden@gmail.com
 # License
 
 MIT License: http://bankfacil.mit-license.org
-
-# Powered by
-
-Creditas: http://www.creditas.com.br
-Join our team! Check our [open positions](https://creditas.recruiterbox.com/)

@@ -19,8 +19,8 @@ If you wanna see how this lib works, click to test this [demo page](https://vani
 
 We have the following CDN available, for development or minified versions:
 
-`//cdn.jsdelivr.net/vanilla-masker/1.1.0/vanilla-masker.js`
-`//cdn.jsdelivr.net/vanilla-masker/1.1.0/vanilla-masker.min.js`
+`//unpkg.com/vanilla-masker@1.1.1/lib/vanilla-masker.js`
+`//unpkg.com/vanilla-masker@1.1.1/build/vanilla-masker.min.js`
 
 We intent to automatically send new versions to the CDN, but keep in mind that the version you want might not be available there. Of course you can always download and put it in your own site.
 

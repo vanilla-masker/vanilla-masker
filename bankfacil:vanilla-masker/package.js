@@ -1,7 +1,7 @@
 Package.describe({
   summary: "VanillaMasker is a pure javascript input mask.",
   version: "1.0.9",
-  git: "https://github.com/Creditas/vanilla-masker"
+  git: "https://github.com/vanilla-masker/vanilla-masker"
 });
 
 Package.onUse(function(api) {

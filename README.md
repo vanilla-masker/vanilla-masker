@@ -234,4 +234,4 @@ Thiago Lagden - lagden@gmail.com
 
 # License
 
-MIT License: http://bankfacil.mit-license.org
+MIT License: http://vanilla-masker.mit-license.org

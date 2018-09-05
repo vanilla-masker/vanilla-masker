@@ -48,6 +48,17 @@ describe("VanillaMasker.toPattern", function() {
     expect(VMasker.toPattern('1011444444', '+99 99 9999-99')).toEqual('+10 11 4444-44');
   });
 
+  it('returns "+1 (888) 888-8888" pattern when input is 8888888888', function() {
+    expect(VMasker.toPattern('8888888888', '+1 (999) 999-9999')).toEqual('+1 (888) 888-8888');
+  });
+
+  it('returns "+1 (888) 888-8" pattern when input is 8888888', function() {
+    expect(VMasker.toPattern('8888888', '+1 (999) 999-9999')).toEqual('+1 (888) 888-8');
+  });
+  it('returns "+1 (888) 888-8" pattern when input is +1 (888) 888-8', function() {
+    expect(VMasker.toPattern('+1 (888) 888-8', '+1 (999) 999-9999')).toEqual('+1 (888) 888-8');
+  });
+
   it('returns "12/12/2000" pattern when input is 12122000', function() {
     expect(VMasker.toPattern(12122000, '99/99/9999')).toEqual('12/12/2000');
   });

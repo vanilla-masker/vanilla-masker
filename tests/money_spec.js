@@ -96,4 +96,16 @@ describe("VanillaMasker.toMoney", function() {
     expect(VMasker.toMoney('-375', {showSignal: false})).toEqual('3,75');
   });
 
+  it('returns 0,012 when value is 12 and precision is 3', function() {
+    expect(VMasker.toMoney('12', {precision: 3})).toEqual('0,012');
+  });
+
+  it('returns 0,0123 when value is 123 and precision is 4', function() {
+    expect(VMasker.toMoney('123', {precision: 4})).toEqual('0,0123');
+  });
+
+  it('returns 0,00123 when value is 123 and precision is 5', function() {
+    expect(VMasker.toMoney('123', {precision: 5})).toEqual('0,00123');
+  });
+
 });

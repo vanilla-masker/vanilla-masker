@@ -56,6 +56,9 @@
 			<label for="phoneValues">Phone with values</label>
 			<input type="text" id="phoneValues" value="3141232312">
 
+			<label for="phoneValues">Phone with leading +1</label>
+			<input type="text" id="leadingPlus" value="8888888888">
+
 			<label for="date">Date</label>
 			<input type="text" id="date">
 
@@ -87,6 +90,7 @@
 				// #maskPattern
 				VMasker(document.getElementById("phone")).maskPattern('(99) 9999-9999');
 				VMasker(document.getElementById("phoneValues")).maskPattern('(99) 9999-9999');
+				VMasker(document.getElementById("leadingPlus")).maskPattern('+1 (999) 999-9999');
 				VMasker(document.getElementById("date")).maskPattern('99/99/9999');
 				VMasker(document.getElementById("doc")).maskPattern('999.999.999-99');
 				VMasker(document.getElementById("carPlate")).maskPattern('AAA-9999');

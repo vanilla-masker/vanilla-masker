@@ -108,4 +108,8 @@ describe("VanillaMasker.toMoney", function() {
     expect(VMasker.toMoney('123', {precision: 5})).toEqual('0,00123');
   });
 
+  it('parses proper precision location from strings', function() {
+    expect(VMasker.toMoney('1,2', {precision: 2})).toEqual('1,20');
+  });
+
 });

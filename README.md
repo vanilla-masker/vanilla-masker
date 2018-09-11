@@ -1,5 +1,3 @@
-# THIS PROJECT IS NOT MAINTAINED ANYMORE. IF YOU HAVE INTEREST ON TAKING CARE OF IT PLEASE GET IN TOUCH
-
 # What's this
 
 [![Build Status](https://travis-ci.org/vanilla-masker/vanilla-masker.svg)](https://travis-ci.org/vanilla-masker/vanilla-masker)
